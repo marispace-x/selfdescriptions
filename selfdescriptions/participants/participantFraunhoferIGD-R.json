@@ -1,0 +1,136 @@
+{
+  "selfDescriptionCredential": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://registry.gaia-x.eu/v2206/api/shape"
+    ],
+    "type": [
+      "VerifiableCredential",
+      "LegalPerson"
+    ],
+    "id": "https://delta-dao.com/.well-known/participantFraunhoferIGD-R.json",
+    "issuer": "did:web:delta-dao.com",
+    "issuanceDate": "2023-02-13T12:36:00.000Z",
+    "credentialSubject": {
+      "id": "https://delta-dao.com/.well-known/participantFraunhoferIGD-R.json",
+      "gx-participant:name": "Fraunhofer IGD",
+      "gx-participant:legalName": "Fraunhofer-Institut für Graphische Datenverarbeitung IGD",
+      "gx-participant:registrationNumber": [
+        {
+          "gx-participant:registrationNumberType": "leiCode",
+          "gx-participant:registrationNumberNumber": "529900IU48N7TF5QC051"
+        },
+        {
+          "gx-participant:registrationNumberType": "vatID",
+          "gx-participant:registrationNumberNumber": "DE 129515865"
+        }
+      ],
+      "gx-participant:blockchainAccountId": [
+        {
+          "gx-participant:blockchainAccountId": "0x632460b14aDd90aD9430e381B4662779cC1ab7a6"
+        }
+      ],
+      "gx-participant:headquarterAddress": {
+        "gx-participant:addressCountryCode": "DE",
+        "gx-participant:addressCode": "DE-MV",
+        "gx-participant:streetAddress": "Joachim-Jungius-Straße 11",
+        "gx-participant:postalCode": "18059",
+        "gx-participant:locality": "Rostock"
+      },
+      "gx-participant:legalAddress": {
+        "gx-participant:addressCountryCode": "DE",
+        "gx-participant:addressCode": "DE-MV",
+        "gx-participant:streetAddress": "Joachim-Jungius-Straße 11",
+        "gx-participant:postalCode": "18059",
+        "gx-participant:locality": "Rostock"
+      },
+      "gx-participant:parentOrganisation": {
+        "gx-participant:legalName": "Fraunhofer-Institut für Graphische Datenverarbeitung IGD ",
+        "gx-participant:registrationNumber": [
+          {
+            "gx-participant:registrationNumberType": "leiCode",
+            "gx-participant:registrationNumberNumber": "529900IU48N7TF5QC051"
+          },
+          {
+            "gx-participant:registrationNumberType": "vatID",
+            "gx-participant:registrationNumberNumber": "DE 129515865"
+          }
+        ],
+        "gx-participant:headquarterAddress": {
+          "gx-participant:addressCountryCode": "DE",
+          "gx-participant:addressCode": "DE-HE",
+          "gx-participant:streetAddress": "Fraunhoferstraße 5",
+          "gx-participant:postalCode": "64283",
+          "gx-participant:locality": "Darmstadt"
+        },
+        "gx-participant:legalAddress": {
+          "gx-participant:addressCountryCode": "DE",
+          "gx-participant:addressCode": "DE-HE",
+          "gx-participant:streetAddress": "Fraunhoferstraße 5",
+          "gx-participant:postalCode": "64283",
+          "gx-participant:locality": "Darmstadt"
+        },
+        "gx-participant:parentOrganisationofparentOrganisation": {
+          "gx-participant:legalName": "Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V.",
+          "gx-participant:registrationNumber": [
+            {
+              "gx-participant:registrationNumberType": "leiCode",
+              "gx-participant:registrationNumberNumber": "529900IU48N7TF5QC051"
+            },
+            {
+              "gx-participant:registrationNumberType": "vatID",
+              "gx-participant:registrationNumberNumber": "DE 129515865"
+            }
+          ],
+          "gx-participant:headquarterAddress": {
+            "gx-participant:addressCountryCode": "DE",
+            "gx-participant:addressCode": "DE-BY",
+            "gx-participant:streetAddress": "Hansastraße 27 c",
+            "gx-participant:postalCode": "80686",
+            "gx-participant:locality": "München"
+          },
+          "gx-participant:legalAddress": {
+            "gx-participant:addressCountryCode": "DE",
+            "gx-participant:addressCode": "DE-BY",
+            "gx-participant:streetAddress": "Hansastraße 27 c",
+            "gx-participant:postalCode": "80686",
+            "gx-participant:locality": "München"
+          },
+          "gx-participant:termsAndConditions": "70c1d713215f95191a11d38fe2341faed27d19e083917bc8732ca4fea4976700"
+        },
+        "gx-participant:termsAndConditions": "70c1d713215f95191a11d38fe2341faed27d19e083917bc8732ca4fea4976700"
+      },
+      "gx-participant:termsAndConditions": "70c1d713215f95191a11d38fe2341faed27d19e083917bc8732ca4fea4976700"
+    },
+    "proof": {
+      "type": "JsonWebSignature2020",
+      "created": "2023-02-13T11:54:01.835Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:web:delta-dao.com",
+      "jws": "eyJhbGciOiJQUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..mMynFOTRCWkog2LAkJ5aQvqkNttTLe4ueMDBwz__746jgVaqR-pcFaEeh_Z5dCOBW6RsBTS7aLTy2cbdG1Ub9HdWYD9-s2gwROOPP857GVnsLLBGNNAgL4Teqfoum9cYrQesyxth-zHwSJQxESincpAQamV6Ii4kCaXHxevqlZrHIDo_yaCwAuIMeAhsUg4oRXgbMEjN1ErM-1jgdRIydnFPLArvdIu4Tidoi1ro_lzpykoJmVFKJ-y4HuOQgiMXZnArWem8V971WHUm1t22IovqiWs7h42N5k4eTbYsQjGxQsPGJcIz6RQO4SZmJ7jj34090nXBsokZOLozJb0Evg"
+    }
+  },
+  "complianceCredential": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1"
+    ],
+    "type": [
+      "VerifiableCredential",
+      "ParticipantCredential"
+    ],
+    "id": "https://catalogue.gaia-x.eu/credentials/ParticipantCredential/1676289261008",
+    "issuer": "did:web:compliance.gaia-x.eu",
+    "issuanceDate": "2023-02-13T11:54:21.008Z",
+    "credentialSubject": {
+      "id": "https://delta-dao.com/.well-known/participantFraunhoferIGD-R.json",
+      "hash": "592187c73bd538f6a48b0de30e3e989ee08a39493b2544df90e1c86bbd29c80a"
+    },
+    "proof": {
+      "type": "JsonWebSignature2020",
+      "created": "2023-02-13T11:54:21.008Z",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJQUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..M_RQikmu2KjW53qdDPt2loB-5JUS2M-el8upe0PDoN-USFJ9Ajy1X9wd73IK1m-Igj4COPE9redCnhcV1jdZmS_NuaZSp81FthDcWtfMzud_KVbJaarbwYwR6UFDcLkEaUU9okfSUzUTlrr_kFAQU7o_3Nc6NlpB944MhqloClCaFsfArUqzBZ2z5aFEROojndI6QwvhteDYkUZMo8FanEMeGADiONXBmu2hlXK0cr2bwS-Qd-Izuu_5PmtM8bkNaZALSYmSq3DOnkna6--2TgZ_ynWgYNwXVPzNgqFLCLIr72H1pq0Tqk90-kF3ktPRrW7MWc-oMXlvhKUvVAMuYg",
+      "verificationMethod": "did:web:compliance.gaia-x.eu"
+    }
+  }
+}
