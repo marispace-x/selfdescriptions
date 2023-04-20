@@ -1,0 +1,180 @@
+{
+  "@context": {
+    "cc": "http://creativecommons.org/ns#",
+    "schema": "http://schema.org/",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ids": "https://w3id.org/idsa/core/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "did:web:registry.gaia-x.eu:DataResource:lgOH6rynmlB2pwvVjz4r9ot9wMNf1RkfYTOg",
+  "@type": "gax-trust-framework:DataResource",
+  "dcterms:title": {
+    "@value": "Multibeam echosounder data from area N-3.7",
+    "@type": "xsd:string"
+  },
+  "dcterms:description": {
+    "@value": "This data resource contains raw measured multibeam data from the offshore wind area N-3.7. Site N-3.7 is located in the German EEZ of the North Sea in the eastern part of area N-3 defined in the FEP 2020.",
+    "@type": "xsd:string"
+  },
+  "dcat:keyword": [
+    {
+      "@value": "multibeam",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "bathymetry",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "hydrography",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:theme": [
+    {
+      "@value": "subsoil",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "sea floor",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:type": {
+    "@value": "multibeam echosounder",
+    "@type": "xsd:string"
+  },
+  "dcterms:format": {
+    "@value": "xtf",
+    "@type": "xsd:string"
+  },
+  "dcterms:byteSize": {
+    "@value": "63140016512",
+    "@type": "xsd:nonNegativeInteger"
+  },
+  "dcterms:hasVersion": {
+    "@value": "1",
+    "@type": "xsd:string"
+  },
+  "dcterms:isVersionOf": {
+    "@value": "1",
+    "@type": "xsd:string"
+  },
+  "dcterms:identifier": {
+    "@value": "83e8176e-c7cf-11ed-afa1-0242ac120002",
+    "@type": "xsd:string"
+  },
+  "dcterms:license": {
+    "@value": "https://pinta.bsh.de/impressum/?lang=en",
+    "@type": "xsd:string"
+  },
+  "gax-trust-framework:policy": [
+    {
+      "@value": "https://pinta.bsh.de/datenschutz/?lang=en",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "https://www.gesetze-im-internet.de/geonutzv/GeoNutzV.pdf",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:issued": {
+    "@value": "2021-03-09T11:04:34",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:modified": {
+    "@value": "2021-03-09T11:04:34",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:temporal": {
+    "@type": "dcterms:PeriodOfTime",
+    "dcat:startDate": {
+      "@value": "2019-08-21T16:26:46",
+      "@type": "xsd:dateTime"
+    },
+    "dcat:endDate": {
+      "@value": "2023-03-24T16:50:07",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "locn:geometry": {
+      "@value": "{ \\\\\\\"type\\\\\\\": \\\\\\\"FeatureCollection\\\\\\\", \\\\\\\"name\\\\\\\": \\\\\\\"N3-7\\\\\\\", \\\\\\\"crs\\\\\\\": { \\\\\\\"type\\\\\\\": \\\\\\\"name\\\\\\\", \\\\\\\"properties\\\\\\\": { \\\\\\\"name\\\\\\\": \\\\\\\"urn:ogc:def:crs:OGC:1.3:CRS84\\\\\\\" } }, \\\\\\\"features\\\\\\\": [ { \\\\\\\"type\\\\\\\": \\\\\\\"Feature\\\\\\\", \\\\\\\"properties\\\\\\\": { \\\\\\\"id\\\\\\\": 1 }, \\\\\\\"geometry\\\\\\\": { \\\\\\\"type\\\\\\\": \\\\\\\"MultiPolygon\\\\\\\", \\\\\\\"coordinates\\\\\\\": [ ] } }, { \\\\\\\"type\\\\\\\": \\\\\\\"Feature\\\\\\\", \\\\\\\"properties\\\\\\\": { \\\\\\\"id\\\\\\\": 1 }, \\\\\\\"geometry\\\\\\\": { \\\\\\\"type\\\\\\\": \\\\\\\"MultiPolygon\\\\\\\", \\\\\\\"coordinates\\\\\\\": [ [ [ [ 7.018125259914083, 54.036314496347515 ], [ 7.049906091543968, 54.056192539770606 ], [ 7.049906091543968, 54.056192539770606 ], [ 7.050150688546948, 54.059341470415497 ], [ 7.084104928607306, 54.079232781083682 ], [ 7.093553233570078, 54.048373895719294 ], [ 7.092043891088259, 54.048242550947336 ], [ 7.09432281926239, 54.040856804300205 ], [ 7.054420695983166, 54.016714808285066 ], [ 7.051709994440969, 54.017125789744938 ], [ 7.018125259914083, 54.036314496347515 ] ] ] ] } } ] }",
+      "@type": "xsd:string"
+    }
+  },
+  "vcard:Kind": {
+    "@type": "vcard:Individual",
+    "vcard:fn": {
+      "@value": "Joachim Grunzel",
+      "@type": "xsd:string"
+    },
+    "vcard:role": {
+      "@value": "Surveying Engineer",
+      "@type": "xsd:string"
+    },
+    "vcard:email": {
+      "@value": "joachim.grunzel@vbw-consult.com",
+      "@type": "xsd:string"
+    },
+    "vcard:org": {
+      "@value": "VBW Weigt GmbH",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:aggregationOf": [
+    {
+      "@id": "aggregation_of_link1"
+    },
+    {
+      "@id": "aggregation_of_link2"
+    }
+  ],
+  "gax-trust-framework:producedBy": {
+    "@id": "link_to_BSH_participant"
+  },
+  "gax-trust-framework:exposedThrough": {
+    "@id": "resolvable_link_to_the_data_exchange_component_that_exposes_the_data_resource"
+  },
+  "gax-core:operatedBy": {
+    "@id": "link_to_north.io_participant"
+  },
+  "gax-trust-framework:copyrightOwnedBy": {
+    "@type": "vcard:Individual",
+    "vcard:fn": {
+      "@value": "BSH contact person",
+      "@type": "xsd:string"
+    },
+    "vcard:role": {
+      "@value": "Federal Agency",
+      "@type": "xsd:string"
+    },
+    "vcard:email": {
+      "@value": "bsh@bsh.de",
+      "@type": "xsd:string"
+    },
+    "vcard:org": {
+      "@value": "BSH",
+      "@type": "xsd:string"
+    }
+  }
+}

@@ -1,0 +1,292 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+gax-validation:DataResourceShape
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:DataResource ;
+	sh:property [ sh:path dcterms:title ;
+				  sh:name "title" ;
+				  sh:description "Der Name der Datenresource."@de ;
+				  sh:description "A name given to the data resource."@en ;
+				  skos:example "'multibeam echosounder data from offshore area X'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:description ;
+				  sh:name "description" ;
+				  sh:description "Freitext Beschreibung der Datenresource."@de ;
+				  sh:description "Free-text description of the data resource."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 2 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:keyword ;
+				  sh:name "keyword" ;
+				  sh:description "Keywords welche die Datenresource beschreiben."@de ;
+				  sh:description "Keywords that describe the data resource."@en ;
+				  skos:example "'keyword'" ;
+				  sh:order 3 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:theme ;
+				  sh:name "data theme" ;
+				  sh:description "Datenthema/kategorie, die passend für die aufgenommen Daten ist. Die verfügbaren Themen/Kategorien müssen in einer Liste definiert werden, z.B. subsoil, marine environment, wind, oceanography."@de ;
+				  sh:description "Data theme/category the acquired data belongs to. The available themes/categories need to be defined in a list, e.g. subsoil, marine environment, wind, oceanography."@en ;
+				  skos:example "'multibeam'" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:type ;
+				  sh:name "sensor type" ;
+				  sh:description "Sensortyp der für die Datenaufnahme verwendet wurde. Der Sensortyp sollte von einer zu definierden Marispace-X Sensorliste ausgewählt werden (das verknüpft die Selbstbeschreibung mit den sensorspezifischen Metadaten)."@de ;
+				  sh:description "Sensor type that was used to acquire the data. The sensor type should be taken from a Marispace-X sensor list that needs to be defined (this links the self-description to the sensor-specific metadata)"@en ;
+				  skos:example "'multibeam'" ;
+				  sh:order 5 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:format ;
+				  sh:name "data format" ;
+				  sh:description "Datenformat der Datenresource."@de ;
+				  sh:description "The file format of the data resource."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 6 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:byteSize ;
+				  sh:name "data size" ;
+				  sh:description "Die Größe der Datenresource in Bytes."@de ;
+				  sh:description "The size of the data resource in bytes."@en ;
+				  skos:example "'1412'" ;
+				  sh:order 7 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger ] ;
+	sh:property [ sh:path dcterms:hasVersion ;
+				  sh:name "has version" ;
+				  sh:description "Verknüpft die hier beschriebene Datenresource zu einer anderen Datenresource, welche eine andere Version, Edition, oder Adaption dieser ist."@de ;
+				  sh:description "Refers to a related data resource that is a version, edition, or adaptation of the described data resource."@en ;
+				  skos:example "'link to a related data resource'" ;
+				  sh:order 8 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path dcterms:isVersionOf ;
+				  sh:name "is version of" ;
+				  sh:description "Verknüpft die hier beschriebene Datenresource zu einer anderen Datenresource, welche eine andere Version, Edition, oder Adaption dieser ist."@de ;
+				  sh:description "Refers to a related data resource of which the described data resource is a version, edition, or adaptation."@en ;
+				  skos:example "'link to related data resource'" ;
+				  sh:order 9 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path dcterms:identifier ;
+				  sh:name "identifier" ;
+				  sh:description "Eindeutiger Identifier (URI, UUID) der beschriebenen Datenresource."@de ;
+				  sh:description "Contains the main identifier for the data resource, e.g., the URI or other unique identifier in the context of the catalogue."@en ;
+				  skos:example "'UUID'" ;
+				  sh:order 10 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path dcterms:license ;
+				  sh:name "license" ;
+				  sh:description "Ein legales Dokument welches die Datenbenutzungsrichtlinien beschreibt."@de ;
+				  sh:description "A legal document under which the data resource is made available."@en ;
+				  skos:example "'e.g., link to license document'" ;
+				  sh:order 11 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path gax-trust-framework:policy ;
+				  sh:name "policy" ;
+				  sh:description "Eine Liste von Richtlinien, die mit einem DSL (z. B. Rego oder ODRL) ausgedrückt wurden (Zugangskontrolle, Drossel, Nutzung, Aufbewahrung,…)"@de ;
+				  sh:description "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)"@en ;
+				  skos:example "'https://gaia-x.eu'" ;
+				  sh:order 12 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+
+	sh:property [ sh:path dcterms:issued ;
+				  sh:name "issue date" ;
+				  sh:description "Datum an dem die Resource veröffentlicht wurde (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "Date of formal issuance (e.g., publication) of the resource. (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 13 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcterms:modified ;
+				  sh:name "modification date" ;
+				  sh:description "Aktuellstes Datum an dem die Resource geändert/aktualisiert worden ist (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "Most recent date on which the resource was changed, updated or modified (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 14 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+
+	sh:property [ sh:path dcterms:temporal ;
+				  sh:name "temporal coverage" ;
+				  sh:description "Zeitliche Periode in der die Datenresource aufgenommen worden ist."@de ;
+				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 15 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:PeriodOfTime ] ;
+	sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Räumliche Abdeckung wo die Datenresource aufgenommen worden ist."@de ;
+				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 16 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Location ] ;
+
+	sh:property [ sh:path vcard:Kind ;
+				  sh:name "contact person" ;
+				  sh:description "Aktuellstes Datum an dem die Resource geändert/aktualisiert worden ist (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "Most recent date on which the resource was changed, updated or modified (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 17 ;
+				  sh:maxCount 1 ;
+				  sh:node vcard:Individual] ;
+
+	sh:property [ sh:path gax-trust-framework:aggregationOf ;
+				  sh:name "aggregation of" ;
+				  sh:description "Ressourcen im Zusammenhang mit der Ressource und das kann unabhängig davon existieren."@de ;
+				  sh:description "Resources related to the resource and that can exist independently of it."@en ;
+				  skos:example "'(a reference to gax-trust-framework:Resource object)'" ;
+				  sh:order 18 ;
+				  sh:nodeKind sh:IRI ] ;
+
+	sh:property [ sh:path gax-trust-framework:producedBy ;
+				  sh:name "produced by" ;
+				  sh:description "Ein auflösbarer Link zur Selbstbeschreibung der Teilnehmer ermöglicht legal die Datennutzung."@de ;
+				  sh:description "A resolvable link to the participant self-description legally enabling the data usage."@en ;
+				  skos:example "'(a reference to gax-core:Participant object)'" ;
+				  sh:order 19 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+	sh:property [ sh:path gax-trust-framework:exposedThrough ;
+				  sh:name "exposed through" ;
+				  sh:description "Eine auflösbare Link zu der Datenaustauschkomponente, die die Datenressource enthüllt."@de ;
+				  sh:description "A resolvable link to the data exchange component that exposes the data resource."@en ;
+				  skos:example "''" ;
+				  sh:order 20 ;
+				  sh:minCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+	sh:property [ sh:path gax-core:operatedBy ;
+				  sh:name "operated by" ;
+				  sh:description "Habe die Selbstbeschreibung der Teilnehmer im Zusammenhang mit dem Teilnehmer, der diese Ressource betreibt, in Bezug auf den Teilnehmer bezogen."@de ;
+				  sh:description "DID of participant self-description related to the participant, who operates this resource."@en ;
+				  skos:example "'https://gaia-x.eu'" ;
+				  sh:order 21 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+	sh:property [ sh:path gax-trust-framework:copyrightOwnedBy ;
+				  sh:name "copyright owned by" ;
+				  sh:description "Der als Gaia-X-Teilnehmer oder als andere Agent, möglicherweise auch als Person außerhalb von Gaia-X, angegebene Urheberrechtsbesitzer.Ein Urheberrechtsinhaber ist eine Person oder Organisation, die das Recht hat, die Ressource auszunutzen.Der Besitzer des Urheberrechts bezieht sich nicht auf den Autor der Ressource, der eine natürliche Person ist und sich vom Urheberrechtsinhaber unterscheidet.Eine einfache Namenszeichenfolge kann als leerer Knoten bezeichnet werden, dessen FOAF: Name -Attribut diesen Zeichenfolgewert hat."@de ;
+				  sh:description "The copyright owner(s), given as a Gaia-X Participant or as some other agent, possibly also a person outside of Gaia-X. A copyright owner is a person or organization, that has the right to exploit the resource. Copyright owner does not necessary refer to the author of the resource, who is a natural person and may differ from copyright owner. A simple name string can be referenced as a blank node whose foaf:name attribute has that string value."@en ;
+				  skos:example "'https://gaia-x.eu'" ;
+				  sh:order 22 ;
+				  sh:minCount 1 ;
+				  sh:node vcard:Individual ] ;
+
+
+.
+
+
+dcterms:PeriodOfTime
+	a sh:NodeShape ;
+	sh:targetClass dcterms:PeriodOfTime ;
+	sh:property [ sh:path dcat:startDate ;
+				  sh:name "start date" ;
+				  sh:description "Startdatum der Datenaufnahme (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "Start date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcat:endDate ;
+				  sh:name "end date" ;
+				  sh:description "Enddatum der Datenaufnahme (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "End date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+.
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path locn:geometry ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Geometrische Information über die räumliche Abdeckung (z.B., as WKT, as KML, as GeoJSON)."@de ;
+				  sh:description "Geometry information of spatial coverage (e.g., as WKT, as KML, as GeoJSON)."@en ;
+				  skos:example "'e.g., as WKT, as KML, as GeoJSON - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+.
+
+vcard:Individual
+	a sh:NodeShape ;
+	sh:targetClass vcard:Individual ;
+	sh:property [ sh:path vcard:fn ;
+				  sh:name "contact name" ;
+				  sh:description "Name der Kontaktperson."@de ;
+				  sh:description "Name associated to the contact person."@en ;
+				  skos:example "'John Doe'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:role ;
+				  sh:name "contact role" ;
+				  sh:description "Die Rolle, Aufgabe oder der Arbeitsbereich der Kontaktperson."@de ;
+				  sh:description "The role, occupation, or business category of the contact person."@en ;
+				  skos:example "'Surveyor'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:org;
+				  sh:name "contact organisation" ;
+				  sh:description "Organisation bei der die Kontaktperson tätig ist."@de ;
+				  sh:description "Affiliation of the contact person."@en ;
+				  skos:example "'John Doe'" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:email;
+				  sh:name "contact e-mail" ;
+				  sh:description "E-Mail Adresse der Kontaktperson."@de ;
+				  sh:description "Email address of the contact person."@en ;
+				  skos:example "'John Doe'" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+.
