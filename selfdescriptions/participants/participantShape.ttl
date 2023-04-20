@@ -1,0 +1,145 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+gax-validation:LegalPersonShape
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:LegalPerson ;
+	sh:property [ sh:path gax-trust-framework:legalName ;
+				  sh:name "legal name" ;
+				  sh:description "Rechtsbindender Name"@de ;
+				  sh:description "Legally binding name"@en ;
+				  skos:example "'ACME L.L.C'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path gax-trust-framework:legalForm ;
+				  sh:name "legal form" ;
+				  sh:description "Rechtsform"@de ;
+				  sh:description "Legal form"@en ;
+				  skos:example "'L.L.C, GmbH'" ;
+				  sh:order 2 ;
+				  sh:in ("LLC" "Corporation" "Limited partnership (LP)" "Nonprofit corporation" "Gesellschaft mit beschränkter Haftung (GmbH)" "Aktiengesellschaft (AG)" "Einzelunternehmen" "Gesellschaft bürgerlichen Rechts (GbR)" "Offene Handelsgesellschaft (OHG)" "Kommanditgesellschaft (KG)" "Unternehmergesellschaft (haftungsbeschränkt)" "Sole Trader" "Unincorporated Association" "Partnership" "Limited Partnership" "Trust" "Limited Company" "Limited Liability Partnership (LLP)" "Community Interest Company (CIC)" "Charitable Incorporated Organisation (CIO)" "Co-operative Society (Co-op)" "Community Benefit Society (BenCom)" "other") ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path gax-trust-framework:description ;
+				  sh:name "description" ;
+				  sh:description "Textbeschreibung dieser Organisation."@de ;
+				  sh:description "Textual description of this organization."@en ;
+				  skos:example "'A company making everything'" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path gax-trust-framework:registrationNumber ;
+				  sh:name "registration number" ;
+				  sh:description "Die Registrierungsnummer des Landes, die eine bestimmte Einheit identifiziert.Gültige Formate sind lokal, EUID, EORI, VATID, Leicode."@de ;
+				  sh:description "Country’s registration number which identifies one specific entity. Valid formats are local, EUID, EORI, vatID, leiCode."@en ;
+				  skos:example "'DEU1234.HRB12345'" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path gax-trust-framework:legalAddress ;
+				  sh:name "legal address" ;
+				  sh:description "Die vollständige Rechtsadresse der Organisation."@de ;
+				  sh:description "The full legal address of the organization."@en ;
+				  skos:example "'(a structured object which has the attribute country as mandatory attribute and some other optional attributes e.g., the attributes vcard:street-address,vcard:locality and vcard:country-name)'" ;
+				  sh:order 5 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node gax-validation:AddressShape ] ;
+	sh:property [ sh:path gax-trust-framework:headquarterAddress ;
+				  sh:name "headquarter address" ;
+				  sh:description "Die vollständige Rechtsadresse der Organisation."@de ;
+				  sh:description "The full legal address of the organization."@en ;
+				  skos:example "'(a structured object which has the attribute country as mandatory attribute and some other optional attributes e.g., the attributes vcard:street-address,vcard:locality and vcard:country-name)'" ;
+				  sh:order 6 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node gax-validation:AddressShape ] ;
+	sh:property [ sh:path gax-trust-framework:leiCode ;
+				  sh:name "lei code" ;
+				  sh:description "Eindeutige Lei -Nummer im Sinne von https://www.gleif.org."@de ;
+				  sh:description "Unique LEI number as defined by https://www.gleif.org."@en ;
+				  skos:example "'M07J9MTYHFCSVRBV2631'" ;
+				  sh:order 7 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path gax-trust-framework:parentOrganization ;
+				  sh:name "parent organization" ;
+				  sh:description "Eine Liste der direkten Teilnehmer, dass diese Entität eine Suborganisation ist, wenn überhaupt."@de ;
+				  sh:description "A list of direct participant that this entity is a subOrganization of, if any."@en ;
+				  skos:example "'https://gaia-x.eu'" ;
+				  sh:order 8 ;
+				  sh:nodeKind sh:IRI ] ;
+	sh:property [ sh:path gax-trust-framework:subOrganization ;
+				  sh:name "sub organization" ;
+				  sh:description "Eine Liste des direkten Teilnehmers mit einem rechtlichen Mandat für diese Einheit, z. B. als Tochtergesellschaft."@de ;
+				  sh:description "A list of direct participant with an legal mandate on this entity, e.g., as a subsidiary."@en ;
+				  skos:example "'https://gaia-x.eu'" ;
+				  sh:order 9 ;
+				  sh:nodeKind sh:IRI ] ;
+.
+
+gax-validation:AddressShape
+	a sh:NodeShape ;
+	sh:targetClass vcard:Address ;
+	sh:property [ sh:path vcard:country-name ;
+				  sh:name "country-name" ;
+				  sh:description "Physischer Standort des Kopfquartals in ISO 3166-1 Alpha2, Alpha-3 oder numerisches Format."@de ;
+				  sh:description "Physical location of head quarter in ISO 3166-1 alpha2, alpha-3 or numeric format."@en ;
+				  skos:example "'DE', 'DEU'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:gps ;
+				  sh:name "gps" ;
+				  sh:description "GPS in ISO 6709: 2008/Cor 1: 2009 Format."@de ;
+				  sh:description "GPS in ISO 6709:2008/Cor 1:2009 format."@en ;
+				  skos:example "'DE', 'DEU'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:street-address ;
+				  sh:name "street-address" ;
+				  sh:description "Die VORSETZUNG VON V: STREET-ADDRESS GESEHEN Sie die Straßenadresse einer Postanschrift."@de ;
+				  sh:description "The v:street-address property specifies the street address of a postal address."@en ;
+				  skos:example "'example-street'" ;
+				  sh:order 3 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:postal-code ;
+				  sh:name "postal-code" ;
+				  sh:description "Saite einer Straßenadresse"@de ;
+				  sh:description "String of a street-address"@en ;
+				  skos:example "'example-postal-code'" ;
+				  sh:order 4 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:locality ;
+				  sh:name "locality" ;
+				  sh:description "Das V: Lokalitätseigentum spezifiziert die Lokalität (z. B. Stadt) einer Postanschrift."@de ;
+				  sh:description "The v:locality property specifies the locality (e.g., city) of a postal address."@en ;
+				  skos:example "'example-locality'" ;
+				  sh:order 5 ;
+				  sh:datatype xsd:string ] ;
+.
