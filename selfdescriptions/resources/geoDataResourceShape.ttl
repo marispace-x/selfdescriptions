@@ -53,11 +53,11 @@ gax-validation:DataResourceShape
 				  skos:example "'keyword'" ;
 				  sh:order 3 ;
 				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path dcterms:subject ;
-				  sh:name "data subject" ;
-				  sh:description "Datensubjekt welches Werte aus der URI der 'Topic categories in accordance with EN ISO 19115' Liste des INSPIRE Registry 'INSPIRE-TC' (https://inspire.ec.europa.eu/metadata-codelist/TopicCategory) auswählen kann, z.B., Environment, Economy, Intelligence/Military, Oceans, Structure."@de ;
-				  sh:description "Data subject that takes a value of the URIs of the 'Topic categories in accordance with EN ISO 19115' code listed operated by INSPIRE registry 'INSPIRE-TC' (https://inspire.ec.europa.eu/metadata-codelist/TopicCategory), e.g., Environment, Economy, Intelligence/Military, Oceans, Structure."@en ;
-				  skos:example "'oceans'" ;
+	sh:property [ sh:path dcat:theme ;
+				  sh:name "data theme" ;
+				  sh:description "Datenthema welches Werte aus der INSPIRE-THEMES Liste 'INSPIRE-Registry: INSPIRE themes' (https://inspire.ec.europa.eu/theme) auswählen kann, z.B., Agricultural and aquaculture facilities, Elevation, Geology, Hydrography, Mineral resources, Soil."@de ;
+				  sh:description "Data theme that takes a value of the INSPIRE-THEMES list 'INSPIRE-Registry: INSPIRE themes' (https://inspire.ec.europa.eu/theme), e.g., Agricultural and aquaculture facilities, Elevation, Geology, Hydrography, Mineral resources, Soil."@en ;
+				  skos:example "'Hydrography'" ;
 				  sh:order 4 ;
 				  sh:minCount 1 ;
 				  sh:datatype xsd:string ] ;
