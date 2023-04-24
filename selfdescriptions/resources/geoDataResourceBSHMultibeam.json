@@ -48,13 +48,13 @@
       "@type": "xsd:string"
     }
   ],
-  "dcterms:subject": [
+  "dcat:theme": [
     {
-      "@value": "Oceans",
+      "@value": "Elevation",
       "@type": "xsd:string"
     },
     {
-      "@value": "Elevation",
+      "@value": "Hydrography",
       "@type": "xsd:string"
     }
   ],
