@@ -48,13 +48,13 @@
       "@type": "xsd:string"
     }
   ],
-  "dcat:theme": [
+  "dcterms:subject": [
     {
-      "@value": "subsoil",
+      "@value": "Oceans",
       "@type": "xsd:string"
     },
     {
-      "@value": "sea floor",
+      "@value": "Elevation",
       "@type": "xsd:string"
     }
   ],
