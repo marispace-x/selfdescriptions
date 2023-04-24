@@ -53,11 +53,11 @@ gax-validation:DataResourceShape
 				  skos:example "'keyword'" ;
 				  sh:order 3 ;
 				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path dcat:theme ;
-				  sh:name "data theme" ;
-				  sh:description "Datenthema/kategorie, die passend für die aufgenommen Daten ist. Die verfügbaren Themen/Kategorien müssen in einer Liste definiert werden, z.B. subsoil, marine environment, wind, oceanography."@de ;
-				  sh:description "Data theme/category the acquired data belongs to. The available themes/categories need to be defined in a list, e.g. subsoil, marine environment, wind, oceanography."@en ;
-				  skos:example "'multibeam'" ;
+	sh:property [ sh:path dcterms:subject ;
+				  sh:name "data subject" ;
+				  sh:description "Datensubjekt welches Werte aus der URI der 'Topic categories in accordance with EN ISO 19115' Liste des INSPIRE Registry 'INSPIRE-TC' (https://inspire.ec.europa.eu/metadata-codelist/TopicCategory) auswählen kann, z.B., Environment, Economy, Intelligence/Military, Oceans, Structure."@de ;
+				  sh:description "Data subject that takes a value of the URIs of the 'Topic categories in accordance with EN ISO 19115' code listed operated by INSPIRE registry 'INSPIRE-TC' (https://inspire.ec.europa.eu/metadata-codelist/TopicCategory), e.g., Environment, Economy, Intelligence/Military, Oceans, Structure."@en ;
+				  skos:example "'oceans'" ;
 				  sh:order 4 ;
 				  sh:minCount 1 ;
 				  sh:datatype xsd:string ] ;
