@@ -63,8 +63,8 @@ gax-validation:DataResourceShape
 				  sh:datatype xsd:string ] ;
 	sh:property [ sh:path dcterms:type ;
 				  sh:name "sensor type" ;
-				  sh:description "Sensortyp der für die Datenaufnahme verwendet wurde. Der Sensortyp sollte von einer zu definierden Marispace-X Sensorliste ausgewählt werden (das verknüpft die Selbstbeschreibung mit den sensorspezifischen Metadaten)."@de ;
-				  sh:description "Sensor type that was used to acquire the data. The sensor type should be taken from a Marispace-X sensor list that needs to be defined (this links the self-description to the sensor-specific metadata)"@en ;
+				  sh:description "NEEDS TO BE ADAPTED FOR MARISPACE-X...Sensortyp der für die Datenaufnahme verwendet wurde. Der Sensortyp sollte von einer zu definierden Marispace-X Sensorliste ausgewählt werden (das verknüpft die Selbstbeschreibung mit den sensorspezifischen Metadaten)."@de ;
+				  sh:description "NEEDS TO BE ADAPTED FOR MARISPACE-X...Sensor type that was used to acquire the data. The sensor type should be taken from a Marispace-X sensor list that needs to be defined (this links the self-description to the sensor-specific metadata)"@en ;
 				  skos:example "'multibeam'" ;
 				  sh:order 5 ;
 				  sh:minCount 1 ;
