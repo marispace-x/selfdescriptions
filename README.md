@@ -17,4 +17,4 @@ Each self-description has the three following data files.
 
 First SHACL files need to be created for each self-description required in Marispace-X. These SHACL files are based on existing standards/ontologies as good as possible.
 
-![Alt text](figures/'Marispace-X - Structure of Self-descriptions and Metadata of Geospatial Sensor Data.jpg' "Concept for self-descriptions of different entities in the federated catalogue in Marispace-X")
+![My image](figures/Marispace-X-Concept_self_descriptions.jpg "Concept for self-descriptions of different entities in the federated catalogue in Marispace-X")
