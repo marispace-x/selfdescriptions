@@ -78,6 +78,10 @@
     "@value": "1",
     "@type": "xsd:string"
   },
+  "dcterms:isReferencedBy": {
+    "@value": "link to publication",
+    "@type": "xsd:string"
+  },
   "dcterms:identifier": {
     "@value": "83e8176e-c7cf-11ed-afa1-0242ac120002",
     "@type": "xsd:string"
