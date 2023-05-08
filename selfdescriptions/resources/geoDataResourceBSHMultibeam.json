@@ -100,6 +100,10 @@
       "@type": "xsd:string"
     }
   ],
+  "dcterms:conformsTo": {
+    "@value": "https://www.w3.org/TR/vocab-dcat-3/",
+    "@type": "xsd:string"
+  },
   "dcterms:issued": {
     "@value": "2021-03-09T11:04:34",
     "@type": "xsd:dateTime"
