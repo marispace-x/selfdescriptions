@@ -1,0 +1,400 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+#add the sensor ontology 
+#question: why the '#' at the end of the other packages? is this just generel syntax rules?
+@prefix ssn: <http://www.w3.org/ns/ssn> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+
+# This is work in progress
+# Target is now to find as many attributes of the SideScanSonar and drop them here
+# Goal is to have header plus two or three basic propoeries working and then keep filling with more desired properties
+# ANOTHER APPROACH to understanding would be going through an example (e.g., Ex 25 on SSN website an create a shacl respectively)
+
+
+# QUESTION
+# Another question would be if for example the class/property resolution covers temp and spatial and regarding spatial resolution different components?
+# -> with Naming? or define subclasses or other more specific classes(which would mean that the resolution class is unusable)
+# just example of general question...
+
+
+# HEADER
+# To my understanding this header must be of similar shape for every instance one creates
+# where do I distiguish between sensor types? I assume here in the header
+# Daniel has put eg: dcterms:PeriodOfTime -> sh:targetClass dcterms:PeriodOfTime. (same -> same)
+gax-validation:SensorResourceShape #this is already a question, whether this should be gax-validation:something or something else. what must be put here?
+	a sh:NodeShape ; 
+	sh:targetClass ssn:Sensor ; # here again question: must this be gax-trust framework or can it be any framework:class?
+	sh:property [sh:path sosa:ObservableProperty ; # Question how to correctly express relation: ssn:Sensor sosa:observes sosa:ObservableProperty. Since I am interested in the stimulus and want user to enter this info
+				 sh:name "Observable Property" ;
+				 sh:description "Physikalische Größe, welche vom Sensor gemessen wird."@de ;
+				 sh:description "Property which is measured by sensor."@en ;
+				 skos:example "1" ;
+				 sh:order 1 ;
+				 sh:minCount 1 ;
+				 sh:maxCount 1 ;
+				 sh:datatype sh:string ] ;
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "System Property" ;
+				  sh:description "."@de ;
+				  sh:description "."@en ;
+				  skos:example "1" ;
+				  sh:order 2 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node ssn-system:SystemProperty ] ;
+.
+
+ssn-system:SystemProperty
+	a sh:NodeShape ;
+	sh:targetClass ssn-system:SystemProperty;
+	sh:property [ sh:path ssn-system:Precision ; # Clarify: Precision, Accuracy, Sensitivity
+				  sh:name "Sensor Precision" ;
+				  sh:description "Genauigkeit des Sensors."@de ;
+				  sh:description "Precision of the Sensor."@en ;
+				  skos:example "1" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+#Modulation	Full Spectrum chirp frequency modulated pulse with amplitude and phase weighting
+# ___STILL_OPEN___
+
+
+#Frequency	100/400 kHz, 300/600 kHz
+# vs sample rate?
+	sh:property [ sh:path ssn-system:Frequency ;
+				  sh:name "Sonar Frequency" ;
+				  sh:description "Frequenz auf der das Sonar operiert in Hz."@de ;
+				  sh:description "Operating frequency of the sonar in Hz."@en ;
+				  skos:example "300" ;
+				  sh:order 2 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+#Operating Range (typical maximum with good imagery)	100 kHz: 50 meters/side | 400 kHz: 150 meters/side | 300 kHz: 23 meters/side | 600 kHz: 120 meters/side
+# ___STILL_OPEN___
+# could be covered by Feature of interest specification/ property in some way
+
+#Towing Speed (max safe)	12 knots -> not yet included (could be added by value range? but this would then only be valid for this specific sensor not sidescansonars in general)
+#Towing Speed *	4.8 knots in HDM, 9.6 knots in HSM
+#https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingProperty
+	sh:property [ sh:path ssn-system:OperatingProperty ;
+				  sh:name "Towing Speed" ;
+				  sh:description "Frequenz auf der das Sonar operiert in Hz."@de ;
+				  sh:description "Operating frequency of the sonar in Hz."@en ;
+				  skos:example "300" ;
+				  sh:order 3 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+	sh:property [ sh:path ssn-system:OperatingProperty ;
+				  sh:name "operational waterdepth" ;
+				  sh:description "Wassertiefe in m."@de ;
+				  sh:description "water depth in m."@en ;
+				  skos:example "300" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+# Output Power	100 kHz: 4 joules, 400 kHz: 2 joules ; 300 kHz: 2 joules, 600 kHz: 1 joule
+# Question is wether the dependency to the frequency can be expressed
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingPowerRange
+	sh:property [ sh:path ssn-system:OperatingPowerRange ;
+				  sh:name "Output Power" ;
+				  sh:description "Energie die vom Sonar abgegeben wird in Joule."@de ;
+				  sh:description "Energy being released by sensor in Joule."@en ;
+				  skos:example "4" ;
+				  sh:order 5 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+# Pulse Length	100 kHz up to 20 ms 300 kHz up to 10 ms 400 kHz up to 10 ms 600 kHz up to 5 ms
+# not sure if this is the correct class for this value
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingRange
+	sh:property [ sh:path ssn-system:OperatingRange ;
+				  sh:name "Pulse Length" ;
+				  sh:description "Sonar Puls Länge in ms."@de ;
+				  sh:description "Sonar pulse length in ms."@en ;
+				  skos:example "20" ;
+				  sh:order 6 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+# Resolution Across Track	100 kHz: 8 cm, 400 kHz: 2 cm ; 300 kHz: 3 cm, 600 kHz: 1.5 cm
+# Resolution does not seem to fit here (since being referred to observable property)
+# So using SystemProperty https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMSystemProperty
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Spatial Resolution across Track" ;
+				  sh:description "Räumliche Auflösung queer zum Track in cm."@de ;
+				  sh:description "Spatial Resolution across track in cm."@en ;
+				  skos:example "3.0" ;
+				  sh:order 7 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+
+# Resolution Along Track	100 kHz: 2.5m @ 200 meter range; 400 kHz: 0.5m @ 100 meter range; 300 kHz: 1.0 m @ 200 meter range; 600 kHz: 0.45 m @ 100 meter range
+# ? can this be expressed as feture of interest -> property ?
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Spatial Resolution along Track." ;
+				  sh:description "Räumliche Auflösung entlang des Tracks in m."@de ;
+				  sh:description "Spatial Resolution along track in m."@en ;
+				  skos:example "3.0" ;
+				  sh:order 8 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+#Horizontal Beam Width (HDM)	100 kHz: 0.64°, 400 kHz: 0.3° 300 kHz: 0.28°, 600 kHz: 0.26°
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Horizontal Beam Width (HDM)" ;
+				  sh:description "Horizontale Strahl Breite (HDM) in Grad."@de ;
+				  sh:description "Horizontal beam width (HDM) in degree."@en ;
+				  skos:example "0.64" ;
+				  sh:order 9 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+#Horizontal Beam Width (HSM)	100 kHz: 1.26°, 400 kHz: 0.4° 300 kHz: 0.54°, 600 kHz: 0.34°
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Horizontal Beam Width (HSM)" ;
+				  sh:description "Horizontale Strahl Breite (HSM) in Grad."@de ;
+				  sh:description "Horizontal beam width (HSM) in degree."@en ;
+				  skos:example "1.26" ;
+				  sh:order 10 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+#Optional CW Pulse Short Range	Yes
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Optional CW Pulse Short Range" ;
+				  sh:description "Optionale CW Puls Kurzdistanz."@de ;
+				  sh:description "Optional CW Pulse Short Range."@en ;
+				  skos:example "1" ;
+				  sh:order 11 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:boolean
+				  ] ;
+
+#Digital Link	4 MBits/sec (typical), 4 channels of side scan data + sensor data
+	sh:property [ sh:path ssn-system:OperatingProperty ;
+				  sh:name "Digital Link" ;
+				  sh:description "Datenmenge die vom Sensor produziert wird in MBits/s."@de ;
+				  sh:description "amount of data being produced by sensor in MBits/s."@en ;
+				  skos:example "4" ;
+				  sh:order 12 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+# Dynamic Range	24 Bits
+# Not exactly clear to me what that is/means...
+# First best guess wäre SystemProperty https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMSystemProperty
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Dynamic Range" ;
+				  sh:description "??... Dynamic Range in Anzahl Bits"@de ;
+				  sh:description "??... dynamic range in number of bits"@en ;
+				  skos:example "24" ;
+				  sh:order 13 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+# Depression Angle	Tilted down 20°
+# SystemProperty https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMSystemProperty
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Depression Angle" ;
+				  sh:description "Neigungswinkel des Sonars in Grad"@de ;
+				  sh:description "Depression angle of the sonar in degree"@en ;
+				  skos:example "20" ;
+				  sh:order 14 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+# Vertical Beam Width 50°
+# SystemProperty https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMSystemProperty
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "Vertical Beam Width" ;
+				  sh:description "Vertikale Strahlbreite in Grad"@de ;
+				  sh:description "vertical beam width in degree"@en ;
+				  skos:example "50" ;
+				  sh:order 15 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+#Operating Depth (meters)	2000 (SS) / 300 (Alum) tow bodies
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingRange
+# When speaking of a range in this case two values would potentially make sense (0 - 2000m)?
+# !!! find out how to ask for two values here
+	sh:property [ sh:path ssn-system:OperatingRange ;
+				  sh:name "Operating Depth" ;
+				  sh:description "Anwendungstiefe in metern"@de ;
+				  sh:description "operating depth in meters"@en ;
+				  skos:example "2000" ;
+				  sh:order 16 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+#Operating Temperature	0° C to 45°C
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingRange
+# !!! find out how to ask for two values here
+	sh:property [ sh:path ssn-system:OperatingRange ;
+				  sh:name "Operating Temperature" ;
+				  sh:description "Anwendungstemperatur in Grad Celcius"@de ;
+				  sh:description "operating temperature in degrees ceclius"@en ;
+				  skos:example "0" ;
+				  sh:order 17 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+
+#Power In (4200-P portable topside processor)	18-36 VDC or 110/240 VAC (auto-ranging); 300 Watts maximum
+# Think about alowing more than one entry instead of two specified fields for better generalizing
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingPowerRange
+	sh:property [ sh:path ssn-system:OperatingPowerRange ;
+				  sh:name "Power In (4200-P portable topside processor)" ;
+				  sh:description "Anwendungstemperatur in Grad Celcius"@de ;
+				  sh:description "operating temperature in degrees ceclius"@en ;
+				  skos:example "0" ;
+				  sh:order 18 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+#Power In (4200 rack mount topside processor)	80-140 VAC or 175-265 VAC (a witching); 300 Watts maximum
+# Think about alowing more than one entry instead of two specified fields for better generalizing
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingPowerRange
+	sh:property [ sh:path ssn-system:OperatingPowerRange ;
+				  sh:name "Power In (4200 rack mount topside processor)" ;
+				  sh:description "Anwendungstemperatur in Grad Celcius"@de ;
+				  sh:description "operating temperature in degrees ceclius"@en ;
+				  skos:example "0" ;
+				  sh:order 19 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:integer
+				  ] ;
+
+# Optional Sensor Port (1) Serial – RS 232C, 9600 Baud, Bi-directional & 27 Vdc
+# further thinking what to use here
+
+# Heading/Pitch/Roll
+
+# Heading Accuracy: < 1.5° RMS
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
+# again question is, wether accuracy can only be referred to the observed propoerty
+	sh:property [ sh:path ssn-system:Accuracy;
+				  sh:name "Heading Accuray" ;
+				  sh:description "Kursgenauigkeit in Grad (RMS)"@de ;
+				  sh:description "heading accuracy in degrees (RMS)"@en ;
+				  skos:example "1.5" ;
+				  sh:order 20 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+# Heading Resolution: 0.1°
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
+# same question as for accuracy
+	sh:property [ sh:path ssn-system:Resolution;
+				  sh:name "Heading Resolution" ;
+				  sh:description "Kursauflösung in Grad"@de ;
+				  sh:description "heading resolution in degrees"@en ;
+				  skos:example "0.1" ;
+				  sh:order 21 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+# Roll, Pitch Angle Accuracy: ± 0.4°
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
+# again question is, wether accuracy can only be referred to the observed propoerty
+	sh:property [ sh:path ssn-system:Accuracy ;
+				  sh:name "Roll, Pitch Angle Accuracy" ;
+				  sh:description "Rollen, Stampfen Winkelgenauigkeit in Grad"@de ;
+				  sh:description "roll, pitch angle accuracy in degrees"@en ;
+				  skos:example "0.4" ;
+				  sh:order 22 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+# ??
+# Roll, Pitch Angle Repeatability: 0.2°
+# ??
+
+# Roll, Pitch Angle Resolution: 0.1°
+# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
+# same question as for accuracy
+	sh:property [ sh:path ssn-system:Resolution ;
+				  sh:name "Roll, Pitch Angle Resolution" ;
+				  sh:description "Rollen, Stampfen Winkelauflösung in Grad"@de ;
+				  sh:description "roll, pitch angle resolution in degrees"@en ;
+				  skos:example "0.1" ;
+				  sh:order 23 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:targetClass sh:decimal
+				  ] ;
+
+#towfish specifications	weight, body meassures, etc… specified in fact sheet
+# ??
+.
+
+
+# ====================================================================================
