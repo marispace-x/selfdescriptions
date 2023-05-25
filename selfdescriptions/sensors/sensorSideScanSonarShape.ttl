@@ -29,7 +29,7 @@
 @prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
 
 # This is work in progress
-# Target is to find as many attributes of the SideScanSonar and drop them here
+# Target is to describe all required attributes of the sensor type "SideScanSonar" in this SHACL
 
 # QUESTIONS
 # Another question would be if for example the class/property resolution covers temp and spatial resolution and regarding spatial resolution different components?
@@ -39,7 +39,7 @@
 # HEADER
 # To my understanding this header must be of similar shape for every instance one creates
 # where do I distiguish between sensor types? I assume here in the header, yet leading to bulky names and each would have to be included in the gax-validation namespace
-gax-validation:SideScanSonarSensorResourceShape #this is already a question, whether this should be gax-validation:something or something else. what must be put here?
+gax-validation:sensorSideScanSonarShape #this is already a question, whether this should be gax-validation:something or something else. what must be put here?
 	a sh:NodeShape ; 
 	sh:targetClass ssn:Sensor ; # here again question: must this be gax-trust framework (like in all the example files) or can it be any framework:class?
 	sh:property [sh:path sosa:ObservableProperty ; # Question how to correctly express relation: ssn:Sensor sosa:observes sosa:ObservableProperty. where does predicate come into play and how
@@ -82,13 +82,13 @@ ssn-system:SystemProperty
 # Frequency 100/400 kHz, 300/600 kHz
 # class restricted to sample rate? -> maybe rather use operating property
 	sh:property [ sh:path ssn-system:Frequency ;
-				  sh:name "Sonar Frequency" ;
-				  sh:description "Frequenz auf der das Sonar operiert in Hz."@de ;
-				  sh:description "Operating frequency of the sonar in Hz."@en ;
-				  skos:example "300" ;
+				  sh:name "Acoustic frequency" ;
+				  sh:description "Akustische Frequenz die das Sonar aussendet in Hz."@de ;
+				  sh:description "Acoustic frequency emitted by the sonar in Hz."@en ;
+				  skos:example "300000" ;
 				  sh:order 2 ;
 				  sh:minCount 1 ;
-				  sh:maxCount 1 ;
+				  sh:maxCount 2 ;
 				  sh:targetClass sh:integer
 				  ] ;
 
@@ -101,13 +101,13 @@ ssn-system:SystemProperty
 #https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingProperty
 	sh:property [ sh:path ssn-system:OperatingProperty ;
 				  sh:name "Towing Speed" ;
-				  sh:description "Frequenz auf der das Sonar operiert in Hz."@de ;
-				  sh:description "Operating frequency of the sonar in Hz."@en ;
-				  skos:example "300" ;
+				  sh:description "Survey-Geschwindigkeit mit der das Sonar gefahren wurde in Knoten."@de ;
+				  sh:description "Towing speed of the sonar in knots."@en ;
+				  skos:example "3.5" ;
 				  sh:order 3 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
-				  sh:targetClass sh:integer
+				  sh:targetClass sh:float
 				  ] ;
 
 # Output Power	100 kHz: 4 joules, 400 kHz: 2 joules ; 300 kHz: 2 joules, 600 kHz: 1 joule
