@@ -23,31 +23,26 @@
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 
 #add the sensor ontology 
-#question: why the '#' at the end of the other packages? is this just generel syntax rules?
+#minor question: why the '#' at the end of the other packages? is this just generel syntax rules? it does not appear in the browser when clicking on it
 @prefix ssn: <http://www.w3.org/ns/ssn> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
 
 # This is work in progress
-# Target is now to find as many attributes of the SideScanSonar and drop them here
-# Goal is to have header plus two or three basic propoeries working and then keep filling with more desired properties
-# ANOTHER APPROACH to understanding would be going through an example (e.g., Ex 25 on SSN website an create a shacl respectively)
+# Target is to find as many attributes of the SideScanSonar and drop them here
 
-
-# QUESTION
-# Another question would be if for example the class/property resolution covers temp and spatial and regarding spatial resolution different components?
-# -> with Naming? or define subclasses or other more specific classes(which would mean that the resolution class is unusable)
-# just example of general question...
+# QUESTIONS
+# Another question would be if for example the class/property resolution covers temp and spatial resolution and regarding spatial resolution different components?
+# If the Structure with nested attributes is the correct choice is still unclear to me... one would have to see a resulsting rdf file and see if it comes up with the desired/correct rdf triples 
 
 
 # HEADER
 # To my understanding this header must be of similar shape for every instance one creates
-# where do I distiguish between sensor types? I assume here in the header
-# Daniel has put eg: dcterms:PeriodOfTime -> sh:targetClass dcterms:PeriodOfTime. (same -> same)
-gax-validation:SensorResourceShape #this is already a question, whether this should be gax-validation:something or something else. what must be put here?
+# where do I distiguish between sensor types? I assume here in the header, yet leading to bulky names and each would have to be included in the gax-validation namespace
+gax-validation:SideScanSonarSensorResourceShape #this is already a question, whether this should be gax-validation:something or something else. what must be put here?
 	a sh:NodeShape ; 
-	sh:targetClass ssn:Sensor ; # here again question: must this be gax-trust framework or can it be any framework:class?
-	sh:property [sh:path sosa:ObservableProperty ; # Question how to correctly express relation: ssn:Sensor sosa:observes sosa:ObservableProperty. Since I am interested in the stimulus and want user to enter this info
+	sh:targetClass ssn:Sensor ; # here again question: must this be gax-trust framework (like in all the example files) or can it be any framework:class?
+	sh:property [sh:path sosa:ObservableProperty ; # Question how to correctly express relation: ssn:Sensor sosa:observes sosa:ObservableProperty. where does predicate come into play and how
 				 sh:name "Observable Property" ;
 				 sh:description "Physikalische Größe, welche vom Sensor gemessen wird."@de ;
 				 sh:description "Property which is measured by sensor."@en ;
@@ -81,11 +76,11 @@ ssn-system:SystemProperty
 				  sh:targetClass sh:decimal
 				  ] ;
 #Modulation	Full Spectrum chirp frequency modulated pulse with amplitude and phase weighting
-# ___STILL_OPEN___
+# ___STILL_OPEN___ since I dont understand that property
 
 
-#Frequency	100/400 kHz, 300/600 kHz
-# vs sample rate?
+# Frequency 100/400 kHz, 300/600 kHz
+# class restricted to sample rate? -> maybe rather use operating property
 	sh:property [ sh:path ssn-system:Frequency ;
 				  sh:name "Sonar Frequency" ;
 				  sh:description "Frequenz auf der das Sonar operiert in Hz."@de ;
@@ -96,6 +91,7 @@ ssn-system:SystemProperty
 				  sh:maxCount 1 ;
 				  sh:targetClass sh:integer
 				  ] ;
+
 #Operating Range (typical maximum with good imagery)	100 kHz: 50 meters/side | 400 kHz: 150 meters/side | 300 kHz: 23 meters/side | 600 kHz: 120 meters/side
 # ___STILL_OPEN___
 # could be covered by Feature of interest specification/ property in some way
@@ -109,17 +105,6 @@ ssn-system:SystemProperty
 				  sh:description "Operating frequency of the sonar in Hz."@en ;
 				  skos:example "300" ;
 				  sh:order 3 ;
-				  sh:minCount 1 ;
-				  sh:maxCount 1 ;
-				  sh:targetClass sh:integer
-				  ] ;
-
-	sh:property [ sh:path ssn-system:OperatingProperty ;
-				  sh:name "operational waterdepth" ;
-				  sh:description "Wassertiefe in m."@de ;
-				  sh:description "water depth in m."@en ;
-				  skos:example "300" ;
-				  sh:order 4 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:targetClass sh:integer
@@ -330,8 +315,6 @@ ssn-system:SystemProperty
 # Optional Sensor Port (1) Serial – RS 232C, 9600 Baud, Bi-directional & 27 Vdc
 # further thinking what to use here
 
-# Heading/Pitch/Roll
-
 # Heading Accuracy: < 1.5° RMS
 # https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
 # again question is, wether accuracy can only be referred to the observed propoerty
@@ -376,6 +359,7 @@ ssn-system:SystemProperty
 
 # ??
 # Roll, Pitch Angle Repeatability: 0.2°
+# What is this
 # ??
 
 # Roll, Pitch Angle Resolution: 0.1°
