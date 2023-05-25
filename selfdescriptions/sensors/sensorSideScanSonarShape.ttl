@@ -62,6 +62,27 @@ gax-validation:sensorSideScanSonarShape #this is already a question, whether thi
 				  sh:node ssn-system:SystemProperty ] ;
 .
 
+
+## 1. General Sensor Information ##
+# sensor manufacturer
+# sensor model
+# sensor serial number
+# sensor platform
+# sensor owner
+# sensor user
+# sensor maintenance
+
+
+## 2. System Properties (fixed sensor characteristics, e.g., min/max. values of settings, accuracies, precision, sensitivity) - automatically retrieved from sensor specifications ##
+
+
+## 3. Operating Properties (sensor settings that were set for the respective data set) - needs to be set by user or retrieved from data files ##
+
+
+## 4. Measurements and Features of Interest (physical parameters/values that are measured and can be derived from the measurements)
+
+
+
 ssn-system:SystemProperty
 	a sh:NodeShape ;
 	sh:targetClass ssn-system:SystemProperty;
