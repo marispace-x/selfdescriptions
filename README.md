@@ -19,7 +19,6 @@ Each self-description can have the three following data files.
 - verified JSON-LD (the self-description needs to be verified, "wrapped" into a verifiable paragraph)
 
 First SHACL files need to be created for each self-description required in Marispace-X. These SHACL files are based on existing standards/ontologies as good as possible.
-
 The current concept is a follows (see Figure 2):
 - general resource self-description "geoDataResource.ttl" (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive."
   - general sensor information self-description "sensorGeneralInformation.ttl" (based on MMI Device Ontology - https://mmisw.org/ont/mmi/device) - "Generic sensor attributes like sensor name, sensor manufacturer, sensor id, point of contact, ..."
