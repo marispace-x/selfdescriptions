@@ -26,4 +26,4 @@ The current concept is a follows (see Figure 2):
     - detialed sensor information self-description with the file naming convention "sensor*.ttl" where * is replaced with the sensor name, e.g., "sensorSideScanSonar", "sensorCTD", "sensorCamera", "sensorSatelliteRadar" (this can be based on very specific ontologies for the respectivce sensor type, e.g., OGC SSN - https://www.w3.org/TR/vocab-ssn/, OGC EO - https://docs.ogc.org/is/10-157r4/10-157r4.html) - "Detailed sensor-specific attributes like sensor settings, sensor properties, ..."
    
 ![alt TEST](figures/Marispace-X-Concept_self_descriptions_2.jpg)
-*Figure 2: Concept for self-descriptions for gesopatial data resources and corresponding sensor data in the federated catalogue in Marispace-X*
+*Figure 2: Concept for self-descriptions of gesopatial data resources and corresponding sensor data in the federated catalogue in Marispace-X*
