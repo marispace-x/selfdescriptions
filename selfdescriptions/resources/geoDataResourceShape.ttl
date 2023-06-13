@@ -188,14 +188,6 @@ gax-validation:DataResourceShape
 				  sh:maxCount 1 ;
 				  sh:node vcard:Individual] ;
 
-	sh:property [ sh:path gax-trust-framework:aggregationOf ;
-				  sh:name "aggregation of" ;
-				  sh:description "Ressourcen im Zusammenhang mit der Ressource und das kann unabhängig davon existieren."@de ;
-				  sh:description "Resources related to the resource and that can exist independently of it."@en ;
-				  skos:example "'(a reference to gax-trust-framework:Resource object)'" ;
-				  sh:order 20 ;
-				  sh:nodeKind sh:IRI ] ;
-
 	sh:property [ sh:path gax-trust-framework:producedBy ;
 				  sh:name "produced by" ;
 				  sh:description "Ein auflösbarer Link zur Selbstbeschreibung der Teilnehmer ermöglicht legal die Datennutzung."@de ;
@@ -230,6 +222,14 @@ gax-validation:DataResourceShape
 				  sh:order 24 ;
 				  sh:minCount 1 ;
 				  sh:node vcard:Individual ] ;
+
+	sh:property [ sh:path gax-trust-framework:aggregationOf ;
+				  sh:name "aggregation of" ;
+				  sh:description "Ressourcen im Zusammenhang mit der Ressource und das kann unabhängig davon existieren."@de ;
+				  sh:description "Resources related to the resource and that can exist independently of it."@en ;
+				  skos:example "'(a reference to gax-trust-framework:Resource object)'" ;
+				  sh:order 20 ;
+				  sh:nodeKind sh:IRI ] ;
 
 
 .
