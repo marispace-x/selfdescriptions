@@ -131,4 +131,17 @@ gax-validation:sensorGeneralInformationShape
 				  sh:minCount 0 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path device:Process;
+				  sh:name "processing hsitory" ;
+				  sh:description "Ein Prozess generiert einen Datenoutput durch die Anwendung von Methoden/Algorithmen mit bestimmten Parametern von definierten Inputdaten."@de ;
+				  sh:description "A process that takes one or more inputs, and based on parameters and methodologies, generates one or more outputs. (SensorML.) As a System, a Process can be a composite of (sub)processes."@en ;
+				  skos:example "..." ;
+				  sh:order 12 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+
+
+
+
 .
