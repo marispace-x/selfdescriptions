@@ -111,7 +111,7 @@ gax-validation:sensorSideScanSonarShape
 
 	# Example: Vertical Beam Width 50.0°
 	sh:property [ sh:path ssn-system:SystemProperty ;
-				  sh:name "beam opening angle along track" ;
+				  sh:name "beam opening angle across track" ;
 				  sh:description "Strahlöffnungswinkel in across track Richtung (auch bezeichnet als Vertikale Strahlbreite) in [°]."@de ;
 				  sh:description "Beam opening angle in across track direction (also called vertical beam width) in [°]."@en ;
 				  skos:example "50.0" ;
