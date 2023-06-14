@@ -32,7 +32,7 @@
 # Why is there a '#' at the end of the other packages/namespaces URLs?
 
 
-gax-validation:sensorSideScanSonarSensorShape
+gax-validation:sensorSideScanSonarShape
 	a sh:NodeShape ; 
 	sh:targetClass ssn:System ;
 	# Example: Frequency 100/400 kHz, 300/600 kHz
