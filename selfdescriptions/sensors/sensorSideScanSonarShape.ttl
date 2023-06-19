@@ -46,7 +46,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 2 ;
 				  sh:datatype xsd:integer
 				  ] ;
-
 	# Pulse Length	100 kHz up to 20 ms 300 kHz up to 10 ms 400 kHz up to 10 ms 600 kHz up to 5 ms
 	sh:property [ sh:path ssn-system:SystemProperty ;
 				  sh:name "pulse length" ;
@@ -58,7 +57,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:integer
 				  ] ;
-
 	# Example: Output Power	100 kHz: 4 joules, 400 kHz: 2 joules ; 300 kHz: 2 joules, 600 kHz: 1 joule
 	# Question is wether the dependency to the frequency can be expressed
 	sh:property [ sh:path ssn-system:OperatingPowerRange ;
@@ -71,7 +69,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:integer
 				  ] ;
-
 	# Example: Spatial Resolution Across Track	100 kHz: 8 cm, 400 kHz: 2 cm ; 300 kHz: 3 cm, 600 kHz: 1.5 cm
 	sh:property [ sh:path ssn-system:SystemProperty ;
 				  sh:name "spatial resolution across track" ;
@@ -83,7 +80,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Spatial Resolution Along Track	100 kHz: 2.5m @ 200 meter range; 400 kHz: 0.5m @ 100 meter range; 300 kHz: 1.0 m @ 200 meter range; 600 kHz: 0.45 m @ 100 meter range
 	# ? can this be expressed as feture of interest -> property ?
 	sh:property [ sh:path ssn-system:SystemProperty ;
@@ -96,7 +92,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Horizontal Beam Width	100 kHz: 0.64°, 400 kHz: 0.3° 300 kHz: 0.28°, 600 kHz: 0.26°
 	sh:property [ sh:path ssn-system:SystemProperty ;
 				  sh:name "beam opening angle along track" ;
@@ -108,7 +103,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Vertical Beam Width 50.0°
 	sh:property [ sh:path ssn-system:SystemProperty ;
 				  sh:name "beam opening angle across track" ;
@@ -120,7 +114,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Heading Accuracy: < 1.5° RMS
 	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
 	# again question is, wether accuracy can only be referred to the observed propoerty
@@ -134,7 +127,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Heading Resolution: 0.1°
 	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
 	# same question as for accuracy
@@ -148,7 +140,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Roll Angle Accuracy: ± 0.4°
 	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
 	# again question is, wether accuracy can only be referred to the observed propoerty
@@ -162,7 +153,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Roll Angle Resolution: 0.1°
 	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
 	# same question as for accuracy
@@ -176,7 +166,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Pitch Angle Accuracy: ± 0.4°
 	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
 	# again question is, wether accuracy can only be referred to the observed propoerty
@@ -190,7 +179,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
 	# Example: Pitch Angle Resolution: 0.1°
 	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
 	# same question as for accuracy
@@ -204,10 +192,7 @@ gax-validation:sensorSideScanSonarShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:decimal
 				  ] ;
-
-
 #### OPERATING PROPOERTIES ####
-
 	# Example: Operating Temperature	0° C to 45°C
 	sh:property [ sh:path ssn-system:OperatingRange ;
 				  sh:name "operating temperature" ;
@@ -248,8 +233,58 @@ gax-validation:sensorSideScanSonarShape
 				  sh:datatype xsd:integer
 				  ] ;
 
+	sh:property [ sh:path dcterms:temporal ;
+				  sh:name "temporal coverage" ;
+				  sh:description "Zeitliche Periode in der die Datenresource aufgenommen worden ist."@de ;
+				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 17 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:PeriodOfTime ] ;
+	sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Räumliche Abdeckung wo die Datenresource aufgenommen worden ist."@de ;
+				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 18 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Location ] ;
+.
 
-#### FEATURE OF INTEREST ####
 
 
+dcterms:PeriodOfTime
+	a sh:NodeShape ;
+	sh:targetClass dcterms:PeriodOfTime ;
+	sh:property [ sh:path dcat:startDate ;
+				  sh:name "start date" ;
+				  sh:description "Startdatum der Datenaufnahme (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "Start date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcat:endDate ;
+				  sh:name "end date" ;
+				  sh:description "Enddatum der Datenaufnahme (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "End date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+.
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path locn:geometry ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Geometrische Information über die räumliche Abdeckung (z.B., as WKT, as KML, as GeoJSON)."@de ;
+				  sh:description "Geometry information of spatial coverage (e.g., as WKT, as KML, as GeoJSON)."@en ;
+				  skos:example "'e.g., as WKT, as KML, as GeoJSON - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
 .
