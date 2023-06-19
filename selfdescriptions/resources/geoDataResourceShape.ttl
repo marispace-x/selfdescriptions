@@ -22,6 +22,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 
+# add additional namespaces
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
