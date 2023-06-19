@@ -22,8 +22,10 @@
 @prefix schema: <http://schema.org/> .
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 
-# add the sensor/device ontology MMISW
+# add additional namespaces
 @prefix device <http://mmisw.org/ont/mmi/device#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
 
 ## General Sensor Information ##
