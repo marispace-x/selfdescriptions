@@ -141,7 +141,58 @@ gax-validation:sensorGeneralInformationShape
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
 
+	sh:property [ sh:path dcterms:temporal ;
+				  sh:name "temporal coverage" ;
+				  sh:description "Zeitliche Periode in der die Datenresource aufgenommen worden ist."@de ;
+				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 13 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:PeriodOfTime ] ;
+	sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Räumliche Abdeckung wo die Datenresource aufgenommen worden ist."@de ;
+				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 14 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Location ] ;
+.
 
 
 
+dcterms:PeriodOfTime
+	a sh:NodeShape ;
+	sh:targetClass dcterms:PeriodOfTime ;
+	sh:property [ sh:path dcat:startDate ;
+				  sh:name "start date" ;
+				  sh:description "Startdatum der Datenaufnahme (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "Start date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcat:endDate ;
+				  sh:name "end date" ;
+				  sh:description "Enddatum der Datenaufnahme (Datum Uhrzeit im ISO 8601-Format)."@de ;
+				  sh:description "End date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+.
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path locn:geometry ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Geometrische Information über die räumliche Abdeckung (z.B., as WKT, as KML, as GeoJSON)."@de ;
+				  sh:description "Geometry information of spatial coverage (e.g., as WKT, as KML, as GeoJSON)."@en ;
+				  skos:example "'e.g., as WKT, as KML, as GeoJSON - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
 .
