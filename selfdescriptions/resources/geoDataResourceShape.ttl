@@ -233,7 +233,7 @@ gax-validation:geoDataResourceShape
 				  sh:order 24 ;
 				  sh:nodeKind sh:IRI ] ;
 ### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
-	sh:property [ sh:dcat:distribution ;
+	sh:property [ sh:path dcat:distribution ;
 				  sh:name "distribution" ;
 				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@de ;
 				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
