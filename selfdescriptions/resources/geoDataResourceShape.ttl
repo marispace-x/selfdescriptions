@@ -237,11 +237,11 @@ gax-validation:geoDataResourceShape
 				  sh:name "distribution" ;
 				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@de ;
 				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
-				  skos:example "''" ;
+				  skos:example "'a link to the actual data'" ;
 				  sh:order 25 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
-				  sh:node dcat:Distribution ] ;
+				  sh:node dcat:Distribution] ;
 ###########################################################################################################
 .
 
