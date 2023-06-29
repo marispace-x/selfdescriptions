@@ -61,7 +61,6 @@ gax-validation:geoDataResourceShape
 				  sh:description "Data theme that takes a value of the INSPIRE-THEMES list 'INSPIRE-Registry: INSPIRE themes' (https://inspire.ec.europa.eu/theme), e.g., Agricultural and aquaculture facilities, Elevation, Geology, Hydrography, Mineral resources, Soil."@en ;
 				  skos:example "'Hydrography'" ;
 				  sh:order 4 ;
-				  sh:minCount 1 ;
 				  sh:datatype xsd:string ] ;
 	sh:property [ sh:path dcterms:format ;
 				  sh:name "data format" ;
@@ -78,7 +77,6 @@ gax-validation:geoDataResourceShape
 				  sh:description "The size of the data resource in bytes."@en ;
 				  skos:example "'1412'" ;
 				  sh:order 6 ;
-				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:nonNegativeInteger ] ;
 	sh:property [ sh:path dcterms:hasVersion ;
@@ -111,6 +109,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Contains the main identifier for the data resource, e.g., the URI or other unique identifier in the context of the catalogue."@en ;
 				  skos:example "'UUID'" ;
 				  sh:order 10 ;
+			      	  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string] ;
 	sh:property [ sh:path dcterms:license ;
@@ -127,7 +126,6 @@ gax-validation:geoDataResourceShape
 				  sh:description "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)"@en ;
 				  skos:example "'https://gaia-x.eu'" ;
 				  sh:order 12 ;
-				  sh:minCount 1 ;
 				  sh:datatype xsd:string ] ;
 	sh:property [ sh:path dcterms:conformsTo ;
 				  sh:name "conforms to" ;
@@ -174,7 +172,7 @@ gax-validation:geoDataResourceShape
 				  sh:node dcterms:Location ] ;
 	### contact attributes ###
 	sh:property [ sh:path vcard:Kind ;
-				  sh:name "contact person" ;
+				  sh:name "contact information" ;
 				  sh:description "Aktuellstes Datum an dem die Resource geändert/aktualisiert worden ist (Datum Uhrzeit im ISO 8601-Format)."@de ;
 				  sh:description "Most recent date on which the resource was changed, updated or modified (date time in ISO 8601 format)."@en ;
 				  skos:example "'2022-10-26T21:32:52'" ;
@@ -183,7 +181,7 @@ gax-validation:geoDataResourceShape
 				  sh:node vcard:Individual] ;
 	### data space linkage attributes ###
 	sh:property [ sh:path gax-trust-framework:providedBy ;
-				  sh:name "produced by" ;
+				  sh:name "provided by" ;
 				  sh:description "Ein auflösbarer Link zur Selbstbeschreibung der Teilnehmer ermöglicht legal die Datennutzung."@de ;
 				  sh:description "A resolvable link to the participant self-description legally enabling the data usage."@en ;
 				  skos:example "'(a reference to gax-core:Participant object)'" ;
@@ -223,6 +221,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "The copyright owner(s), given as a Gaia-X Participant or as some other agent, possibly also a person outside of Gaia-X. A copyright owner is a person or organization, that has the right to exploit the resource. Copyright owner does not necessary refer to the author of the resource, who is a natural person and may differ from copyright owner. A simple name string can be referenced as a blank node whose foaf:name attribute has that string value."@en ;
 				  skos:example "'...'" ;
 				  sh:order 23 ;
+				  sh:minCount 1 ;
 				  sh:minCount 1 ;
 				  sh:node vcard:Individual ] ;
 	sh:property [ sh:path gax-trust-framework:aggregationOf ;
