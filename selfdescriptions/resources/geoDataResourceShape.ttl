@@ -158,7 +158,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Zeitliche Periode in der die Datenresource aufgenommen worden ist."@de ;
 				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
 				  skos:example "'(a structure object of type CPU)'" ;
-				  sh:order 17 ;
+				  sh:order 16 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:node dcterms:PeriodOfTime ] ;
@@ -168,7 +168,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Räumliche Abdeckung wo die Datenresource aufgenommen worden ist."@de ;
 				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
 				  skos:example "'(a structure object of type CPU)'" ;
-				  sh:order 18 ;
+				  sh:order 17 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:node dcterms:Location ] ;
@@ -178,7 +178,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Aktuellstes Datum an dem die Resource geändert/aktualisiert worden ist (Datum Uhrzeit im ISO 8601-Format)."@de ;
 				  sh:description "Most recent date on which the resource was changed, updated or modified (date time in ISO 8601 format)."@en ;
 				  skos:example "'2022-10-26T21:32:52'" ;
-				  sh:order 19 ;
+				  sh:order 18 ;
 				  sh:maxCount 1 ;
 				  sh:node vcard:Individual] ;
 	### data space linkage attributes ###
@@ -187,7 +187,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Ein auflösbarer Link zur Selbstbeschreibung der Teilnehmer ermöglicht legal die Datennutzung."@de ;
 				  sh:description "A resolvable link to the participant self-description legally enabling the data usage."@en ;
 				  skos:example "'(a reference to gax-core:Participant object)'" ;
-				  sh:order 20 ;
+				  sh:order 19 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:nodeKind sh:IRI ] ;
