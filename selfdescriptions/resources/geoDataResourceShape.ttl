@@ -233,15 +233,15 @@ gax-validation:geoDataResourceShape
 				  sh:order 24 ;
 				  sh:nodeKind sh:IRI ] ;
 ### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
-	sh:property [ sh:path dcat:distribution ;
-				  sh:name "distribution" ;
-				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@de ;
-				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
-				  skos:example "'a link to the actual data'" ;
-				  sh:order 25 ;
-				  sh:minCount 1 ;
-				  sh:maxCount 1 ;
-				  sh:node dcat:Distribution] ;
+#	sh:property [ sh:path dcat:distribution ;
+#				  sh:name "distribution" ;
+#				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@de ;
+#				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+#				  skos:example "'a link to the actual data'" ;
+#				  sh:order 25 ;
+#				  sh:minCount 1 ;
+#				  sh:maxCount 1 ;
+#				  sh:node dcat:Distribution] ;
 ###########################################################################################################
 .
 
@@ -319,56 +319,56 @@ vcard:Individual
 
 
 ### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
-dcat:Distribution
-	a sh:NodeShape ;
-	sh:targetClass dcat:Distribution ;
-	sh:property [ sh:path dcat:title ;
-				  sh:name "distribution title" ;
-				  sh:description "Der Name der Distribution."@de ;
-				  sh:description "A name given to the distribution.."@en ;
-				  skos:example "' '" ;
-				  sh:order 1 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path dcat:mediaType ;
-				  sh:name "distribution media type" ;
-				  sh:description "Der Medientyo der Distribution wie definiert bei IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@de ;
-				  sh:description "The media type of the distribution as defined by IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
-				  skos:example "'Surveyor'" ;
-				  sh:order 2 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path dcat:byteSize;
-				  sh:name "distribution byte size" ;
-				  sh:description "Die Größe der Distribution in Bytes."@de ;
-				  sh:description "The size of a distribution in bytes.."@en ;
-				  skos:example "''" ;
-				  sh:order 3 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:nonNegativeInteger] ;
-	sh:property [ sh:path LOCATION;
-				  sh:name "contact e-mail" ;
-				  sh:description "."@de ;
-				  sh:description "."@en ;
-				  skos:example "''" ;
-				  sh:order 4 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path HASH;
-				  sh:name "contact e-mail" ;
-				  sh:description "."@de ;
-				  sh:description "."@en ;
-				  skos:example "''" ;
-				  sh:order 5 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path HASH_ALGORITHM;
-				  sh:name "contact e-mail" ;
-				  sh:description "."@de ;
-				  sh:description "."@en ;
-				  skos:example "''" ;
-				  sh:order 6 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:string ] ;
-.
+#dcat:Distribution
+#	a sh:NodeShape ;
+#	sh:targetClass dcat:Distribution ;
+#	sh:property [ sh:path dcat:title ;
+#				  sh:name "distribution title" ;
+#				  sh:description "Der Name der Distribution."@de ;
+#				  sh:description "A name given to the distribution.."@en ;
+#				  skos:example "' '" ;
+#				  sh:order 1 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path dcat:mediaType ;
+#				  sh:name "distribution media type" ;
+#				  sh:description "Der Medientyo der Distribution wie definiert bei IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@de ;
+#				  sh:description "The media type of the distribution as defined by IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
+#				  skos:example "'Surveyor'" ;
+#				  sh:order 2 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path dcat:byteSize;
+#				  sh:name "distribution byte size" ;
+#				  sh:description "Die Größe der Distribution in Bytes."@de ;
+#				  sh:description "The size of a distribution in bytes.."@en ;
+#				  skos:example "''" ;
+#				  sh:order 3 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:nonNegativeInteger] ;
+#	sh:property [ sh:path LOCATION;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@de ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 4 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path HASH;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@de ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 5 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path HASH_ALGORITHM;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@de ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 6 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#.
 ###########################################################################################################
