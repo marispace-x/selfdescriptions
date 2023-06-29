@@ -29,6 +29,7 @@
 gax-validation:geoDataResourceShape
 	a sh:NodeShape ;
 	sh:targetClass gax-trust-framework:DataResource ;
+	### general attributes ###
 	sh:property [ sh:path dcterms:title ;
 				  sh:name "title" ;
 				  sh:description "Der Name der Datenresource."@de ;
@@ -62,22 +63,12 @@ gax-validation:geoDataResourceShape
 				  sh:order 4 ;
 				  sh:minCount 1 ;
 				  sh:datatype xsd:string ] ;
-### LINK TO SENSOR SELF-DESCRRIPTIONS IS PROBABLY COVERED BY "AGGREGATIONOF" ATTRIBUTE IN GAIA-X ###
-#sh:property [ sh:path dcterms:type ;
-#				  sh:name "sensor type" ;
-#				  sh:description "NEEDS TO BE ADAPTED FOR MARISPACE-X...Sensortyp der für die Datenaufnahme verwendet wurde. Der Sensortyp sollte von einer zu definierden Marispace-X Sensorliste ausgewählt werden (das verknüpft die Selbstbeschreibung mit den sensorspezifischen Metadaten)."@de ;
-#				  sh:description "NEEDS TO BE ADAPTED FOR MARISPACE-X...Sensor type that was used to acquire the data. The sensor type should be taken from a Marispace-X sensor list that needs to be defined (this links the self-description to the sensor-specific metadata)"@en ;
-#				  skos:example "'multibeam'" ;
-#				  sh:order 5 ;
-#				  sh:minCount 1 ;
-#				  sh:datatype xsd:string ] ;
-#####################################################################################################
 	sh:property [ sh:path dcterms:format ;
 				  sh:name "data format" ;
 				  sh:description "Datenformat der Datenresource."@de ;
 				  sh:description "The file format of the data resource."@en ;
 				  skos:example "'free-text'" ;
-				  sh:order 6 ;
+				  sh:order 5 ;
 				  sh:minCount 0 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
@@ -86,7 +77,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Die Größe der Datenresource in Bytes."@de ;
 				  sh:description "The size of the data resource in bytes."@en ;
 				  skos:example "'1412'" ;
-				  sh:order 7 ;
+				  sh:order 6 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:nonNegativeInteger ] ;
@@ -95,7 +86,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Verknüpft die hier beschriebene Datenresource zu einer anderen Datenresource, welche eine andere Version, Edition, oder Adaption dieser ist."@de ;
 				  sh:description "Refers to a related data resource that is a version, edition, or adaptation of the described data resource."@en ;
 				  skos:example "'link to a related data resource'" ;
-				  sh:order 8 ;
+				  sh:order 7 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string] ;
 	sh:property [ sh:path dcterms:isVersionOf ;
@@ -103,7 +94,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Verknüpft die hier beschriebene Datenresource zu einer anderen Datenresource, welche eine andere Version, Edition, oder Adaption dieser ist."@de ;
 				  sh:description "Refers to a related data resource of which the described data resource is a version, edition, or adaptation."@en ;
 				  skos:example "'link to related data resource'" ;
-				  sh:order 9 ;
+				  sh:order 8 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string] ;
 	sh:property [ sh:path dcterms:isReferencedBy ;
@@ -111,7 +102,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Eine verwandte Resource, wie eine Publikation, die die Datenresource zitiert oder anderweitig auf die Datenresource verweist."@de ;
 				  sh:description "A related resource, such as a publication, that references, cites, or otherwise points to the cataloged resource."@en ;
 				  skos:example "'link to related data resource'" ;
-				  sh:order 10 ;
+				  sh:order 9 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string] ;
 	sh:property [ sh:path dcterms:identifier ;
@@ -119,7 +110,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Eindeutiger Identifier (URI, UUID) der beschriebenen Datenresource."@de ;
 				  sh:description "Contains the main identifier for the data resource, e.g., the URI or other unique identifier in the context of the catalogue."@en ;
 				  skos:example "'UUID'" ;
-				  sh:order 11 ;
+				  sh:order 10 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string] ;
 	sh:property [ sh:path dcterms:license ;
@@ -127,7 +118,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Ein legales Dokument welches die Datenbenutzungsrichtlinien beschreibt."@de ;
 				  sh:description "A legal document under which the data resource is made available."@en ;
 				  skos:example "'e.g., link to license document'" ;
-				  sh:order 12 ;
+				  sh:order 11 ;
 				  sh:minCount 1 ;
 				  sh:datatype xsd:string ] ;
 	sh:property [ sh:path gax-trust-framework:policy ;
@@ -135,7 +126,7 @@ gax-validation:geoDataResourceShape
 				  sh:description "Eine Liste von Richtlinien, die mit einem DSL (z. B. Rego oder ODRL) ausgedrückt wurden (Zugangskontrolle, Drossel, Nutzung, Aufbewahrung,…)"@de ;
 				  sh:description "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)"@en ;
 				  skos:example "'https://gaia-x.eu'" ;
-				  sh:order 13 ;
+				  sh:order 12 ;
 				  sh:minCount 1 ;
 				  sh:datatype xsd:string ] ;
 	sh:property [ sh:path dcterms:conformsTo ;
@@ -143,15 +134,15 @@ gax-validation:geoDataResourceShape
 				  sh:description "Ein Standard dem die Beschreibung dieser Datenresource befolgt."@de ;
 				  sh:description "An established standard to which the described resource conforms."@en ;
 				  skos:example "DCAT, ISO19115" ;
-				  sh:order 14 ;
+				  sh:order 13 ;
 				  sh:datatype xsd:string ] ;
-
+	### temporal attributes ###
 	sh:property [ sh:path dcterms:issued ;
 				  sh:name "issue date" ;
 				  sh:description "Datum an dem die Resource veröffentlicht wurde (Datum Uhrzeit im ISO 8601-Format)."@de ;
 				  sh:description "Date of formal issuance (e.g., publication) of the resource. (date time in ISO 8601 format)."@en ;
 				  skos:example "'2022-10-26T21:32:52'" ;
-				  sh:order 15 ;
+				  sh:order 14 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:dateTime ] ;
 	sh:property [ sh:path dcterms:modified ;
@@ -159,10 +150,9 @@ gax-validation:geoDataResourceShape
 				  sh:description "Aktuellstes Datum an dem die Resource geändert/aktualisiert worden ist (Datum Uhrzeit im ISO 8601-Format)."@de ;
 				  sh:description "Most recent date on which the resource was changed, updated or modified (date time in ISO 8601 format)."@en ;
 				  skos:example "'2022-10-26T21:32:52'" ;
-				  sh:order 16 ;
+				  sh:order 15 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:dateTime ] ;
-
 	sh:property [ sh:path dcterms:temporal ;
 				  sh:name "temporal coverage" ;
 				  sh:description "Zeitliche Periode in der die Datenresource aufgenommen worden ist."@de ;
@@ -172,6 +162,7 @@ gax-validation:geoDataResourceShape
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:node dcterms:PeriodOfTime ] ;
+	### spatial attributes ###
 	sh:property [ sh:path dcterms:spatial ;
 				  sh:name "spatial coverage" ;
 				  sh:description "Räumliche Abdeckung wo die Datenresource aufgenommen worden ist."@de ;
@@ -181,7 +172,7 @@ gax-validation:geoDataResourceShape
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:node dcterms:Location ] ;
-
+	### contact attributes ###
 	sh:property [ sh:path vcard:Kind ;
 				  sh:name "contact person" ;
 				  sh:description "Aktuellstes Datum an dem die Resource geändert/aktualisiert worden ist (Datum Uhrzeit im ISO 8601-Format)."@de ;
@@ -190,7 +181,16 @@ gax-validation:geoDataResourceShape
 				  sh:order 19 ;
 				  sh:maxCount 1 ;
 				  sh:node vcard:Individual] ;
-
+	### data space linkage attributes ###
+	sh:property [ sh:path gax-trust-framework:providedBy ;
+				  sh:name "produced by" ;
+				  sh:description "Ein auflösbarer Link zur Selbstbeschreibung der Teilnehmer ermöglicht legal die Datennutzung."@de ;
+				  sh:description "A resolvable link to the participant self-description legally enabling the data usage."@en ;
+				  skos:example "'(a reference to gax-core:Participant object)'" ;
+				  sh:order 20 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
 	sh:property [ sh:path gax-trust-framework:producedBy ;
 				  sh:name "produced by" ;
 				  sh:description "Ein auflösbarer Link zur Selbstbeschreibung der Teilnehmer ermöglicht legal die Datennutzung."@de ;
@@ -225,7 +225,6 @@ gax-validation:geoDataResourceShape
 				  sh:order 23 ;
 				  sh:minCount 1 ;
 				  sh:node vcard:Individual ] ;
-
 	sh:property [ sh:path gax-trust-framework:aggregationOf ;
 				  sh:name "aggregation of" ;
 				  sh:description "Ressourcen im Zusammenhang mit der Ressource und das kann unabhängig davon existieren."@de ;
@@ -318,6 +317,8 @@ vcard:Individual
 				  sh:datatype xsd:string ] ;
 .
 
+### LINK TO SENSOR SELF-DESCRRIPTIONS IS PROBABLY COVERED BY "AGGREGATIONOF" ATTRIBUTE IN GAIA-X ###
+# ????
 ### NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ###
 #dcat:Distribution
 #	a sh:NodeShape ;
