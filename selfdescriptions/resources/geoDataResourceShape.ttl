@@ -26,7 +26,7 @@
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
-gax-validation:DataResourceShape
+gax-validation:geoDataResourceShape
 	a sh:NodeShape ;
 	sh:targetClass gax-trust-framework:DataResource ;
 	sh:property [ sh:path dcterms:title ;
@@ -78,7 +78,7 @@ gax-validation:DataResourceShape
 				  sh:description "The file format of the data resource."@en ;
 				  skos:example "'free-text'" ;
 				  sh:order 6 ;
-				  sh:minCount 1 ;
+				  sh:minCount 0 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
 	sh:property [ sh:path dcterms:byteSize ;
