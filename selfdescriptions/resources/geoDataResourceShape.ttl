@@ -319,17 +319,17 @@ vcard:Individual
 
 
 ### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
-#dcat:Distribution
-#	a sh:NodeShape ;
-#	sh:targetClass dcat:Distribution ;
-#	sh:property [ sh:path dcat:title ;
-#				  sh:name "distribution title" ;
-#				  sh:description "Der Name der Distribution."@de ;
-#				  sh:description "A name given to the distribution.."@en ;
-#				  skos:example "' '" ;
-#				  sh:order 1 ;
-#				  sh:maxCount 1 ;
-#				  sh:datatype xsd:string ] ;
+dcat:Distribution
+	a sh:NodeShape ;
+	sh:targetClass dcat:Distribution ;
+	sh:property [ sh:path dcat:title ;
+				  sh:name "distribution title" ;
+				  sh:description "Der Name der Distribution."@de ;
+				  sh:description "A name given to the distribution.."@en ;
+				  skos:example "' '" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
 #	sh:property [ sh:path dcat:mediaType ;
 #				  sh:name "distribution media type" ;
 #				  sh:description "Der Medientyo der Distribution wie definiert bei IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@de ;
@@ -370,5 +370,5 @@ vcard:Individual
 #				  sh:order 6 ;
 #				  sh:maxCount 1 ;
 #				  sh:datatype xsd:string ] ;
-#.
+.
 ###########################################################################################################
