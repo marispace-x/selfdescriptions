@@ -68,8 +68,6 @@ gax-validation:geoDataResourceShape
 				  sh:description "The file format of the data resource."@en ;
 				  skos:example "'free-text'" ;
 				  sh:order 5 ;
-				  sh:minCount 0 ;
-				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
 	sh:property [ sh:path dcterms:byteSize ;
 				  sh:name "data size" ;
