@@ -1,0 +1,306 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+# add sensor ontologies
+@prefix ssn: <http://www.w3.org/ns/ssn#> .
+@prefix sosa: <http://www.w3.org/ns/sosa#> .
+@prefix device: <http://mmisw.org/ont/mmi/device#> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+# QUESTIONS
+
+# Why is there a '#' at the end of the other packages/namespaces URLs?
+
+
+gax-validation:sensorSideScanSonarShape
+	a sh:NodeShape ; 
+	sh:targetClass gax-trust-framework:DataResource ;
+	# Example: Frequency 100/400 kHz, 300/600 kHz
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "acoustic center frequency" ;
+				  sh:description "Akustische Frequenz die vom Sonar gesendet wird in [Hz]."@de ;
+				  sh:description "Acoustic center frequency emitted by the sonar in [Hz]."@en ;
+				  skos:example "300000" ;
+				  sh:order 1 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 2 ;
+				  sh:datatype xsd:integer
+				  ] ;
+	# Pulse Length	100 kHz up to 20 ms 300 kHz up to 10 ms 400 kHz up to 10 ms 600 kHz up to 5 ms
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "pulse length" ;
+				  sh:description "Sonar Pulslänge die vom Sonar gesendet wird in [ms]."@de ;
+				  sh:description "Sonar pulse length emitted by the sonar in [ms]."@en ;
+				  skos:example "20" ;
+				  sh:order 2 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:integer
+				  ] ;
+	# Example: Output Power	100 kHz: 4 joules, 400 kHz: 2 joules ; 300 kHz: 2 joules, 600 kHz: 1 joule
+	# Question is wether the dependency to the frequency can be expressed
+	sh:property [ sh:path ssn-system:OperatingPowerRange ;
+				  sh:name "source power" ;
+				  sh:description "Energie die vom Sonar abgegeben wird in [J]."@de ;
+				  sh:description "Energy being emitted by sensor in [J]."@en ;
+				  skos:example "4" ;
+				  sh:order 3 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:integer
+				  ] ;
+	# Example: Spatial Resolution Across Track	100 kHz: 8 cm, 400 kHz: 2 cm ; 300 kHz: 3 cm, 600 kHz: 1.5 cm
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "spatial resolution across track" ;
+				  sh:description "Räumliche Auflösung in across track Richtung in [m]."@de ;
+				  sh:description "Spatial resolution across track in [m]."@en ;
+				  skos:example "3.0" ;
+				  sh:order 4 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Spatial Resolution Along Track	100 kHz: 2.5m @ 200 meter range; 400 kHz: 0.5m @ 100 meter range; 300 kHz: 1.0 m @ 200 meter range; 600 kHz: 0.45 m @ 100 meter range
+	# ? can this be expressed as feture of interest -> property ?
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "spatial resolution along track." ;
+				  sh:description "Räumliche Auflösung in along track Richtung in [m]."@de ;
+				  sh:description "Spatial resolution along track in [m]."@en ;
+				  skos:example "3.0" ;
+				  sh:order 5 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Horizontal Beam Width	100 kHz: 0.64°, 400 kHz: 0.3° 300 kHz: 0.28°, 600 kHz: 0.26°
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "beam opening angle along track" ;
+				  sh:description "Strahlöffnungswinkel in along track Richtung (auch bezeichnet als Horizontale Strahlbreite) in [°]."@de ;
+				  sh:description "Beam opening angle in along track direction (also called horizontal beam width) in [°]."@en ;
+				  skos:example "0.64" ;
+				  sh:order 6 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Vertical Beam Width 50.0°
+	sh:property [ sh:path ssn-system:SystemProperty ;
+				  sh:name "beam opening angle across track" ;
+				  sh:description "Strahlöffnungswinkel in across track Richtung (auch bezeichnet als Vertikale Strahlbreite) in [°]."@de ;
+				  sh:description "Beam opening angle in across track direction (also called vertical beam width) in [°]."@en ;
+				  skos:example "50.0" ;
+				  sh:order 7 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Heading Accuracy: < 1.5° RMS
+	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
+	# again question is, wether accuracy can only be referred to the observed propoerty
+	sh:property [ sh:path ssn-system:Accuracy;
+				  sh:name "heading accuray" ;
+				  sh:description "Kursgenauigkeit in [°] (RMS)"@de ;
+				  sh:description "Heading accuracy in [°] (RMS)"@en ;
+				  skos:example "1.5" ;
+				  sh:order 8 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Heading Resolution: 0.1°
+	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
+	# same question as for accuracy
+	sh:property [ sh:path ssn-system:Resolution;
+				  sh:name "heading resolution" ;
+				  sh:description "Kursauflösung in [°]."@de ;
+				  sh:description "Heading resolution in [°]."@en ;
+				  skos:example "0.1" ;
+				  sh:order 9 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Roll Angle Accuracy: ± 0.4°
+	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
+	# again question is, wether accuracy can only be referred to the observed propoerty
+	sh:property [ sh:path ssn-system:Accuracy ;
+				  sh:name "roll, pitch angle accuracy" ;
+				  sh:description "Rollen Winkelgenauigkeit in [°]."@de ;
+				  sh:description "Roll angle accuracy in [°]."@en ;
+				  skos:example "0.4" ;
+				  sh:order 10 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Roll Angle Resolution: 0.1°
+	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
+	# same question as for accuracy
+	sh:property [ sh:path ssn-system:Resolution ;
+				  sh:name "roll and pitch resolution" ;
+				  sh:description "Rollen Winkelauflösung in [°]."@de ;
+				  sh:description "Roll angle resolution in [°]."@en ;
+				  skos:example "0.1" ;
+				  sh:order 11 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Pitch Angle Accuracy: ± 0.4°
+	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMAccuracy
+	# again question is, wether accuracy can only be referred to the observed propoerty
+	sh:property [ sh:path ssn-system:Accuracy ;
+				  sh:name "roll, pitch angle accuracy" ;
+				  sh:description "Stampfen Winkelgenauigkeit in [°]."@de ;
+				  sh:description "Pitch angle accuracy in [°]."@en ;
+				  skos:example "0.4" ;
+				  sh:order 12 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+	# Example: Pitch Angle Resolution: 0.1°
+	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMResolution
+	# same question as for accuracy
+	sh:property [ sh:path ssn-system:Resolution ;
+				  sh:name "roll and pitch resolution" ;
+				  sh:description "Stampfen Winkelauflösung in [°]."@de ;
+				  sh:description "Pitch angle resolution in [°]."@en ;
+				  skos:example "0.1" ;
+				  sh:order 13 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:decimal
+				  ] ;
+#### OPERATING PROPOERTIES ####
+	# Example: Operating Temperature	0° C to 45°C
+	sh:property [ sh:path ssn-system:OperatingRange ;
+				  sh:name "operating temperature" ;
+				  sh:description "Anwendungstemperatur in [°C]."@de ;
+				  sh:description "Operating temperature in [°C]."@en ;
+				  skos:example "0" ;
+				  sh:order 14 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 2 ;
+				  sh:datatype xsd:integer
+				  ] ;
+
+	# Example: Operating Depth (meters)	2000 (SS) / 300 (Alum) tow bodies
+	# https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingRange
+	# When speaking of a range in this case two values would potentially make sense (0 - 2000m)?
+	# !!! find out how to ask for two values here
+	sh:property [ sh:path ssn-system:OperatingRange ;
+				  sh:name "operating depth" ;
+				  sh:description "Anwendungstiefe in [m]."@de ;
+				  sh:description "operating depth in [m]."@en ;
+				  skos:example "2000" ;
+				  sh:order 15 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:integer
+				  ] ;
+	#Towing Speed (max safe)	12 knots -> not yet included (could be added by value range? but this would then only be valid for this specific sensor not sidescansonars in general)
+	#Towing Speed *	4.8 knots in HDM, 9.6 knots in HSM
+	#https://www.w3.org/TR/vocab-ssn/#SSNSYSTEMOperatingProperty
+	sh:property [ sh:path ssn-system:OperatingProperty ;
+				  sh:name "towing speed" ;
+				  sh:description "Maximale Geschwindigkeit mit der das Sonar geschleppt werden kann in [m/s]."@de ;
+				  sh:description "Maximum towing speed of the sonar in [m/s]."@en ;
+				  skos:example "300" ;
+				  sh:order 16 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:integer
+				  ] ;
+
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+	sh:property [ sh:path dcat:distribution ;
+				  sh:name "distribution" ;
+				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@de ;
+				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+				  skos:example "'a link to the actual data'" ;
+				  sh:order 17 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcat:Distribution] ;
+###########################################################################################################
+.
+
+
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+dcat:Distribution
+	a sh:NodeShape ;
+	sh:targetClass dcat:Distribution ;
+	sh:property [ sh:path dcat:title ;
+				  sh:name "distribution title" ;
+				  sh:description "Der Name der Distribution."@de ;
+				  sh:description "A name given to the distribution.."@en ;
+				  skos:example "' '" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:mediaType ;
+				  sh:name "distribution media type" ;
+				  sh:description "Der Medientyo der Distribution wie definiert bei IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@de ;
+				  sh:description "The media type of the distribution as defined by IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
+				  skos:example "'Surveyor'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:byteSize;
+				  sh:name "distribution byte size" ;
+				  sh:description "Die Größe der Distribution in Bytes."@de ;
+				  sh:description "The size of a distribution in bytes.."@en ;
+				  skos:example "''" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger] ;
+#	sh:property [ sh:path LOCATION;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@de ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 4 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path HASH;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@de ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 5 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path HASH_ALGORITHM;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@de ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 6 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+.
+###########################################################################################################
