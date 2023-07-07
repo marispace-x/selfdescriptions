@@ -1,0 +1,112 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "cc": "http://creativecommons.org/ns#",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ids": "https://w3id.org/idsa/core/",
+    "device": "http://mmisw.org/ont/mmi/device#",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "bsh_site_n37_multibeam_raw_file-20190822_090239-9106_-_0001.xtf",
+  "@type": "gax-trust-framework:DataResource",
+  "device:hasManufacturer": {
+    "@value": "NORBIT",
+    "@type": "xsd:string"
+  },
+  "device:hasModelID": {
+    "@value": "512312-213NO",
+    "@type": "xsd:string"
+  },
+  "device:hasModelIDSynonym": {
+    "@value": "iWBMSh",
+    "@type": "xsd:string"
+  },
+  "device:hasSerialNumber": {
+    "@value": "123456789IR",
+    "@type": "xsd:string"
+  },
+  "device:hasWebSite": {
+    "@value": "https://norbit.com/media/PS-150010-11_iWBMSh_A4.pdf",
+    "@type": "xsd:string"
+  },
+  "device:hasOwner": {
+    "@type": "vcard:Individual",
+    "vcard:org": {
+      "@value": "VBW Weigt GmbH",
+      "@type": "xsd:string"
+    }
+  },
+  "device:hasProvider": {
+    "@type": "vcard:Individual",
+    "vcard:org": {
+      "@value": "NORBIT",
+      "@type": "xsd:string"
+    }
+  },
+  "device:hasPointOfContact": {
+    "@type": "vcard:Individual",
+    "vcard:org": {
+      "@value": "VBW Weigt GmbH",
+      "@type": "xsd:string"
+    }
+  },
+  "device:CalibrationProcedure": {
+    "@value": "description of calibration procedure",
+    "@type": "xsd:string"
+  },
+  "device:MaintenanceProcedure": {
+    "@value": "description of maintenance procedure",
+    "@type": "xsd:string"
+  },
+  "device:QualityAssuranceProcedure": {
+    "@value": "description of quality assurance procedure",
+    "@type": "xsd:string"
+  },
+  "device:Process": {
+    "@value": "Raw multibeam data acquired with the Norbit iWBMSh and stored into XTF file without additional processing",
+    "@type": "xsd:string"
+  },
+  "dcterms:temporal": {
+    "@type": "dcterms:PeriodOfTime",
+    "dcat:startDate": {
+      "@value": "2019-08-22T09:02:39",
+      "@type": "xsd:dateTime"
+    },
+    "dcat:endDate": {
+      "@value": "2019-08-22T09:05:04",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "locn:geometry": {
+      "@value": "{\"type\":\"Polygon\",\"coordinates\":[[[7.082913781614215,54.081356803832335],[7.0829927339121435,54.08129717546038],[7.082996989386597,54.081294146190565],[7.083206967621209,54.0811671681422],[7.084401613838196,54.08048178056553],[7.086027597279738,54.0795923820042],[7.086444337756718,54.07936628099093],[7.087040142449949,54.07906096483324],[7.0871602218654335,54.07900114933599],[7.087286389040042,54.078952748981],[7.087300130698272,54.078963523999164],[7.087314769429723,54.078975002416655],[7.087407077006839,54.079047381788996],[7.08769990782098,54.07927699148933],[7.088218104667851,54.07968330362225],[7.088296430119439,54.07974471682271],[7.088306696176495,54.07975276618688],[7.088295179011125,54.07976844813541],[7.088276010971127,54.07978889195563],[7.084315769299872,54.08201134018164],[7.084067034353007,54.08209639485076],[7.084061363348154,54.08209829522953],[7.083999321882918,54.082117249079836],[7.083989434286265,54.08211032276548],[7.083365019324198,54.081672910474595],[7.08326735078783,54.08160449104558],[7.083014727427258,54.08142752020607],[7.082956728907981,54.081386890081234],[7.082933067132808,54.081370314095075],[7.082919023506335,54.08136047598469],[7.082913781614215,54.081356803832335],[7.082913781614215,54.081356803832335]]]}",
+      "@type": "xsd:string"
+    }
+  },
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dcat:title": {
+      "@value": "REPLACE-WITH-LINK-TO-FILE-20190822_090239-9106_-_0001.xtf",
+      "@type": "xsd:string"
+    }
+  }
+}
