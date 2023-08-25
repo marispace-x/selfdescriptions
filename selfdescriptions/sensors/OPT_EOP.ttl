@@ -92,12 +92,30 @@ eop:EarthObservationEquipment
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path gml:beginPosition ;
+				  sh:name "Acquisition start date time" ;
+				  sh:description "Startzeitpunkt der Aufnahme (CCYY-MM-DDThh:mm[:ss[.cc]]Z)."@de ;
+				  sh:description "Acquisition start date time (CCYY-MM-DDThh:mm[:ss[.cc]]Z)."@en ;
+				  skos:example "2023-07-08T10:26:01.024Z" ;
+				  sh:order 3 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path gml:endPosition ;
+				  sh:name "Acquisition end date time" ;
+				  sh:description "Endzeitpunkt der Aufnahme (CCYY-MM-DDThh:mm[:ss[.cc]]Z)."@de ;
+				  sh:description "Acquisition end date time (CCYY-MM-DDThh:mm[:ss[.cc]]Z)."@en ;
+				  skos:example "2023-07-08T10:26:01.024Z" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
 	sh:property [ sh:path eop:orbitType ;
 				  sh:name "Orbit Type" ;
 				  sh:description "Grobe Charakterisierung des MIssionstyps (GEO: Geostationärer Orbit, LEO: Low Elevation Orbit)."@de ;
 				  sh:description "High level characterisation of main mission types taken from a codelist (GEO: Geostationary orbit, LEO: low elevation orbit)."@en ;
 				  skos:example "'LEO'" ;
-				  sh:order 3 ;
+				  sh:order 5 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;	
 	sh:property [ sh:path eop:shortName ;
@@ -105,7 +123,7 @@ eop:EarthObservationEquipment
 				  sh:description "Name des Sensors."@de ;
 				  sh:description "Instrument (Sensor) name."@en ;
 				  skos:example "'Multispectral Instrument'" ;
-				  sh:order 4 ;
+				  sh:order 6 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;					  
@@ -114,7 +132,7 @@ eop:EarthObservationEquipment
 				  sh:description "Sensortyp. Mögliche Werte: OPTICAL, RADAR, ALTIMETRIC, ATMOSPHERIC, LIMB."@de ;
 				  sh:description "Sensor type based on codelist. Values: OPTICAL, RADAR, ALTIMETRIC, ATMOSPHERIC, LIMB."@en ;
 				  skos:example "'Push broom scanner '" ;
-				  sh:order 5 ;
+				  sh:order 7 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;	
@@ -123,7 +141,7 @@ eop:EarthObservationEquipment
 				  sh:description "Liste der diskreten Wellenlengen im Produkt."@de ;
 				  sh:description "List of discrete wavelengths observed in the product (gml:MeasureList)."@en ;
 				  skos:example "'[505, 632, 754] '" ;
-				  sh:order 6 ;
+				  sh:order 8 ;
 				  sh:maxCount 1 ;
 				  sh:datatype gml:MeasureList ] ;				
 	sh:property [ sh:path eop:spectralRange ;
@@ -131,7 +149,7 @@ eop:EarthObservationEquipment
 				  sh:description "Abgebildeter Spektralbereich. Werte: INFRARED, NEAR-INFRARED, UV, VISIBLE, OTHER."@de ;
 				  sh:description "The observed Spectral Range. Values: INFRARED, NEAR-INFRARED, UV, VISIBLE, OTHER."@en ;
 				  skos:example "'VISIBLE'" ;
-				  sh:order 7 ;
+				  sh:order 9 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;	
 	sh:property [ sh:path eop:orbitNumber ;
@@ -139,7 +157,7 @@ eop:EarthObservationEquipment
 				  sh:description "Orbit Nummber der Aufnahme."@de ;
 				  sh:description "Acquisition orbit number."@en ;
 				  skos:example "'108'" ;
-				  sh:order 8 ;
+				  sh:order 10 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:nonNegativeInteger ] ;	
 	sh:property [ sh:path eop:orbitDirection ;
@@ -147,7 +165,7 @@ eop:EarthObservationEquipment
 				  sh:description "Richtung des Aufnahmeorbits. Werte: ASCENDING, DESCENDING."@de ;
 				  sh:description "Acquisition orbit direction. Values: ASCENDING, DESCENDING."@en ;
 				  skos:example "'DESCENDING'" ;
-				  sh:order 9 ;
+				  sh:order 11 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;					  
     sh:property [ sh:path eop:illuminationAzimuthAngle ;
@@ -155,7 +173,7 @@ eop:EarthObservationEquipment
 				  sh:description "Mittlerer Azimutwinkel der Sonne in Grad."@de ;
 				  sh:description "Mean illumination/solar azimuth angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 10 ;
+				  sh:order 12 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;
     sh:property [ sh:path eop:illuminationZenithAngle ;
@@ -163,7 +181,7 @@ eop:EarthObservationEquipment
 				  sh:description "Mittlerer Zenitwinkel der Sonne in Grad."@de ;
 				  sh:description "Mean illumination/solar zenith angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 11 ;
+				  sh:order 13 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;
     sh:property [ sh:path eop:illuminationElevationAngle ;
@@ -171,7 +189,7 @@ eop:EarthObservationEquipment
 				  sh:description "Mittlerer Sonnenhöhenwinkel (Elevation) in Grad."@de ;
 				  sh:description "Mean illumination/solar elevation angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 12 ;
+				  sh:order 14 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;
 	sh:property [ sh:path eop:instrumentAzimuthAngle ;
@@ -179,7 +197,7 @@ eop:EarthObservationEquipment
 				  sh:description "Mittlerer Azimutwinkel des Sensors in Grad."@de ;
 				  sh:description "Mean instrument azimuth angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 13 ;
+				  sh:order 15 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;
 	sh:property [ sh:path eop:instrumentZenithAngle ;
@@ -187,7 +205,7 @@ eop:EarthObservationEquipment
 				  sh:description "Mittlerer Zenitwinkel des Sensors in Grad."@de ;
 				  sh:description "Mean instrument zenith angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 14 ;
+				  sh:order 16 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;				  
 	sh:property [ sh:path eop:instrumentElevationAngle ;
@@ -195,7 +213,7 @@ eop:EarthObservationEquipment
 				  sh:description "Mittlerer Sensorhöhenwinkel (Elevation) in Grad."@de ;
 				  sh:description "Mean instrument elevation angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 15 ;
+				  sh:order 17 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;				  				  
 	sh:property [ sh:path eop:incidenceAngle ;
@@ -203,7 +221,7 @@ eop:EarthObservationEquipment
 				  sh:description "Globaler Einfallswinkel der Aufnahme in Grad."@de ;
 				  sh:description "Acquisition global incidence angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 16 ;
+				  sh:order 18 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;					  
 	sh:property [ sh:path eop:acrossTrackIncidenceAngle ;
@@ -211,7 +229,7 @@ eop:EarthObservationEquipment
 				  sh:description "Across track Einfallswinkel der Aufnahme in Grad."@de ;
 				  sh:description "Acquisition across track incidence angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 17 ;
+				  sh:order 19 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;					  				  
 	sh:property [ sh:path eop:alongTrackIncidenceAngle ;
@@ -219,7 +237,7 @@ eop:EarthObservationEquipment
 				  sh:description "Along track Einfallswinkel der Aufnahme in Grad."@de ;
 				  sh:description "Acquisition along  track incidence angle given in degrees."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 17 ;
+				  sh:order 20 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;					  
 	sh:property [ sh:path eop:pitch ;
@@ -227,7 +245,7 @@ eop:EarthObservationEquipment
 				  sh:description "Nickwinkel (pitch) des Satelliten in Grad."@de ;
 				  sh:description "Satellite pitch angle given in degrees ."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 18 ;
+				  sh:order 21 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;					  
 	sh:property [ sh:path eop:roll ;
@@ -235,7 +253,7 @@ eop:EarthObservationEquipment
 				  sh:description "Rollwinkel (roll) des Satelliten in Grad."@de ;
 				  sh:description "Satellite roll angle given in degrees ."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 19 ;
+				  sh:order 22 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;					  				  
 	sh:property [ sh:path eop:yaw ;
@@ -243,11 +261,31 @@ eop:EarthObservationEquipment
 				  sh:description "Gierwinkel (yaw) des Satelliten in Grad."@de ;
 				  sh:description "Satellite yaw angle given in degrees ."@en ;
 				  skos:example "'47.2'" ;
-				  sh:order 20 ;
+				  sh:order 23 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:double ] ;						  
 .
 
+eop:EarthObservationResult
+	a sh:NodeShape ;
+	sh:targetClass eop:EarthObservationResult ;
+	sh:property [ sh:path opt:cloudCoverPercentage ;
+				  sh:name "Cloud cover percentage " ;
+				  sh:description "Wolkenbedeckung (%)."@de ;
+				  sh:description "Cloud cover percentage (%) "@en ;
+				  skos:example "'22'" ;
+				  sh:order 26 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;
+	sh:property [ sh:path opt:snowCoverPercentage ;
+				  sh:name "Snow cover percentage " ;
+				  sh:description "Schneebedeckung (%)."@de ;
+				  sh:description "Snow cover percentage (%) "@en ;
+				  skos:example "'22'" ;
+				  sh:order 27 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;				  
+.
 
 eop:EarthObservationMetaData
 	a sh:NodeShape ;
@@ -300,27 +338,6 @@ eop:EarthObservationMetaData
 				  sh:order 25 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;				  
-.
-
-eop:EarthObservationResult
-	a sh:NodeShape ;
-	sh:targetClass eop:EarthObservationResult ;
-	sh:property [ sh:path opt:cloudCoverPercentage ;
-				  sh:name "Cloud cover percentage " ;
-				  sh:description "Wolkenbedeckung (%)."@de ;
-				  sh:description "Cloud cover percentage (%) "@en ;
-				  skos:example "'22'" ;
-				  sh:order 26 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:double ] ;
-	sh:property [ sh:path opt:snowCoverPercentage ;
-				  sh:name "Snow cover percentage " ;
-				  sh:description "Schneebedeckung (%)."@de ;
-				  sh:description "Snow cover percentage (%) "@en ;
-				  skos:example "'22'" ;
-				  sh:order 27 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:double ] ;				  
 .
 
 eop:ParameterInformation
