@@ -1,0 +1,209 @@
+@prefix sensor: <http://example.org/ns/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sensor:BuoyShape 
+    a sh:NodeShape ;
+    sh:targetClass sensor:Buoy ;
+    sh:property
+        sensor:spotterId ,
+        sensor:spotterName ,
+        sensor:payloadType ,
+        sensor:batteryVoltage ,
+        sensor:batteryPower ,
+        sensor:solarVoltage ,
+        sensor:humidity ,
+        sensor:trackList ;
+    sh:node sensor:Track ;
+    sh:node sensor:Wave ;
+    sh:node sensor:FrequencyData .
+
+sensor:spotterId 
+    a sh:PropertyShape ;
+    sh:path sensor:spotterId ;
+    sh:name "SpotterId" ;
+    sh:description "ID of the spotter buoy, e.g.: 'SPOT-1111'" ;
+    sh:datatype xsd:string;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sensor:spotterName
+    a sh:PropertyShape ;
+    sh:path sensor:spotterName ;
+    sh:name "SpotterName" ;
+    sh:description "Name of the spotter buoy" ;
+    sh:datatype xsd:string;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sensor:payloadType
+    a sh:PropertyShape ;
+    sh:path sensor:payloadType ;
+    sh:name "payloadType" ;
+    sh:description "payloadType of the spotter buoy" ;
+    sh:datatype xsd:string;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sensor:batteryVoltage
+    a sh:PropertyShape ;
+    sh:path sensor:batteryVoltage ;
+    sh:name "batteryVoltage" ;
+    sh:description "batteryVoltage of the spotter buoy" ;
+    sh:or ( 
+        [ sh:datatype xsd:double ] 
+        [ sh:datatype xsd:float ] 
+        [ sh:datatype xsd:integer ] ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sensor:batteryPower
+    a sh:PropertyShape ;
+    sh:path sensor:batteryPower ;
+    sh:name "batteryPower" ;
+    sh:description "batteryPower of the spotter buoy" ;
+    sh:or ( 
+        [ sh:datatype xsd:double ] 
+        [ sh:datatype xsd:float ] 
+        [ sh:datatype xsd:integer ] ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sensor:solarVoltage
+    a sh:PropertyShape ;
+    sh:path sensor:solarVoltage ;
+    sh:name "solarVoltage" ;
+    sh:description "solarVoltage of the spotter buoy" ;
+    sh:or ( 
+        [ sh:datatype xsd:double ] 
+        [ sh:datatype xsd:float ] 
+        [ sh:datatype xsd:integer ] ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sensor:humidity
+    a sh:PropertyShape ;
+    sh:path sensor:humidity ;
+    sh:name "humidity" ;
+    sh:description "humidity of the spotter buoy" ;
+    sh:or ( 
+        [ sh:datatype xsd:double ] 
+        [ sh:datatype xsd:float ] 
+        [ sh:datatype xsd:integer ] ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sensor:trackList
+    a sh:PropertyShape ;
+    sh:path sensor:trackList ;
+    sh:minCount 1 ;
+    sh:class sensor:Track .
+
+# TrackShape
+sensor:TrackShape
+    a sh:NodeShape ;
+    sh:targetClass sensor:Track ;
+    sh:name "tracks" ;
+    sh:description "position at a specific time" ;
+    sh:property 
+        sensor:latitude ,
+        sensor:longitude , 
+        sensor:timestamp .
+
+sensor:latitude
+    a sh:PropertyShape ;
+    sh:path sensor:latitude ;
+    sh:name "latitude" ;
+    sh:description "A coordinate that specifies the north-south position of a point." ;
+    sh:datatype xsd:double.
+
+sensor:longitude
+    a sh:PropertyShape ;
+    sh:path sensor:longitude ;
+    sh:name "longitude" ;
+    sh:description "A coordinate that specifies the east-west position of a point." ;
+    sh:datatype xsd:double .
+
+sensor:timestamp
+    a sh:PropertyShape ;
+    sh:path sensor:timestamp ;
+    sh:name "timestamp" ;
+    sh:description "date and time of day; format: yyyy-mm-ddThh:mm:ss.sssZ" ;
+    sh:datatype xsd:string . 
+    # This should be "xsd:dateTimeStamp" instead of "xsd:string"; 
+    #   Script could not validate attribute successfully eventhough the format looked correctly.
+
+# WavesShape
+sensor:WavesShape
+    a sh:NodeShape ;
+    sh:targetClass sensor:Waves ;
+    sh:name "waves" ;
+    sh:description "waves of the spotter buoy" ;
+    sh:minCount 1 ;
+    sh:property 
+        sensor:significantWaveHeight ,
+        sensor:peakPeriod ,
+        sensor:meanPeriod ,
+        sensor:peakDirection ,
+        sensor:peakDirectionalSpread ,
+        sensor:meanDirection ,
+        sensor:meanDirectionalSpread ,
+        sensor:timestamp ,
+        sensor:latitude ,
+        sensor:longitude .
+
+sensor:significantWaveHeight
+    a sh:PropertyShape ;
+    sh:path sensor:significantWaveHeight ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:float .
+
+sensor:peakPeriod
+    a sh:PropertyShape ;
+    sh:path sensor:peakPeriod ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:float .
+
+sensor:meanPeriod
+    a sh:PropertyShape ;
+    sh:path sensor:meanPeriod ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:float .
+
+sensor:peakDirection
+    a sh:PropertyShape ;
+    sh:path sensor:peakDirection ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:float .
+
+sensor:peakDirectionalSpread
+    a sh:PropertyShape ;
+    sh:path sensor:peakDirectionalSpread ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:float .
+
+sensor:meanDirection
+    a sh:PropertyShape ;
+    sh:path sensor:meanDirection ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:float .
+
+sensor:meanDirectionalSpread
+    a sh:PropertyShape ;
+    sh:path sensor:meanDirectionalSpread ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:float .
+
+# FrequencyDataShape
+sensor:FrequencyDataShape
+    a sh:NodeShape ;
+    sh:targetClass sensor:FrequencyData ;
+    sh:name "frequencyData" ;
+    sh:description "frequencyData of the spotter buoy" .

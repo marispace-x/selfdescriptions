@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "@base": "https://example.com/",
+    "sensor": "http://example.org/ns/",
+    "@vocab": "http://schema.org/"
+  },
+  "@id": "did:example:test_understanding",
+  "@type": "sensor:Buoy",
+  "sensor:spotterId": "SPOT-1821",
+  "sensor:spotterName": "Digital Ocean Lab",
+  "sensor:payloadType": "waves",
+  "sensor:batteryVoltage": 4.1,
+  "sensor:batteryPower": -0.03,
+  "sensor:solarVoltage": 7,
+  "sensor:humidity": 68,
+  "sensor:trackList": [
+    {
+      "@type": "sensor:Track",
+      "sensor:latitude": 54.1779333,
+      "sensor:longitude": 11.9515667,
+      "sensor:timestamp": "2023-06-20T07:28:25.000Z"
+    },
+    {
+      "@type": "sensor:Track",
+      "sensor:latitude": 54.1779333,
+      "sensor:longitude": 11.9515667,
+      "sensor:timestamp": "2023-06-20T07:58:25.000Z"
+    }
+  ],
+  "sensor:Wave": [
+    {
+      "significantWaveHeight": 0.21,
+      "peakPeriod": 2.62,
+      "meanPeriod": 2.56,
+      "peakDirection": 12.87,
+      "peakDirectionalSpread": 53.101,
+      "meanDirection": 20.446,
+      "meanDirectionalSpread": 55.119,
+      "timestamp": "2023-06-20T07:28:25.000Z",
+      "latitude": 54.17793,
+      "longitude": 11.95157
+    },
+    {
+      "significantWaveHeight": 0.2,
+      "peakPeriod": 2.68,
+      "meanPeriod": 2.48,
+      "peakDirection": 10.18,
+      "peakDirectionalSpread": 48.511,
+      "meanDirection": 18.505,
+      "meanDirectionalSpread": 57.003,
+      "timestamp": "2023-06-20T07:58:25.000Z",
+      "latitude": 54.17793,
+      "longitude": 11.95157
+    }
+  ],
+  "sensor:frequencyData": []
+}
