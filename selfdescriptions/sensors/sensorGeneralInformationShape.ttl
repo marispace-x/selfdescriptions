@@ -30,7 +30,7 @@
 ## General Sensor Information ##
 gax-validation:sensorGeneralInformationShape
 	a sh:NodeShape ;
-	sh:targetClass gax-trust-framework:DataResource ;
+	sh:targetClass gax-trust-framework:SensorGeneralInformation ;
 	### general attributes ###
 	sh:property [ sh:path device:hasManufacturer ;
 				  sh:name "manufacturer" ;
