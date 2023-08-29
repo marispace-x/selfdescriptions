@@ -28,7 +28,7 @@
 
 gax-validation:geoDataResourceShape
 	a sh:NodeShape ;
-	sh:targetClass gax-trust-framework:DataResource ;
+	sh:targetClass gax-trust-framework:GeoDataResource ;
 	### general attributes ###
 	sh:property [ sh:path dcat:title ;
 				  sh:name "title" ;
