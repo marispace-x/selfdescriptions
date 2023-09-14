@@ -1,0 +1,208 @@
+{
+  "@context": {
+    "cc": "http://creativecommons.org/ns#",
+    "schema": "http://schema.org/",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ids": "https://w3id.org/idsa/core/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "bsh_site_n37",
+  "@type": "gax-trust-framework:GeoDataResource",
+  "dcat:title": {
+    "@value": "Preliminary Investigation ­of Site N-3.7",
+    "@type": "xsd:string"
+  },
+  "dcat:description": {
+    "@value": "Site N-3.7 is located in the German EEZ of the North Sea in the eastern part of area N-3 defined in the FEP 2020. It is located between the traffic separation areas “German Bight Western Approach” and “Terschelling German Bight”. The area in which the site is located is bordered to the east by the “Jade Approach” traffic separation area. The water depths are 29 to 33 m (Lowest Astronomical Tide). The offshore wind farms “Gode Wind 01” and “Gode Wind 02”, which are already in operation, border directly to the west. The project area of the approved project “Gode Wind 3” is located to the east. The distances to the nearest islands Norderney, Juist, Baltrum and Langeoog south of the area are about 30-40 km.",
+    "@type": "xsd:string"
+  },
+  "dcat:provenance": {
+    "@value": "The data set was acquired by different stakeholders. Informations about the sub data sets can be found in the respective folders and reports.",
+    "@type": "xsd:string"
+  },
+  "dcat:keyword": [
+    {
+      "@value": "BSH",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "site investigations",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "offshore wind",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "North Sea",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:theme": [
+    {
+      "@value": "Energy resources",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "Hydrography",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "Geology",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "Oceanographic geopgraphical features",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:type": {
+    "@value": "spatial data set",
+    "@type": "xsd:string"
+  },
+  "dcterms:byteSize": {
+    "@value": "3743530979328",
+    "@type": "xsd:nonNegativeInteger"
+  },
+  "dcterms:identifier": {
+    "@value": "86dd9ce9-956a-4eaf-b895-2569252c5ded",
+    "@type": "xsd:string"
+  },
+  "dcterms:license": {
+    "@value": "https://pinta.bsh.de/impressum?lang=en",
+    "@type": "xsd:string"
+  },
+  "gax-trust-framework:termsAndConditions": {
+    "@value": "https://pinta.bsh.de/impressum?lang=en",
+    "@type": "xsd:string"
+  },
+  "gax-trust-framework:policy": [
+    {
+      "@value": "https://pinta.bsh.de/datenschutz/?lang=en",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "https://www.gesetze-im-internet.de/geonutzv/GeoNutzV.pdf",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:conformsTo": [
+    {
+      "@value": "Windenergie-auf-See-Gesetz",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "INSPIRE",
+      "@type": "xsd:string"
+    },
+    {
+      "@type": "dcterms:Standard",
+      "dcterms:identifier": "EPSG: 4326"
+    }
+  ],
+  "dcterms:language": {
+    "@value": "eng",
+    "@type": "xsd:string"
+  },
+  "dcat:issued": {
+    "@value": "2021-08-01T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:modified": {
+    "@value": "2021-08-04T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "dcat:bbox": {
+      "@value": "POLYGON((7.0181252599140826 54.0167148082850659,7.0943228192623904 54.0167148082850659,7.0943228192623904  54.0792327810836824,7.0181252599140826 54.0792327810836824,7.0181252599140826 54.0167148082850659))",
+      "@type": "xsd:string"
+    },
+    "locn:geometry": {
+      "@value": "{ \\\\\\\"type\\\\\\\": \\\\\\\"FeatureCollection\\\\\\\", \\\\\\\"name\\\\\\\": \\\\\\\"BSH-Site-N37_coverage\\\\\\\", \\\\\\\"crs\\\\\\\": { \\\\\\\"type\\\\\\\": \\\\\\\"name\\\\\\\", \\\\\\\"properties\\\\\\\": { \\\\\\\"name\\\\\\\": \\\\\\\"urn:ogc:def:crs:OGC:1.3:CRS84\\\\\\\" } }, \\\\\\\"features\\\\\\\": [ { \\\\\\\"type\\\\\\\": \\\\\\\"Feature\\\\\\\", \\\\\\\"properties\\\\\\\": { \\\\\\\"id\\\\\\\": 1 }, \\\\\\\"geometry\\\\\\\": { \\\\\\\"type\\\\\\\": \\\\\\\"MultiPolygon\\\\\\\", \\\\\\\"coordinates\\\\\\\": [ [ [ [ 7.018125259914083, 54.036314496347515 ], [ 7.049906091543968, 54.056192539770606 ], [ 7.049906091543968, 54.056192539770606 ], [ 7.050150688546948, 54.059341470415497 ], [ 7.084104928607306, 54.079232781083682 ], [ 7.093553233570078, 54.048373895719294 ], [ 7.092043891088259, 54.048242550947336 ], [ 7.09432281926239, 54.040856804300205 ], [ 7.054420695983166, 54.016714808285066 ], [ 7.051709994440969, 54.017125789744938 ], [ 7.018125259914083, 54.036314496347515 ] ] ] ] } } ] }",
+      "@type": "xsd:string"
+    }
+  },
+  "vcard:Kind": {
+    "@type": "vcard:Individual",
+    "vcard:fn": {
+      "@value": "Erika Musterfrau",
+      "@type": "xsd:string"
+    },
+    "vcard:role": {
+      "@value": "data manager",
+      "@type": "xsd:string"
+    },
+    "vcard:org": {
+      "@value": "Musterfrau GmbH",
+      "@type": "xsd:string"
+    },
+    "vcard:email": {
+      "@value": "erika@musterfrau.de",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
+  },
+  "gax-trust-framework:producedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-BSH.url"
+  },
+  "gax-core:licensedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-BSH.url"
+  },
+  "gax-trust-framework:exposedThrough": {
+    "@id": "REPLACE_WITH-LINK-TO-data_exchange_component_that_exposes_the_data_resource.url"
+  },
+  "gax-trust-framework:aggregationOf": [
+    {
+      "@id": "REPLACE_WITH-LINK-TO-data_resource_self_description-bsh_site_n37_multibeam_raw.url"
+    },
+    {
+      "@id": "REPLACE_WITH-LINK-TO-data_resource_self_description-bsh_site_n37_multibeam_processed.url"
+    },
+    {
+      "@id": "REPLACE_WITH-LINK-TO-data_resource_self_description-bsh_site_n37_multibeam_products.url"
+    }
+  ],
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dcat:title": {
+      "@value": "bsh_site_n37_data_set",
+      "@type": "xsd:string"
+    },
+    "dcat:mediaType": {
+      "@value": "zip",
+      "@type": "xsd:string"
+    }
+  },
+  "dcterms:temporal": {
+    "@type": "dcterms:PeriodOfTime",
+    "dcat:startDate": {
+      "@value": "2019-01-01T00:00:00",
+      "@type": "xsd:dateTime"
+    },
+    "dcat:endDate": {
+      "@value": "2021-07-30T00:00:00",
+      "@type": "xsd:dateTime"
+    }
+  }
+}
