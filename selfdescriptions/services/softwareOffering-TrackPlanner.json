@@ -1,0 +1,130 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "gax-core": "http://w3id.org/gaia-x/core#"
+  },
+  "@id": "track_planner_mbes",
+  "@type": "gax-trust-framework:SoftwareOffering",
+  "dcat:title": {
+    "@value": "Survey track planning tool for mulitbeam echosounder surveys",
+    "@type": "xsd:string"
+  },
+  "dcat:description": {
+    "@value": "The tool allows the user user to compute survey track lines by (1) providing the survey area (polygon), and (2) defining multibeam and survey specific settings. The output are computed track lines that can be exported as different formats (e.g., shp, geojson, geopackage, csv) and survey information (e.g., track length, survey time).",
+    "@type": "xsd:string"
+  },
+  "dcterms:type": [
+    {
+      "@value": "spatial data service",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "Invoke Spatial Data Service",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "400-Geographic processing services – spatial",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "416-Route determination service",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:keyword": [
+    {
+      "@value": "track planning",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "multibeam",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "marine surveys",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:language": {
+    "@value": "eng",
+    "@type": "xsd:string"
+  },
+  "dcat:issued": {
+    "@value": "2023-09-19T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:modified": {
+    "@value": "2023-09-19T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "gax-trust-framework:termsAndConditions": {
+    "@type": "gax-trust-framework:TermsAndConditions",
+    "gax-trust-framework:content": {
+      "@value": "URLtoTermsandConditions.url",
+      "@type": "xsd:anyURI"
+    },
+    "gax-trust-framework:hash": {
+      "@value": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:policy": {
+    "@value": "URLtoPolicy.url",
+    "@type": "xsd:string"
+  },
+  "dcterms:license": {
+    "@value": "URLtoLicense.url",
+    "@type": "xsd:string"
+  },
+  "vcard:Kind": {
+    "@type": "vcard:Individual",
+    "vcard:fn": {
+      "@value": "Erika Musterfrau",
+      "@type": "xsd:string"
+    },
+    "vcard:role": {
+      "@value": "support",
+      "@type": "xsd:string"
+    },
+    "vcard:org": {
+      "@value": "Data Service GmbH",
+      "@type": "xsd:string"
+    },
+    "vcard:email": {
+      "@value": "support@dataservice.de",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-core:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description.url"
+  },
+  "gax-trust-framework:producedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description.url"
+  },
+  "gax-trust-framework:hostedOn": {
+    "@id": "REPLACE_WITH-LINK-TO-data_center_self_description.url"
+  },
+  "gax-trust-framework:dataAccountExport": {
+    "@type": "gax-trust-framework:DataAccountExport",
+    "gax-trust-framework:requestType": {
+      "@value": "API",
+      "@type": "xsd:string"
+    },
+    "gax-trust-framework:accessType": {
+      "@value": "digital",
+      "@type": "xsd:string"
+    },
+    "gax-trust-framework:formatType": {
+      "@value": "'application/geo+json', 'application/geopackage+sqlite3',  'vnd.shp',  'text/csv’",
+      "@type": "xsd:string"
+    }
+  }
+}
