@@ -1,0 +1,210 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+# add additional namespaces
+@prefix device: <http://mmisw.org/ont/mmi/device#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+## General Sensor Information ##
+gax-validation:sensorSurveyInformationShape
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:SensorSurveyInformation ;
+	### general attributes ###
+	sh:property [ sh:path device:platform;
+				  sh:name "platform" ;
+				  sh:description "Platform type on which the sensor was installed for the acquired data, e.g., vessel, AUV, buoy, satellite, …"@en ;
+				  skos:example "vessel" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path device:CalibrationProcedure;
+				  sh:name "calibration procedure" ;
+				  sh:description "Link or free text describing calibration of the sensor"@en ;
+				  skos:example "..." ;
+				  sh:order 2 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path device:MaintenanceProcedure;
+				  sh:name "maintenance procedure" ;
+				  sh:description "Link or free text describing maintenance (e.g., maintenance schedule) of the sensor"@en ;
+				  skos:example "..." ;
+				  sh:order 3 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path device:QualityAssuranceProcedure;
+				  sh:name "quality assurance procedure" ;
+				  sh:description "Link or free text describing quality assurance procedures that might be applicable for the sensor"@en ;
+				  skos:example "..." ;
+				  sh:order 4 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path device:Process;
+				  sh:name "processing history" ;
+				  sh:description "Free text description of processing that is conducted to the data acuqired with this sensor."@en ;
+				  skos:example "..." ;
+				  sh:order 5 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:temporal ;
+				  sh:name "temporal coverage" ;
+				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
+				  skos:example "'start and end data of acquisition'" ;
+				  sh:order 6 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:PeriodOfTime ] ;
+	sh:property [ sh:path dcterms:conformsTo ;
+				  sh:name "spatial reference system" ;
+				  sh:description "Coordinate reference system that was used for the description of the location of the data."@en ;
+				  skos:example " " ;
+				  sh:order 7 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Standard ] ;
+	sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
+				  skos:example " " ;
+				  sh:order 8 ;
+				  sh:minCount 0 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Location ] ;
+	sh:property [ sh:path gax-core:providedBy ;
+				  sh:name "sensor user" ;
+				  sh:description "User of sensor (link to participant ID / participant self-description)."@en ;
+				  skos:example "company_B.url" ;
+				  sh:order 9 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+	sh:property [ sh:path dcat:distribution ;
+				  sh:name "distribution" ;
+				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+				  skos:example "'a link to the actual data'" ;
+				  sh:order 10 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcat:Distribution] ;
+.
+
+
+dcterms:PeriodOfTime
+	a sh:NodeShape ;
+	sh:targetClass dcterms:PeriodOfTime ;
+	sh:property [ sh:path dcat:startDate ;
+				  sh:name "start date" ;
+				  sh:description "Start datetime of acquired data given in datetime format according to ISO 8601."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcat:endDate ;
+				  sh:name "end date" ;
+				  sh:description "End datetime of acquired data given in datetime format according to ISO 8601."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+.
+
+dcterms:Standard
+	a sh:NodeShape ;
+	sh:targetClass  dcterms:Standard ;
+	sh:property [ sh:path dcterms:identifier ;
+				  sh:name "epsg code" ;
+				  sh:description "Räumliches Referenz System definiert durch den EPSG Code."@de ;
+				  sh:description "Spatial reference system defined as the EPSG code, e.g., 'EPSG:4326' (http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem)."@en ;
+				  skos:example "'EPSG:4326'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  dcterms:type <http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem>] ;
+.
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path locn:geometry ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Geometrische Information über die räumliche Abdeckung (z.B., as WKT, as KML, as GeoJSON)."@de ;
+				  sh:description "Geographic position of the resource; point, line, or polygon geometry (e.g., as WKT, GML, GeoJSON).."@en ;
+				  skos:example "'Geographic position of the resource; point, line, or polygon geometry (e.g., as WKT, GML, GeoJSON) - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry.'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+.
+
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+dcat:Distribution
+	a sh:NodeShape ;
+	sh:targetClass dcat:Distribution ;
+	sh:property [ sh:path dcat:title ;
+				  sh:name "distribution title" ;
+				  sh:description "The name of the distribution."@en ;
+				  skos:example "' '" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:mediaType ;
+				  sh:name "distribution media type" ;
+				  sh:description "The media type of the distribution, e.g., as defined by IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
+				  skos:example "" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:byteSize;
+				  sh:name "distribution byte size" ;
+				  sh:description "The size of a distribution in bytes."@en ;
+				  skos:example "" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger] ;
+#	sh:property [ sh:path LOCATION;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 4 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path HASH;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 5 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+#	sh:property [ sh:path HASH_ALGORITHM;
+#				  sh:name "contact e-mail" ;
+#				  sh:description "."@en ;
+#				  skos:example "''" ;
+#				  sh:order 6 ;
+#				  sh:maxCount 1 ;
+#				  sh:datatype xsd:string ] ;
+.
+###########################################################################################################
