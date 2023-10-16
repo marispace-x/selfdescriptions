@@ -26,6 +26,10 @@
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
+# Comments:
+# 1. remove "dcat:format" from "GeoDataResource", if it is also contained in "Distribution"
+# 2. move "dcterms:conformsTo" into "dcterms:Location" for reference system identifier
+
 gax-validation:geoDataResourceShape
 	a sh:NodeShape ;
 	sh:targetClass gax-trust-framework:GeoDataResource ;
