@@ -12,9 +12,9 @@ All self-descriptions required for the Federated Catalogue in Marispace-X are co
 
 The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1)  
 - Participants (e.g., legal persons, companies, ...)
-- Services (e.g., platform, software, infrastructure, ...)
+- Service Offerings (e.g., platform, software, infrastructure, ...)
 - Resources (e.g., data, sensor devices, infrastructure, ...)
-- Sensors (e.g., multibeam, ctd, camera, ...)
+  - Sensors (e.g., multibeam, ctd, camera, ...)
 
 Resources and Sensors are separated into different entities in Marispace-X due to the complexity and large amount of different sensor types that exist (see Figure 1). The separation of "Sensors" is an extension to the Gaia-X framework. The resource self-descriptions "GeoData Resource" is the general self-descriptions of geospatial data resources. This self-description makes the data resource findable and accessible (**FA**IR principles - https://www.go-fair.org/fair-principles/) as they can be searched by geolocation, time, sensor type, theme. The "Sensor" self-description is a more detailed self-description of the specific sensor data, like "multibeam", "ctd", "camera" . This self-description makes the data interoperable and reusable (FA**IR** principles - https://www.go-fair.org/fair-principles/) as they contain attributes about sensor characteristics, sensor settings, and processing information. Technically, "Sensor" should be implemented as a child of a "GeoData Resource" (using the "aggregationOf" attribute from the Gaia-X ontologies).
 
@@ -31,6 +31,7 @@ For the self-descriptions of the entities "Participant", "Service Offering" ("So
 <h2>GeoData Resource/Sensor Self-Descriptions</h2>
 First SHACL files need to be created as templates for each self-description required in Marispace-X. These SHACL files are based on existing standards/ontologies as good as possible.
 The current concept for data resources is a follows (see Figure 2):
+
 - general resource self-description "geoDataResourceShape.ttl" (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive."
   - the "Sensor" self-descriptions are divided into different SHACL files, from sensor-generic to survey- and sensor-specific descriptions. These SHACL files should be merged to a single json-LD self-description for the "Sensor", denoted as "*filename*-sensor.json", where filename is replace by the name of the respective data file (e.g., 20201023_101523_0001_MBES-sensor.json). Hence, it for each data file a "Sensor" self-description can exist. Based on the technical feasibility, the three "Sensor" SHACL files are either first merged into one SHACL file, then filled out and converted to a JSON-LD or the three SHACL files are first filled out, then converted to JSON-LDs and afterwards merged into one JOSN-LD.
     - general sensor information self-description "sensorGeneralInformationShape.ttl" (based on MMI Device Ontology - https://mmisw.org/ont/mmi/device) - "Contains generic sensor attributes like sensor name, sensor manufacturer, sensor id, serial number, ..."
