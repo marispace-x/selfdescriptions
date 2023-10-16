@@ -1,10 +1,13 @@
 # selfdescriptions
 
-<h1>Heading level 1</h1>
-<h2>Heading level 2</h2>
-<h3>Heading level 3</h3>
+<h1>Introduction</h1>
 The self-descriptions are single entries in a Federated Catalogue. The Federated Catalogue is basically a central repository of self-descriptions enabling the discovery and selection of providers, their service offerings and their assets. Self-descriptions are standardised, machine comprehensible metadata. A more detailed description about the role of self-descriptions within the Gaia-X ecosystem can be found in this Whitepaper (https://gaia-x.eu/wp-content/uploads/2022/08/SSI_Self_Description_EN_V3.pdf). Additional information about the Gaia-X architecture can be found in the Gaia-X Architecture Framework documents (https://docs.gaia-x.eu/).
 
+**NOTE**: Metadata and Data Quality are defined as two different things, which is also reflected in the ISO standard documents being split into “ISO 19115 - Geographic Information – Metadata” and “ISO 19157 - Geographic Information – Data Quality”. Metadata and Data Quality could be defined as
+- Metadata: Facts about the data
+- Data Quality: Interpretation of the facts and the contained data. Data Quality depends on the specific goals the user likes to achieve with the data.
+
+<h1>Self-Descriptions in Marispace-X</h1>
 All self-descriptions required for the Federated Catalogue in Marispace-X are collected here. The self-descriptions are in a draft phase and are steadily evaluated, updated and extended during the Marispace-X project
 
 The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1)  
@@ -25,6 +28,7 @@ Each self-description can have the three following data files. Only the verified
 
 For the self-descriptions of the entities "Participant", "Service Offering" ("Software", "Platform", "Infrastructure"), and "Resource" templates from Gaia-X exist that can also be used in Marispace-X. For the more specific descriptions of data and software resources, adaptions need to be made in Marispace-X. Therefore, these adaptions for the self-descriptions "GeoData Resource", "Sensor", and "Software  Resource" are described in the following.
 
+<h2>Data Resource Self-Descriptions</h2>
 First SHACL files need to be created as templates for each self-description required in Marispace-X. These SHACL files are based on existing standards/ontologies as good as possible.
 The current concept for data resources is a follows (see Figure 2):
 - general resource self-description "geoDataResourceShape.ttl" (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive."
@@ -35,3 +39,7 @@ The current concept for data resources is a follows (see Figure 2):
    
 ![alt TEST](figures/Marispace-X-Concept_self_descriptions_2.jpg)
 *Figure 2: Concept for self-descriptions of gesopatial data resources and corresponding sensor data in the federated catalogue in Marispace-X*
+
+
+<h2>Software Resource Self-Descriptions</h2>
+...
