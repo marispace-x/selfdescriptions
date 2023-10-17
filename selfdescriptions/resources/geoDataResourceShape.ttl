@@ -29,7 +29,7 @@
 # Comments:
 # 1. remove "dcat:format" from "GeoDataResource", if it is also contained in "Distribution"
 # 2. move "dcterms:conformsTo" into "dcterms:Location" for reference system identifier
-# 3. rename "data type" to "type" to be consisten with "type" "data service"
+# 3. rename "data type" to "type" and "data theme" to "theme" to be consistent with "type" "data service" and INSPIRE in general
 
 gax-validation:geoDataResourceShape
 	a sh:NodeShape ;
