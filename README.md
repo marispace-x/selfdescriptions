@@ -43,4 +43,7 @@ The current concept for data resources is a follows (see Figure 2):
 
 
 <h2>Software Resource Self-Descriptions</h2>
-...
+First SHACL files need to be created as templates for each self-description required in Marispace-X. These SHACL files are based on existing standards/ontologies as good as possible.
+The current concept for data services is a follows:
+
+- the software service self-description template "softwareOfferingShape.ttl" from Gaia-X is adapated to the needs for geospatial data services (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/ - and Gaia-X ontologies - https://gaia-x.gitlab.io/technical-committee/federation-services/data-exchange/dewg/#data-product) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive.". The corresponding JSON-LD file is named "softwareOffering-servicename" where servicename is replaced with the respective title of the software service (e.g., softwareOffering-TrackPlanner_MBES.json)
