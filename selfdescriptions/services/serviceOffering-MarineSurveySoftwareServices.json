@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "gax-core": "http://w3id.org/gaia-x/core#"
+  },
+  "@id": "marine_survey_software_services_north_io",
+  "@type": "gax-trust-framework:ServiceOffering",
+  "gax-trust-framework:name": {
+    "@value": "Marine survey software services",
+    "@type": "xsd:string"
+  },
+  "dct:description": {
+    "@value": "Different software services for the planning, processing, and analysis of marine survey data. The services are provided as SaaS (Software as a Service).)",
+    "@type": "xsd:string"
+  },
+  "dcat:keyword": [
+    {
+      "@value": "marine surveys",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "SaaS",
+      "@type": "xsd:string"
+    }
+  ],
+  "gax-trust-framework:termsAndConditions": {
+    "@type": "gax-trust-framework:TermsAndConditions",
+    "gax-trust-framework:content": {
+      "@value": "URLtoTermsandConditions.url",
+      "@type": "xsd:anyURI"
+    },
+    "gax-trust-framework:hash": {
+      "@value": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:policy": {
+    "@value": "URLtoPolicy.url",
+    "@type": "xsd:string"
+  },
+  "gax-core:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
+  },
+  "gax-trust-framework:aggregationOf": [
+    {
+      "@id": "REPLACE_WITH_LINK_TO-track_planner_mbes-softwareOffering.url"
+    },
+    {
+      "@id": "REPLACE_WITH_LINK_TO-2nd_software_service-softwareOffering.url"
+    }
+  ]
+}
