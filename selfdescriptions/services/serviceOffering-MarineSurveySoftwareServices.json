@@ -47,6 +47,10 @@
   "gax-core:providedBy": {
     "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
   },
+  "gax-trust-framework:provisionType": {
+    "@value": "private",
+    "@type": "xsd:string"
+  },
   "gax-trust-framework:aggregationOf": [
     {
       "@id": "REPLACE_WITH_LINK_TO-track_planner_mbes-softwareOffering.url"
