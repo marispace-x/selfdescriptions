@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "gax-core": "http://w3id.org/gaia-x/core#"
+  },
+  "@id": "trueocean_data_platform_north_io",
+  "@type": "gax-trust-framework:PlatformOffering",
+  "gax-trust-framework:name": {
+    "@value": "TrueOcean Marine Data Platform",
+    "@type": "xsd:string"
+  },
+  "dct:description": {
+    "@value": "TrueOcean makes it easier than ever for marine professionals to access, visualise, and use their ocean data to drive successful offshore projects.",
+    "@type": "xsd:string"
+  },
+  "dcat:keyword": [
+    {
+      "@value": "marine data platform",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "data management",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "offshore",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "PaaS",
+      "@type": "xsd:string"
+    }
+  ],
+  "gax-trust-framework:termsAndConditions": {
+    "@type": "gax-trust-framework:TermsAndConditions",
+    "gax-trust-framework:content": {
+      "@value": "URLtoTermsandConditions.url",
+      "@type": "xsd:anyURI"
+    },
+    "gax-trust-framework:hash": {
+      "@value": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:policy": {
+    "@value": "URLtoPolicy.url",
+    "@type": "xsd:string"
+  },
+  "gax-core:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
+  },
+  "gax-trust-framework:provisionType": {
+    "@value": "private",
+    "@type": "xsd:string"
+  }
+}
