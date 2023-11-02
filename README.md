@@ -10,7 +10,7 @@ The self-descriptions are single entries in a Federated Catalogue. The Federated
 <h1>Self-Descriptions in Marispace-X</h1>
 All self-descriptions required for the Federated Catalogue in Marispace-X are collected here. The self-descriptions are in a draft phase and are steadily evaluated, updated and extended during the Marispace-X project
 
-The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1)  
+The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1).
 - Participants (e.g., legal persons, companies, ...)
 - Service Offerings (e.g., platform, software, infrastructure, ...)
 - Resources (e.g., data, sensor devices, infrastructure, ...)
@@ -21,7 +21,7 @@ Resources and Sensors are separated into different entities in Marispace-X due t
 ![alt TEST](figures/Marispace-X-Concept_self_descriptions.jpg)
 *Figure 1: Concept for self-descriptions of different entities in the federated catalogue in Marispace-X*
 
-Each self-description can have the three following data files. Only the verified JSON-LD will be stored in the Federated Catalogue.
+Each self-description can have the three following data files. Only the verified JSON-LD will be stored in the Federated Catalogue. All entities that already have a SHACL, JSON-LD, and/or a verified JSON-LD file can be found in the respective folders in this repository (selfdescriptions/)
 - SHACL (template of the self-description that can be filled out using the SD Creation Wizard - https://sd-creation-wizard.gxfs.dev/)
 - JSON-LD (self-description file created from the SHACL template using the SD Creation Wizard)
 - verified JSON-LD (the self-description needs to be verified, "wrapped" into a verifiable paragraph)
