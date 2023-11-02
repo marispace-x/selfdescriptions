@@ -57,6 +57,7 @@ gax-validation:PhysicalResourceShape
                   sh:name "owned by" ;
                   sh:description "Participant owning the resource." ;
                   skos:example "'https://gaia-x.eu'" ;
+	          sh:minCount 1 ;
                   sh:order 7 ;
                   sh:nodeKind sh:IRI ],
                 [ sh:path gax-trust-framework:maintainedBy ;
