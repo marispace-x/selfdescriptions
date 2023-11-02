@@ -49,7 +49,7 @@
     }
   },
   "gax-trust-framework:policy": {
-    "@value": "URLtoPolicy.url",
+    "@value": "https://north.io/en/privacy-policy",
     "@type": "xsd:string"
   },
   "gax-core:providedBy": {
