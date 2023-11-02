@@ -19,11 +19,11 @@
         "gx-participant:registrationNumber": [
           {
             "gx-participant:registrationNumberType": "vatID",
-            "gx-participant:registrationNumberNumber": "DE277816248"
+            "gx-participant:registrationNumberNumber": "DE327703920"
           },
           {
             "gx-participant:registrationNumberType": "local",
-            "gx-participant:registrationNumberNumber": "HRB 23538 KI"
+            "gx-participant:registrationNumberNumber": "HRB 21314 KI"
           }
         ],
         "gx-participant:blockchainAccountId": [
