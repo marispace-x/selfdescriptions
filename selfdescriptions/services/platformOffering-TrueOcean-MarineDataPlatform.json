@@ -40,7 +40,7 @@
   "gax-trust-framework:termsAndConditions": {
     "@type": "gax-trust-framework:TermsAndConditions",
     "gax-trust-framework:content": {
-      "@value": "URLtoTermsandConditions.url",
+      "@value": "https://north.io/en/legal-notice",
       "@type": "xsd:anyURI"
     },
     "gax-trust-framework:hash": {
