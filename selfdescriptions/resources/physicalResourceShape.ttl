@@ -1,0 +1,101 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix gax-validation: <http://w3id.org/gaia-x/validation#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+gax-validation:PhysicalResourceShape 
+    a sh:NodeShape ;
+    sh:targetClass gax-trust-framework:PhysicalResource ;
+    sh:property [ sh:path gax-trust-framework:name ;
+                  sh:name "name" ;
+                  sh:description "Name of resource." ;
+                  skos:example "'Example Resource'" ;
+                  sh:order 1 ;
+                  sh:minCount 1 ;
+                  sh:maxCount 1 ;
+                  sh:datatype xsd:string ],
+                [ sh:path dct:description ;
+                  sh:name "description" ;
+                  sh:description "A more detailed description of resource." ;
+                  skos:example "'Example Resource placed somewhere in Europe'" ;
+                  sh:order 2 ;
+                  sh:minCount 1 ;
+                  sh:maxCount 1 ;
+                  sh:datatype xsd:string ],
+                [ sh:path gax-trust-framework:locationAddress ;
+                  sh:name "location address" ;
+                  sh:description "A vcard:Address object that contains the physical location in ISO 3166-1 alpha2, alpha-3 or numeric format." ;
+                  skos:example "''" ;
+                  sh:order 3 ;
+                  sh:minCount 1 ;
+                  sh:node gax-validation:AddressShape ],
+                [ sh:path gax-trust-framework:manufacturedBy ;
+                sh:name "manufactured by" ;
+                  sh:description "Participant manufacturing the resource." ;
+                  skos:example "'https://gaia-x.eu'" ;
+                  sh:order 4 ;
+                  sh:nodeKind sh:IRI ],
+                [ sh:path gax-trust-framework:ownedBy ;
+                  sh:name "owned by" ;
+                  sh:description "Participant owning the resource." ;
+                  skos:example "'https://gaia-x.eu'" ;
+                  sh:order 5 ;
+                  sh:nodeKind sh:IRI ],
+                [ sh:path gax-trust-framework:maintainedBy ;
+                  sh:name "maintained by" ;
+                  sh:description "Participant maintaining the resource in operational condition and thus have physical access to it." ;
+                  skos:example "'https://gaia-x.eu'" ;
+                  sh:order 6 ;
+                  sh:minCount 1 ;  
+                  sh:nodeKind sh:IRI ],
+                [ sh:path gax-core:aggregationOf ;
+                  sh:name "aggregation of" ;
+                  sh:description "DID of resources self-description related to the resource and that can exist independently of it." ;
+                  skos:example "''" ;
+                  sh:order 7 ;
+                  sh:nodeKind sh:IRI ] ;
+.
+
+
+gax-validation:AddressShape 
+    a sh:NodeShape ;
+    sh:targetClass vcard:Address ;
+    sh:property [ sh:path vcard:country-name ;
+                  sh:name "country-name" ;
+                  sh:description "Physical location of head quarter in ISO 3166-1 alpha2, alpha-3 or numeric format." ;
+                  sh:order 1 ;
+                  skos:example "'DE', 'DEU'" ;
+                  sh:minCount 1 ;
+                  sh:maxCount 1 ;
+                  sh:datatype xsd:string ],
+                [ sh:path vcard:gps ;
+                  sh:name "gps" ;
+                  sh:description "GPS in ISO 6709:2008/Cor 1:2009 format." ;
+                  skos:example "'50°45'0'N 7°13'0'E', '51°3'0'N 13°45'0'E'" ;
+                  sh:order 2 ;
+                  sh:maxCount 1 ;
+                  sh:datatype xsd:string ],
+                [ sh:path vcard:street-address ; 
+                  sh:name "street-address" ;
+                  sh:description "The v:street-address property specifies the street address of a postal address." ;
+                  skos:example "'example-street'" ;
+                  sh:order 3 ;
+                  sh:datatype xsd:string ],
+                [ sh:path vcard:postal-code ; 
+                  sh:name "postal-code" ;
+                  sh:description "String of a street-address" ;
+                  skos:example "'example-postal-code'" ;
+                  sh:order 4 ;
+                  sh:datatype xsd:string ],
+                [ sh:path vcard:locality ; 
+                  sh:name "locality" ;
+                  sh:description "The v:locality property specifies the locality (e.g., city) of a postal address." ;
+                  skos:example "'example-locality'" ;
+                  sh:order 5 ;
+                  sh:datatype xsd:string ] ;
+.
+
