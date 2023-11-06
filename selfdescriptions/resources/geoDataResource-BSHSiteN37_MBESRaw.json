@@ -1,0 +1,200 @@
+{
+  "@context": {
+    "cc": "http://creativecommons.org/ns#",
+    "schema": "http://schema.org/",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ids": "https://w3id.org/idsa/core/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "bsh_site_n37_multibeam_raw",
+  "@type": "gax-trust-framework:GeoDataResource",
+  "dcat:title": {
+    "@value": "Raw Multibeam echosounder data from area N-3.7",
+    "@type": "xsd:string"
+  },
+  "dcat:description": {
+    "@value": "This data resource contains raw measured multibeam data from the offshore wind area N-3.7. Site N-3.7 is located in the German EEZ of the North Sea in the eastern part of area N-3 defined in the FEP 2020.",
+    "@type": "xsd:string"
+  },
+  "dcat:provenance": {
+    "@value": "The acqusition of this data set was conducted as described in the report LINK-TO-REPORT",
+    "@type": "xsd:string"
+  },
+  "dcat:keyword": [
+    {
+      "@value": "multibeam",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "bathymetry",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "hydrography",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:theme": [
+    {
+      "@value": "Elevation",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "Hydrography",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:format": {
+    "@value": "XTF",
+    "@type": "xsd:string"
+  },
+  "dcterms:type": {
+    "@value": "spatial data set",
+    "@type": "xsd:string"
+  },
+  "dcterms:byteSize": {
+    "@value": "63140016512",
+    "@type": "xsd:nonNegativeInteger"
+  },
+  "dcterms:hasVersion": {
+    "@value": "REPLACE_WITH-LINK-TO-bsh_site_n37_multibeam_processed-self_description",
+    "@type": "xsd:string"
+  },
+  "dcterms:identifier": {
+    "@value": "97a88991-f8ed-4d85-9bc9-12f3047f5628",
+    "@type": "xsd:string"
+  },
+  "dcterms:license": {
+    "@value": "https://pinta.bsh.de/impressum?lang=en",
+    "@type": "xsd:string"
+  },
+  "gax-trust-framework:termsAndConditions": {
+    "@type": "gax-trust-framework:TermsAndConditions",
+    "gax-trust-framework:content": {
+      "@value": "https://pinta.bsh.de/impressum?lang=en",
+      "@type": "xsd:anyURI"
+    },
+    "gax-trust-framework:hash": {
+      "@value": "https://pinta.bsh.de/impressum?lang=en",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:policy": [
+    {
+      "@value": "https://pinta.bsh.de/datenschutz/?lang=en",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "https://www.gesetze-im-internet.de/geonutzv/GeoNutzV.pdf",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:conformsTo": {
+    "@value": "Windenergie-auf-See-Gesetz",
+    "@type": "xsd:string"
+  },
+  "dcterms:language": {
+    "@value": "eng",
+    "@type": "xsd:string"
+  },
+  "dcat:issued": {
+    "@value": "2021-01-06T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:modified": {
+    "@value": "2021-01-07T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:temporal": {
+    "@type": "dcterms:PeriodOfTime",
+    "dcat:startDate": {
+      "@value": "2019-08-22T09:02:39",
+      "@type": "xsd:dateTime"
+    },
+    "dcat:endDate": {
+      "@value": "2019-08-24T12:44:07",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "dcterms:identifier": "EPSG: 4326",
+    "dcat:bbox": {
+      "@value": "POLYGON((7.0128198402642754 54.0117618293690711,7.1016204540856940 54.0117618293690711,7.1016204540856940  54.0837516854470906,7.0128198402642754 54.0837516854470906,7.0128198402642754 54.0117618293690711))",
+      "@type": "xsd:string"
+    },
+    "locn:geometry": {
+      "@value": "{ \\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"FeatureCollection\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"BSH-Site_N37-MBESRaw_coverage\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"crs\\\\\\\\\\\\\\\": { \\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"properties\\\\\\\\\\\\\\\": { \\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"urn:ogc:def:crs:OGC:1.3:CRS84\\\\\\\\\\\\\\\" } }, \\\\\\\\\\\\\\\"features\\\\\\\\\\\\\\\": [ { \\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"Feature\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"properties\\\\\\\\\\\\\\\": { \\\\\\\\\\\\\\\"area\\\\\\\\\\\\\\\": 0.003479, \\\\\\\\\\\\\\\"perimeter\\\\\\\\\\\\\\\": 0.238835 }, \\\\\\\\\\\\\\\"geometry\\\\\\\\\\\\\\\": { \\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"Polygon\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"coordinates\\\\\\\\\\\\\\\": [ [ [ 7.040074947927593, 54.018739388907129 ], [ 7.039997795969834, 54.018785649524709 ], [ 7.036211476928093, 54.02105837831391 ], [ 7.018460342409336, 54.031646200007039 ], [ 7.013586055168122, 54.035029267573577 ], [ 7.012819840264275, 54.035550353456593 ], [ 7.013231974132995, 54.036575114586874 ], [ 7.046903760962659, 54.060840310152706 ], [ 7.059244568661004, 54.068826338866081 ], [ 7.085386534723241, 54.083401904699329 ], [ 7.085576980160717, 54.083505811125626 ], [ 7.086005922089722, 54.083738356257385 ], [ 7.086054229229163, 54.083751685447091 ], [ 7.086061316875747, 54.083751101383569 ], [ 7.086083892115528, 54.083737434484028 ], [ 7.086101846795356, 54.083726564831103 ], [ 7.086105539330418, 54.083724329389305 ], [ 7.086112556892047, 54.083724258576225 ], [ 7.086491105435522, 54.083490907869155 ], [ 7.086855041131156, 54.083270577980969 ], [ 7.087304783761545, 54.082998294900271 ], [ 7.087507057182322, 54.082875832840813 ], [ 7.087559217583916, 54.082844253281763 ], [ 7.087593612446242, 54.08282342950374 ], [ 7.087599666309273, 54.08281976429322 ], [ 7.088454554207367, 54.082293277062881 ], [ 7.089518431950201, 54.080429659458659 ], [ 7.090481851667741, 54.078800746223777 ], [ 7.094373802460882, 54.067609177030654 ], [ 7.101528388764467, 54.04532355610602 ], [ 7.101565157255246, 54.041810532785064 ], [ 7.101620454085694, 54.040124228484927 ], [ 7.101614354060736, 54.040113653275966 ], [ 7.101599198663322, 54.040096845161685 ], [ 7.089024172622056, 54.028921492164059 ], [ 7.058459011776222, 54.012709675696357 ], [ 7.058453715796242, 54.012708329810081 ], [ 7.05838776307356, 54.01266845973997 ], [ 7.056996364202962, 54.012337967854343 ], [ 7.054729294579721, 54.011761829369071 ], [ 7.040074947927593, 54.018739388907129 ] ] ] } } ] }",
+      "@type": "xsd:string"
+    }
+  },
+  "vcard:Kind": {
+    "@type": "vcard:Individual",
+    "vcard:fn": {
+      "@value": "Max Mustermann",
+      "@type": "xsd:string"
+    },
+    "vcard:role": {
+      "@value": "survey engineer",
+      "@type": "xsd:string"
+    },
+    "vcard:org": {
+      "@value": "Max Mustermann GmbH",
+      "@type": "xsd:string"
+    },
+    "vcard:email": {
+      "@value": "max@mustermann.de",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
+  },
+  "gax-trust-framework:producedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-Max_Mustermann_GmbH.url"
+  },
+  "gax-core:licensedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-BSH.url"
+  },
+  "gax-trust-framework:exposedThrough": {
+    "@id": "REPLACE_WITH-LINK-TO-data_exchange_component_that_exposes_the_data_resource.url"
+  },
+  "gax-trust-framework:aggregationOf": [
+    {
+      "@id": "REPLACE_WITH-LINK-TO-sensor_data_self_description-xtf_file_1.url"
+    },
+    {
+      "@id": "REPLACE_WITH-LINK-TO-sensor_data_self_description-20190822_102721-9104_-_0002.url"
+    },
+    {
+      "@id": "REPLACE_WITH-LINK-TO-sensor_data_self_description-20190822_105527-9103_-_0001.url"
+    },
+    {
+      "@id": "REPLACE_WITH-LINK-TO-sensor_data_self_description-20190822_111338-9103_-_0002.url"
+    },
+    {
+      "@id": "REPLACE_WITH-LINK-TO-sensor_data_self_description-20190822_114051-9102_-_0001.url"
+    },
+    {
+      "@id": "REPLACE_WITH-LINK-TO-sensor_data_self_description-20190822_115815-9102_-_0002.url"
+    }
+  ]
+}

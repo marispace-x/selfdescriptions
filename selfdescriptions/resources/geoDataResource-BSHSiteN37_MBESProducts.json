@@ -1,0 +1,180 @@
+{
+  "@context": {
+    "cc": "http://creativecommons.org/ns#",
+    "schema": "http://schema.org/",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ids": "https://w3id.org/idsa/core/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "bsh_site_n37_multibeam_products",
+  "@type": "gax-trust-framework:GeoDataResource",
+  "dcat:title": {
+    "@value": "Data products of Multibeam echosounder data from area N-3.7",
+    "@type": "xsd:string"
+  },
+  "dcat:description": {
+    "@value": "This data resource contains data products from measured multibeam data from the offshore wind area N-3.7. Site N-3.7 is located in the German EEZ of the North Sea in the eastern part of area N-3 defined in the FEP 2020.",
+    "@type": "xsd:string"
+  },
+  "dcat:provenance": {
+    "@value": "The creation of the data products of this data set was conducted as described in the report LINK-TO-REPORT",
+    "@type": "xsd:string"
+  },
+  "dcat:keyword": [
+    {
+      "@value": "multibeam",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "bathymetry",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "hydrography",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:theme": [
+    {
+      "@value": "Elevation",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "Hydrography",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:format": {
+    "@value": "GeoTiff",
+    "@type": "xsd:string"
+  },
+  "dcterms:type": {
+    "@value": "spatial data set",
+    "@type": "xsd:string"
+  },
+  "dcterms:byteSize": {
+    "@value": "312212727",
+    "@type": "xsd:nonNegativeInteger"
+  },
+  "dcterms:isVersionOf": {
+    "@value": "REPLACE_WITH-LINK-TO-bsh_site_n37_multibeam_processed-self_description",
+    "@type": "xsd:string"
+  },
+  "dcterms:identifier": {
+    "@value": "ac8df7f0-391f-4784-9a5c-6f2fd5534343",
+    "@type": "xsd:string"
+  },
+  "dcterms:license": {
+    "@value": "https://pinta.bsh.de/impressum/?lang=en",
+    "@type": "xsd:string"
+  },
+  "gax-trust-framework:termsAndConditions": {
+    "@type": "gax-trust-framework:TermsAndConditions",
+    "gax-trust-framework:content": {
+      "@value": "https://pinta.bsh.de/impressum/?lang=en",
+      "@type": "xsd:anyURI"
+    },
+    "gax-trust-framework:hash": {
+      "@value": "https://pinta.bsh.de/impressum/?lang=en",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:policy": [
+    {
+      "@value": "https://pinta.bsh.de/datenschutz/?lang=en",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "https://www.gesetze-im-internet.de/geonutzv/GeoNutzV.pdf",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:language": {
+    "@value": "eng",
+    "@type": "xsd:string"
+  },
+  "dcat:issued": {
+    "@value": "2021-01-07T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:modified": {
+    "@value": "2021-01-07T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "dcterms:identifier": "EPSG: 4326",
+    "dcat:bbox": {
+      "@value": "POLYGON((7.0128198402642754 54.0117618293690711,7.1016204540856940 54.0117618293690711,7.1016204540856940  54.0837516854470906,7.0128198402642754 54.0837516854470906,7.0128198402642754 54.0117618293690711))",
+      "@type": "xsd:string"
+    }
+  },
+  "vcard:Kind": {
+    "@type": "vcard:Individual",
+    "vcard:fn": {
+      "@value": "Max Mustermann",
+      "@type": "xsd:string"
+    },
+    "vcard:role": {
+      "@value": "survey engineer",
+      "@type": "xsd:string"
+    },
+    "vcard:org": {
+      "@value": "Max Mustermann GmbH",
+      "@type": "xsd:string"
+    },
+    "vcard:email": {
+      "@value": "max@mustermann.de",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
+  },
+  "gax-trust-framework:producedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-Max_Mustermann_GmbH.url"
+  },
+  "gax-core:licensedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-BSH.url"
+  },
+  "gax-trust-framework:exposedThrough": {
+    "@id": "REPLACE_WITH-LINK-TO-data_exchange_component_that_exposes_the_data_resource.url"
+  },
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dcat:title": {
+      "@value": "bathymetry raster map",
+      "@type": "xsd:string"
+    },
+    "dcat:mediaType": {
+      "@value": "geotiff",
+      "@type": "xsd:string"
+    },
+    "dcat:byteSize": {
+      "@value": "278212727",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "dcat:accessURL": {
+      "@value": "REPLACE_WITH-LINK-TO-BSH_N-03-07_ETRS89_LAT_T20_Norbit_50cm_pos_num.geotiff",
+      "@type": "xsd:string"
+    }
+  }
+}

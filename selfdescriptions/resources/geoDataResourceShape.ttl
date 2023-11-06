@@ -1,0 +1,386 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+# add additional namespaces
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+# Comments:
+# 2. move "dcterms:conformsTo" into "dcterms:Location" for reference system identifier
+# 3. rename "data type" to "type" and "data theme" to "theme" to be consistent with "type" "data service" and INSPIRE in general
+
+gax-validation:geoDataResourceShape
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:GeoDataResource ;
+	### general attributes ###
+	sh:property [ sh:path dcat:title ;
+				  sh:name "title" ;
+				  sh:description "A name given to the data resource."@en ;
+				  skos:example "'multibeam echosounder data from offshore area X'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:description ;
+				  sh:name "description" ;
+				  sh:description "Free-text description of the data resource."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 2 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:provenance ;
+				  sh:name "lineage statement" ;
+				  sh:description "General explanation of the data producer’s knowledge about the lineage of the data resource."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 3 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:keyword ;
+				  sh:name "keyword" ;
+				  sh:description "Keywords that describe the data resource."@en ;
+				  skos:example "'keyword'" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:theme ;
+				  sh:name "data theme" ;
+				  sh:description "Data theme that takes a value of the INSPIRE-THEMES list 'INSPIRE-Registry: INSPIRE themes' (https://inspire.ec.europa.eu/theme), e.g., Agricultural and aquaculture facilities, Elevation, Geology, Hydrography, Mineral resources, Soil."@en ;
+				  skos:example "'Hydrography'" ;
+				  sh:order 5 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:format ;
+				  sh:name "data format" ;
+				  sh:description "The file format of the data resource."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 6 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:type ;
+				  sh:name "data type" ;
+				  sh:description "This attribute SHOULD take as value one of the URIs of the 'Resource types' code list operated by the INSPIRE Registy, either 'spatial data set' or 'spatial data set series'."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 7 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:byteSize ;
+				  sh:name "data size" ;
+				  sh:description "The size of the data resource in bytes."@en ;
+				  skos:example "'1412'" ;
+				  sh:order 8 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger ] ;
+	sh:property [ sh:path dcterms:hasVersion ;
+				  sh:name "has version" ;
+				  sh:description "Refers to a related data resource that is a version, edition, or adaptation of the described data resource."@en ;
+				  skos:example "'link to a related data resource'" ;
+				  sh:order 9 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path dcterms:isVersionOf ;
+				  sh:name "is version of" ;
+				  sh:description "Refers to a related data resource of which the described data resource is a version, edition, or adaptation."@en ;
+				  skos:example "'link to related data resource'" ;
+				  sh:order 10 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path dcterms:isReferencedBy ;
+				  sh:name "is referenced by" ;
+				  sh:description "A related resource, such as a publication, that references, cites, or otherwise points to the cataloged resource."@en ;
+				  skos:example "'link to related data resource'" ;
+				  sh:order 11 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path dcterms:identifier ;
+				  sh:name "identifier" ;
+				  sh:description "Contains the main identifier for the data resource, e.g., the URI or other unique identifier in the context of the catalogue."@en ;
+				  skos:example "'UUID'" ;
+				  sh:order 12 ;
+			      sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path dcterms:license ;
+				  sh:name "license" ;
+				  sh:description "A legal document under which the data resource is made available."@en ;
+				  skos:example "'e.g., link to license document'" ;
+				  sh:order 13 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property	[ sh:path gax-trust-framework:termsAndConditions ;
+                  sh:name "terms and conditions" ;
+                  sh:description "a resolvable link to the Terms and Conditions applying to that service." ;
+                  skos:example "'https://gaia-x.eu'"  ;
+                  sh:order 14 ;
+                  sh:minCount 1 ;
+                  sh:node gax-validation:TermsAndConditionsShape ] ;
+	sh:property [ sh:path gax-trust-framework:policy ;
+				  sh:name "policy" ;
+				  sh:description "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)"@en ;
+				  skos:example "'https://gaia-x.eu'" ;
+				  sh:order 15 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:conformsTo ;
+				  sh:name "conforms to" ;
+				  sh:description "An established standard to which the described resource conforms."@en ;
+				  skos:example "Windenergie-auf-See-Gesetz, INSPIRE" ;
+				  sh:order 16 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:language ;
+				  sh:name "metadata language" ;
+				  sh:description "Language used for documenting metadata, conformant with LanguageCode (ISO/TS 19139)."@en ;
+				  skos:example "eng" ;
+				  sh:order 17 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	### temporal attributes ###
+	sh:property [ sh:path dcat:issued ;
+				  sh:name "issue date" ;
+				  sh:description "Date of formal issuance (e.g., publication) of the metadata of the resource. (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 18 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcterms:modified ;
+				  sh:name "modification date" ;
+				  sh:description "Most recent date on which the metadata of the resource was changed, updated or modified (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 19 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcterms:temporal ;
+				  sh:name "temporal coverage" ;
+				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
+				  skos:example "' '" ;
+				  sh:order 20 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:PeriodOfTime ] ;
+	### spatial attributes ###
+	sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 21 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Location ] ;
+	### contact attributes ###
+	sh:property [ sh:path vcard:Kind ;
+				  sh:name "contact information" ;
+				  sh:description "Contact information about responsible party for the metadata."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 22 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node vcard:Individual] ;
+	### data space linkage attributes ###
+	sh:property [ sh:path gax-trust-framework:providedBy ;
+				  sh:name "provided by" ;
+				  sh:description "A resolvable link to the participant self-description legally enabling the data usage."@en ;
+				  skos:example "'(a reference to gax-core:Participant object)'" ;
+				  sh:order 23 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+	sh:property [ sh:path gax-trust-framework:producedBy ;
+				  sh:name "produced by" ;
+				  sh:description "A resolvable link to the participant self-description legally enabling the data usage."@en ;
+				  skos:example "'(a reference to gax-core:Participant object)'" ;
+				  sh:order 24 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+	sh:property [ sh:path gax-core:licensedBy ;
+				  sh:name "licensed by" ;
+				  sh:description "A resolvable link to the participant self-description licencing the service."@en ;
+				  skos:example "'(a reference to gax-core:Participant object)'" ;
+				  sh:order 25 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+	sh:property [ sh:path gax-trust-framework:exposedThrough ;
+				  sh:name "exposed through" ;
+				  sh:description "A resolvable link to the data exchange component that exposes the data resource."@en ;
+				  skos:example "'(a reference to gax-core:Participant object)'" ;
+				  sh:order 26 ;
+				  sh:minCount 1 ;
+				  sh:nodeKind sh:IRI ] ;
+### ??? LINK TO SENSOR SELF-DESCRRIPTIONS IS PROBABLY COVERED BY "AGGREGATIONOF" ATTRIBUTE IN GAIA-X. COULD ALSO BE COVERED BY "DCTERMS:HASPART" ATTRIBUTE ??? ###
+	sh:property [ sh:path gax-trust-framework:aggregationOf ;
+				  sh:name "aggregation of" ;
+				  sh:description "Resources related to the resource and that can exist independently of it."@en ;
+				  skos:example "'a reference to self-descriptions of contained data'" ;
+				  sh:order 27 ;
+				  sh:nodeKind sh:IRI ] ;
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+	sh:property [ sh:path dcat:distribution ;
+				  sh:name "distribution" ;
+				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+				  skos:example "'a link to the actual data'" ;
+				  sh:order 28 ;
+				  sh:maxCount 1 ;
+				  sh:node dcat:Distribution] ;
+###########################################################################################################
+.
+
+
+dcterms:PeriodOfTime
+	a sh:NodeShape ;
+	sh:targetClass dcterms:PeriodOfTime ;
+	sh:property [ sh:path dcat:startDate ;
+				  sh:name "start date" ;
+				  sh:description "Start date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcat:endDate ;
+				  sh:name "end date" ;
+				  sh:description "End date of the data acquisition (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+.
+
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path dcterms:identifier ;
+				  sh:name "epsg code" ;
+				  sh:description "Spatial reference system defined as the EPSG code, e.g., 'EPSG:4326' (http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem)"@en ;
+				  skos:example "'EPSG:4326'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  dcterms:type <http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem>] ;
+	sh:property [ sh:path dcat:bbox ;
+				  sh:name "bounding box" ;
+				  sh:description "Geographic bounding box, using different potential encodings, namely, the recommended ones (GML and WKT), plus GeoJSON."@en ;
+				  skos:example "'e.g., as WKT, as GML, as GeoJSON - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry'" ;
+				  sh:order 2 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path locn:geometry ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Precise geometry information (polygon) of spatial coverage (e.g., as WKT, as KML, as GeoJSON)."@en ;
+				  skos:example "'e.g., as WKT, as GML, as GeoJSON - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry'" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+.
+
+
+vcard:Individual
+	a sh:NodeShape ;
+	sh:targetClass vcard:Individual ;
+	sh:property [ sh:path vcard:fn ;
+				  sh:name "contact name" ;
+				  sh:description "Name associated to the contact person."@en ;
+				  skos:example "'John Doe'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:role ;
+				  sh:name "contact role" ;
+				  sh:description "The role, occupation, or business category of the contact person."@en ;
+				  skos:example "'Surveyor'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:org;
+				  sh:name "contact organisation" ;
+				  sh:description "Affiliation of the contact person."@en ;
+				  skos:example "'John Doe Company'" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:email;
+				  sh:name "contact e-mail" ;
+				  sh:description "Email address of the contact person."@en ;
+				  skos:example "'johndoe@e-mail.com'" ;
+				  sh:order 4 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+.
+
+
+gax-validation:TermsAndConditionsShape 
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:TermsAndConditions ;
+    sh:property [ skos:example "'https://gaia-x.eu'" ;
+            sh:datatype xsd:anyURI ;
+            sh:description "a resolvable link to document" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "content" ;
+            sh:order 1 ;
+            sh:path gax-trust-framework:content ],
+        [ skos:example "'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'" ;
+            sh:datatype xsd:string ;
+            sh:description "sha256 hash of the above document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "hash" ;
+            sh:order 2 ;
+            sh:path gax-trust-framework:hash ] ;
+.
+
+
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+dcat:Distribution
+	a sh:NodeShape ;
+	sh:targetClass dcat:Distribution ;
+	sh:property [ sh:path dcat:title ;
+				  sh:name "distribution title" ;
+				  sh:description "A name given to the distribution."@en ;
+				  skos:example "' '" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:mediaType ;
+				  sh:name "distribution media type" ;
+				  sh:description "The media type of the distribution as defined by IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
+				  skos:example "' '" ;
+				  sh:order 2 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:byteSize;
+				  sh:name "distribution byte size" ;
+				  sh:description "The size of a distribution in bytes.."@en ;
+				  skos:example "' '" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger] ;
+	sh:property [sh:path dcat:accessURL;
+				 sh:name "access URL" ;
+				 sh:description "This property contains a URL that gives access to a Distribution of the Dataset."@en ;
+				 skos:example "' '" ;
+				 sh:order 4 ;
+				 sh:datatype xsd:string ] ;
+.
+###########################################################################################################
