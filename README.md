@@ -60,5 +60,5 @@ Examples for a software and platform offering are illustrated in Figure 4. The s
 <h2>Example Physical Resource</h2>
 Examples for a physical resources are illustrated in Figure 5. The service offering is a rental of different survey equipment. So the service offering is linked to differnt physical resources like "Multibeam Echosounder Rental" and "Side Scan Sonar Rental". These physical resources can make use of the sensorGeneralInformation self-descriptions. If the self-description of the offered sensor already exists in the federated catalgoue, the physical resource can link to this sensor and so automatically adds the general information about the sensor.
 
-![alt TEST](figures/Marispace-X-Self_description_example_physical_resource.jpg)
+![alt TEST](figures/Marispace-X-Self-description_example_physical_resource.jpg)
 *Figure 5: Examples for physical resources offered via a service. The corresponding JSON-LD files can be found in the respective subfolder of the selfdescriptions/ folder*
