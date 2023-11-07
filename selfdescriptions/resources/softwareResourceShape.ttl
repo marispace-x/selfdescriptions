@@ -1,105 +1,336 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
-
-@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
-@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-@prefix did: <https://www.w3.org/TR/did-core/#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix gax-core: <http://w3id.org/gaia-x/core#> .
-@prefix cc: <http://creativecommons.org/ns#> .
-@prefix ids: <https://w3id.org/idsa/core/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix gax-validation: <http://w3id.org/gaia-x/validation#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix schema: <http://schema.org/> .
-@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
-gax-validation:SoftwareResourceShape
-	a sh:NodeShape ;
-	sh:targetClass gax-trust-framework:SoftwareResource ;
-	sh:property [ sh:path gax-trust-framework:copyrightOwnedBy ;
-				  sh:name "copyright owned by" ;
-				  sh:description "Der als Gaia-X-Teilnehmer oder als andere Agent, möglicherweise auch als Person außerhalb von Gaia-X, angegebene Urheberrechtsbesitzer.Ein Urheberrechtsinhaber ist eine Person oder Organisation, die das Recht hat, die Ressource auszunutzen.Der Besitzer des Urheberrechts bezieht sich nicht auf den Autor der Ressource, der eine natürliche Person ist und sich vom Urheberrechtsinhaber unterscheidet.Eine einfache Namenszeichenfolge kann als leerer Knoten bezeichnet werden, dessen FOAF: Name -Attribut diesen Zeichenfolgewert hat."@de ;
-				  sh:description "The copyright owner(s), given as a Gaia-X Participant or as some other agent, possibly also a person outside of Gaia-X. A copyright owner is a person or organization, that has the right to exploit the resource. Copyright owner does not necessary refer to the author of the resource, who is a natural person and may differ from copyright owner. A simple name string can be referenced as a blank node whose foaf:name attribute has that string value."@en ;
-				  skos:example "'https://gaia-x.eu'" ;
+
+gax-validation:SoftwareResourceShape 
+    a sh:NodeShape ;
+    sh:targetClass gax-trust-framework:SoftwareResource ;
+	sh:property [ sh:path dcat:title ;
+				  sh:name "title" ;
+				  sh:description "A name given to the data service."@en ;
+				  skos:example "'track planning tool'" ;
 				  sh:order 1 ;
 				  sh:minCount 1 ;
-				  sh:node gax-validation:AgentShape ] ;
-	sh:property [ sh:path gax-trust-framework:license ;
-				  sh:name "license" ;
-				  sh:description "Eine Liste der SPDX -Lizenzkennungen oder URL zu Lizenzdokument"@de ;
-				  sh:description "A list of SPDX license identifiers or URL to license document"@en ;
-				  skos:example "'https://gaia-x.eu'" ;
-				  sh:order 2 ;
-				  sh:minCount 1 ;
-				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path gax-trust-framework:policy ;
-				  sh:name "policy" ;
-				  sh:description "Eine Liste von Richtlinien, die mit einem DSL (z. B. Rego oder ODRL) ausgedrückt wurden (Zugangskontrolle, Drossel, Nutzung, Aufbewahrung,…)"@de ;
-				  sh:description "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)"@en ;
-				  skos:example "'https://gaia-x.eu'" ;
-				  sh:order 3 ;
-				  sh:minCount 1 ;
-				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path gax-trust-framework:name ;
-				  sh:name "name" ;
-				  sh:description "Name der Ressource."@de ;
-				  sh:description "Name of resource."@en ;
-				  skos:example "'Example Resource'" ;
-				  sh:order 1 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path dct:description ;
+	sh:property [ sh:path dcat:description ;
 				  sh:name "description" ;
-				  sh:description "Eine detailliertere Beschreibung der Ressource."@de ;
-				  sh:description "A more detailed description of resource."@en ;
-				  skos:example "'Example Resource placed somewhere in Europe'" ;
-				  sh:order 2 ;
-				  sh:maxCount 1 ;
-				  sh:datatype xsd:string ] ;
-	sh:property [ sh:path gax-trust-framework:aggregationOf ;
-				  sh:name "aggregation of" ;
-				  sh:description "Ressourcen im Zusammenhang mit der Ressource und das kann unabhängig davon existieren."@de ;
-				  sh:description "Resources related to the resource and that can exist independently of it."@en ;
-				  skos:example "'(a reference to gax-trust-framework:Resource object)'" ;
-				  sh:order 3 ;
-				  sh:nodeKind sh:IRI ] ;
-	sh:property [ sh:path gax-core:aggregationOf ;
-				  sh:name "aggregation of" ;
-				  sh:description "Habe die Selbstbeschreibung der Ressourcen in Bezug auf die Ressource in Bezug auf die Ressourcen und das unabhängig davon existieren."@de ;
-				  sh:description "DID of resources self-description related to the resource and that can exist independently of it."@en ;
-				  skos:example "''" ;
-				  sh:order 1 ;
-				  sh:nodeKind sh:IRI ] ;
-	sh:property [ sh:path gax-core:operatedBy ;
-				  sh:name "operated by" ;
-				  sh:description "Habe die Selbstbeschreibung der Teilnehmer im Zusammenhang mit dem Teilnehmer, der diese Ressource betreibt, in Bezug auf den Teilnehmer bezogen."@de ;
-				  sh:description "DID of participant self-description related to the participant, who operates this resource."@en ;
-				  skos:example "'https://gaia-x.eu'" ;
+				  sh:description "Free-text description of the data service."@en ;
+				  skos:example "'free-text'" ;
 				  sh:order 2 ;
 				  sh:minCount 1 ;
 				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:type ;
+				  sh:name "type" ;
+				  sh:description "This attribute SHOULD take as value 'spatial data service' for data services (ISO 19115/INSPIRE - https://inspire.ec.europa.eu/metadata-codelist/ResourceType)."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 3 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+    sh:property [ sh:path dcterms:type ;
+				  sh:name "spatial data service type" ;
+				  sh:description "This attribute defines the data serivce in more detail using a value from the vocabulary https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType (ISO 19115/INSPIRE)."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+    sh:property [ sh:path dcterms:type ;
+				  sh:name "spatial data service category" ;
+				  sh:description "This attribute defines the data serivce in more detail using a value from the vocabulary https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory (ISO 19115/INSPIRE)."@en ;
+				  skos:example "'free-text'" ;
+				  sh:order 5 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:keyword ;
+				  sh:name "keyword" ;
+				  sh:description "Keywords that describe the data resource."@en ;
+				  skos:example "'keyword'" ;
+				  sh:order 6 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;   
+	sh:property [ sh:path dcterms:language ;
+				  sh:name "metadata language" ;
+				  sh:description "Language used for documenting metadata, conformant with LanguageCode (ISO/TS 19139)."@en ;
+				  skos:example "eng" ;
+				  sh:order 7 ;
+				  sh:minCount 1 ;
+                  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;               
+	sh:property [ sh:path dcat:issued ;
+				  sh:name "issue date" ;
+				  sh:description "Date of formal issuance (e.g., publication) of the metadata of the resource. (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 8 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcterms:modified ;
+				  sh:name "modification date" ;
+				  sh:description "Most recent date on which the metadata of the resource was changed, updated or modified (date time in ISO 8601 format)."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 9 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+    sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Spatial coverage that is relevant for the data service, if applicable."@en ;
+				  skos:example "'(a structure object of type CPU)'" ;
+				  sh:order 10 ;
+				  sh:node dcterms:Location ] ;
+    sh:property [ sh:path gax-trust-framework:termsAndConditions ;
+                  sh:name "terms and conditions" ;
+                  sh:description "a resolvable link to the Terms and Conditions applying to that service."@en ;
+                  skos:example "'https://gaia-x.eu'" ;
+                  sh:order 11 ;
+                  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+                  sh:node gax-validation:TermsAndConditionsShape ] ;
+    sh:property [ sh:path gax-trust-framework:policy ;
+                  sh:name "policy" ;
+                  sh:description "One or more policies expressed using a DSL (e.g., Rego or ODRL)"@en ;
+                  skos:example "' '" ;
+                  sh:order 12 ;
+                  sh:datatype xsd:string ] ;                              
+	sh:property [ sh:path dcterms:license ;
+				  sh:name "license" ;
+				  sh:description "A legal document under which the data resource is made available."@en ;
+				  skos:example "'e.g., link to license document'" ;
+				  sh:order 13 ;
+				  sh:minCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcterms:conformsTo ;
+				  sh:name "standard conformity" ;
+				  sh:description "An established standard to which the described data service conforms"@en ;
+				  skos:example "'OGC'" ;
+				  sh:order 14 ;
+				  sh:node gax-validation:StandardShape ] ;
+    ### contact attributes ###
+	sh:property [ sh:path vcard:Kind ;
+				  sh:name "contact information" ;
+				  sh:description "Contact information about responsible party for the metadata."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 15 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node vcard:Individual] ;
+    ### data space linkage attributes ###
+    sh:property [ sh:path gax-core:providedBy ;
+                  sh:name "provided by" ;
+                  sh:description "Id of Participant (self-descrription) providing this service offering."@en ;
+                  skos:example "'(a reference to gax-core:Participant object)'" ;
+                  sh:order 16 ;
+                  sh:maxCount 1 ;
+                  sh:minCount 1 ;
+                  sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path gax-trust-framework:producedBy ;
+				  sh:name "produced by" ;
+				  sh:description "A resolvable link to the participant self-description legally enabling the data usage."@en ;
+				  skos:example "'(a reference to gax-core:Participant object)'" ;
+				  sh:order 17 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
 				  sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path gax-core:dependsOn ; 
+                  sh:name "depends on" ;
+                  sh:description "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en ;
+                  skos:example "'(a reference to gax-validation:SoftwareOfferingShape object)'" ;
+                  sh:order 18 ;
+                  sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path gax-trust-framework:hostedOn ; 
+                  sh:name "hosted on" ;
+                  sh:description "list of data center IDs where service is hosted and can be instantiated"@en ;
+                  skos:example "'(a reference to gax-validation:DataCenterShape object)'" ;
+                  sh:order 19 ;
+				  sh:minCount 1 ;
+                  sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path gax-trust-framework:endpoint ; 
+                  sh:name "endpoint" ;
+                  sh:description "Endpoint through which the Service Offering can be accessed"@en ;
+                  skos:example "'(reference to endpoint)'" ;
+                  sh:order 20 ;
+                  sh:node gax-validation:EndpointShape ] ;
+    sh:property [ sh:path gax-trust-framework:dataAccountExport ; 
+                  sh:name "data account export" ;
+                  sh:description "One or more  methods to export data out of the service"@en ;
+                  skos:example "' '" ;
+                  sh:order 21 ;
+                  sh:minCount 1 ; 
+                  sh:maxCount 1 ;
+                  sh:node gax-validation:DataAccountExportShape ] ;
 .
 
-gax-validation:AgentShape
+
+
+gax-validation:TermsAndConditionsShape 
+    a sh:NodeShape ;
+    sh:targetClass gax-trust-framework:TermsAndConditions ;
+    sh:property [ sh:path gax-trust-framework:content ; 
+                  sh:name "content" ;
+                  sh:description "a resolvable link to document"@en ;
+                  skos:example "'https://gaia-x.eu'" ;
+                  sh:order 1 ;
+                  sh:maxCount 1 ;
+                  sh:minCount 1 ;
+                  sh:datatype xsd:anyURI ],
+                [ sh:path gax-trust-framework:hash ;
+                  sh:name "hash" ; 
+                  sh:description "sha256 hash of the above document."@en ;
+                  skos:example "'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'" ;
+                  sh:order 2 ;
+                  sh:maxCount 1 ;
+                  sh:minCount 1 ;
+                  sh:datatype xsd:string ] ;
+.
+
+
+vcard:Individual
 	a sh:NodeShape ;
-	sh:targetClass foaf:Agent ;
-	sh:property [ sh:path foaf:name ;
-				  sh:name "name" ;
-				  sh:description "Ein Name für etwas.Verwenden Sie VCARD: Agent und seine umfassenderen Namensmöglichkeiten, wenn Sie mehr Ausdruckskraft benötigen."@de ;
-				  sh:description "A name for some thing. Use vcard:Agent and its more comprehensive naming facilities when you need more expressiveness."@en ;
-				  skos:example "'example-name'" ;
+	sh:targetClass vcard:Individual ;
+	sh:property [ sh:path vcard:fn ;
+				  sh:name "contact name" ;
+				  sh:description "Name der Kontaktperson."@de ;
+				  sh:description "Name associated to the contact person."@en ;
+				  skos:example "'John Doe'" ;
 				  sh:order 1 ;
-				  sh:minCount 1 ;
+                  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:role ;
+				  sh:name "contact role" ;
+				  sh:description "Die Rolle, Aufgabe oder der Arbeitsbereich der Kontaktperson."@de ;
+				  sh:description "The role, occupation, or business category of the contact person."@en ;
+				  skos:example "'Surveyor'" ;
+				  sh:order 2 ;
+                  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:org;
+				  sh:name "contact organisation" ;
+				  sh:description "Organisation bei der die Kontaktperson tätig ist."@de ;
+				  sh:description "Affiliation of the contact person."@en ;
+				  skos:example "'John Doe Company'" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path vcard:email;
+				  sh:name "contact e-mail" ;
+				  sh:description "E-Mail Adresse der Kontaktperson."@de ;
+				  sh:description "Email address of the contact person."@en ;
+				  skos:example "'johndoe@e-mail.com'" ;
+				  sh:order 4 ;
 				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
 .
+
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path dcterms:conformsTo ;
+				  sh:name "coordinate reference system" ;
+				  sh:description "Identifier and codespace for reference system that is used for the data"@en ;
+				  skos:example "'EPSG: 4326'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string  ] ;
+	sh:property [ sh:path dcat:bbox ;
+				  sh:name "bounding box" ;
+				  sh:description "Geographic bounding box, using different potential encodings, namely, the recommended ones (GML and WKT), plus GeoJSON."@en ;
+				  skos:example "'e.g., as WKT, as GML, as GeoJSON - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry'" ;
+				  sh:order 2 ;
+				  sh:datatype xsd:string ] ;
+.
+
+
+gax-validation:DataAccountExportShape 
+    a sh:NodeShape ;
+    sh:targetClass gax-trust-framework:DataAccountExport ;
+    sh:property [ sh:path gax-trust-framework:requestType ;
+                  sh:name "request type" ;
+                  sh:description "the mean to request data retrieval: API, email, webform, unregisteredLetter, registeredLetter, supportCenter."@en ;
+                  skos:example "'API', 'email', 'webform', 'unregisteredLetter'" ;
+                  sh:order 1 ;           
+                  sh:maxCount 1 ;
+                  sh:minCount 1 ;
+                  sh:datatype xsd:string ],
+                [ sh:path gax-trust-framework:accessType ;
+                  sh:name "access type" ;
+                  sh:description "type of data support: digital, physical."@en ;
+                  skos:example "'digital', 'physical'" ;
+                  sh:order 2 ;
+                  sh:maxCount 1 ;
+                  sh:minCount 1 ;
+                  sh:datatype xsd:string ] ,
+                [ sh:path gax-trust-framework:formatType ;
+                  sh:name "format type" ;
+                  sh:description "type of Media Types (formerly known as MIME types) as defined by the IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
+                  skos:example "'application/gzip', 'text/csv'" ;
+                  sh:order 3 ;                 
+                  sh:maxCount 1 ;
+                  sh:minCount 1 ;
+                  sh:datatype xsd:string ] ;
+.
+
+
+gax-validation:EndpointShape 
+    a sh:NodeShape ;
+    sh:targetClass gax-trust-framework:Endpoint ;
+    sh:property [ sh:path gax-trust-framework:endPointURL ; 
+                  sh:name "end point u r l" ;
+                  sh:description "The URL of the endpoint where it can be accessed"@en ;
+                  skos:example "'https://gaia-x.eu/'" ;
+                  sh:order 1 ;
+                  sh:datatype xsd:anyURI ],
+                [ sh:path gax-trust-framework:standardConformity ;
+                  sh:name "standard conformity" ;
+                  sh:description "Provides information about applied standards."@en ;
+                  skos:example "'(reference to standard)'" ;
+                  sh:order 2 ;
+                  sh:node gax-validation:StandardShape ],
+                [ sh:path gax-trust-framework:endpointDescription ; 
+                  sh:name "endpoint description" ;
+                  sh:description "The Description (e.g. openAPI Description) of the endpoint"@en ;
+                  skos:example "'https://gaia-x.eu/'" ;
+                  sh:order 3 ;
+                  sh:datatype xsd:anyURI ] ;
+.
+
+
+gax-validation:StandardShape 
+    a sh:NodeShape ;
+    sh:targetClass gax-trust-framework:Standard ;
+    sh:property [ sh:path gax-trust-framework:title ; 
+                  sh:name "title" ;
+                  sh:description "Name of the standard."@en ;
+                  skos:example "'ISO10303-242:2014'" ;
+                  sh:order 1 ;
+                  sh:maxCount 1 ;
+                  sh:minCount 1 ;
+                  sh:datatype xsd:string ],
+                [ sh:path gax-trust-framework:standardReference ; 
+                  sh:name "standard reference" ;
+                  sh:description "Provides a link to schemas or details about applied standards."@en ;
+                  skos:example "'https://www.iso.org/standard'" ;
+                  sh:order 2 ;
+                  sh:minCount 1 ;
+                  sh:datatype xsd:anyURI ],
+                [ sh:path gax-trust-framework:publisher ; 
+                  sh:name "publisher" ;
+                  sh:description "Publisher of the standard."@en ;
+                  skos:example "'International Organization for Standardization'" ;
+                  sh:order 3 ;
+                  sh:maxCount 1 ;
+                  sh:datatype xsd:string ] ;
+.
+
