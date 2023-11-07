@@ -53,10 +53,10 @@
   },
   "gax-trust-framework:aggregationOf": [
     {
-      "@id": "REPLACE_WITH_LINK_TO-track_planner_mbes-softwareOffering.url"
+      "@id": "REPLACE_WITH_LINK_TO-track_planner_mbes-softwareResource.url"
     },
     {
-      "@id": "REPLACE_WITH_LINK_TO-2nd_software_service-softwareOffering.url"
+      "@id": "REPLACE_WITH_LINK_TO-2nd_software_service-softwareResource.url"
     }
   ]
 }
