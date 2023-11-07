@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "gax-core": "http://w3id.org/gaia-x/core#"
+  },
+  "@id": "marine_survey_systems_rental_subseaeurope",
+  "@type": "gax-trust-framework:ServiceOffering",
+  "gax-trust-framework:name": {
+    "@value": "Marine Survey Systems Rental",
+    "@type": "xsd:string"
+  },
+  "dct:description": {
+    "@value": "A rental pool of different marine survey equipment. Get fast and competitively-priced access to subsea technology and equipment supplied by Subsea Europe Services, RTS and Seatronics",
+    "@type": "xsd:string"
+  },
+  "dcat:keyword": [
+    {
+      "@value": "marine surveys",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "rental",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "sensors",
+      "@type": "xsd:string"
+    }
+  ],
+  "gax-trust-framework:termsAndConditions": {
+    "@type": "gax-trust-framework:TermsAndConditions",
+    "gax-trust-framework:content": {
+      "@value": "URLtoTermsandConditions.url",
+      "@type": "xsd:anyURI"
+    },
+    "gax-trust-framework:hash": {
+      "@value": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:policy": {
+    "@value": "URLtoPolicy.url",
+    "@type": "xsd:string"
+  },
+  "gax-core:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-subseaeurope.url"
+  },
+  "gax-trust-framework:aggregationOf": {
+    "@id": "REPLACE_WITH_LINK_TO-multibeam_echosounder_rental-physicalResource.url"
+  }
+}
