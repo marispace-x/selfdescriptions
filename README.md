@@ -5,7 +5,7 @@ The self-descriptions are single entries in a Federated Catalogue. The Federated
 - Metadata: Facts about the data
 - Data Quality: Interpretation of the facts and the contained data. Data Quality depends on the specific goals the user likes to achieve with the data.
 
-<h1>Self-Descriptions in Marispace-X</h1>
+<h1>Schema Self-Descriptions in Marispace-X</h1>
 All self-descriptions required for the Federated Catalogue in Marispace-X are collected here. The self-descriptions are in a draft phase and are steadily evaluated, updated and extended during the Marispace-X project
 
 The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1).
@@ -45,3 +45,16 @@ First SHACL files need to be created as templates for each self-description requ
 The current concept for data services is a follows:
 
 - the software service self-description template "softwareOfferingShape.ttl" from Gaia-X is adapated to the needs for geospatial data services (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/ - and Gaia-X ontologies - https://gaia-x.gitlab.io/technical-committee/federation-services/data-exchange/dewg/#data-product) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive.". The corresponding JSON-LD file is named "softwareOffering-servicename" where servicename is replaced with the respective title of the software service (e.g., softwareOffering-TrackPlanner_MBES.json)
+
+<h1>Examples Self-Descriptions in Marispace-X</h1>
+Example files for different applications are given in the repository, which are the JSON-LD self-descriptions filled from the SHACL template files. An overview of the different examples is given below.
+
+<h2>Example GeoData Resource/Sensor</h2>
+
+<h2>Example Software/Platform Offering</h2>
+Examples for a software and platform offering is illustrated in Figure 4. The software service offering can consist of multiple software resources (software tools) the are part of the offering, but it could also be only a single software offering where the link to additional software resources might not be necessary. This is the case for the platform offering where only a single self-descriptions exist to describe the service offering.
+
+![alt TEST](figures/Marispace-X-Self_description_example_software_service.jpg)
+*Figure 4: Example for a software service offering and a platfrom service offering. The corresponding JSON-LD files can be found in the respective subfolder of the selfdescriptions/ folder*
+
+<h2>Example Physical Resource</h2>
