@@ -52,9 +52,13 @@ Example files for different applications are given in the repository, which are 
 <h2>Example GeoData Resource/Sensor</h2>
 
 <h2>Example Software/Platform Offering</h2>
-Examples for a software and platform offering is illustrated in Figure 4. The software service offering can consist of multiple software resources (software tools) the are part of the offering, but it could also be only a single software offering where the link to additional software resources might not be necessary. This is the case for the platform offering where only a single self-descriptions exist to describe the service offering.
+Examples for a software and platform offering are illustrated in Figure 4. The software service offering can consist of multiple software resources (software tools) the are part of the offering, but it could also be only a single software offering where the link to additional software resources might not be necessary. This is the case for the platform offering where only a single self-descriptions exist to describe the service offering.
 
 ![alt TEST](figures/Marispace-X-Self_description_example_software_service.jpg)
 *Figure 4: Example for a software service offering and a platfrom service offering. The corresponding JSON-LD files can be found in the respective subfolder of the selfdescriptions/ folder*
 
 <h2>Example Physical Resource</h2>
+Examples for a physical resources are illustrated in Figure 5. The service offering is a rental of different survey equipment. So the service offering is linked to differnt physical resources like "Multibeam Echosounder Rental" and "Side Scan Sonar Rental". These physical resources can make use of the sensorGeneralInformation self-descriptions. If the self-description of the offered sensor already exists in the federated catalgoue, the physical resource can link to this sensor and so automatically adds the general information about the sensor.
+
+![alt TEST](figures/Marispace-X-Self_description_example_physical_resource.jpg)
+*Figure 5: Examples for physical resources offered via a service. The corresponding JSON-LD files can be found in the respective subfolder of the selfdescriptions/ folder*
