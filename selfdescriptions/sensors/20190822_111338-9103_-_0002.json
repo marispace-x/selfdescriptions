@@ -1,0 +1,98 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "cc": "http://creativecommons.org/ns#",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ids": "https://w3id.org/idsa/core/",
+    "device": "http://mmisw.org/ont/mmi/device#",
+    "multibeam": "https://mmisw.org/ont/~dwehner/multibeamEchosounder#",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "multibeam_raw_20190822_111338-9103_-_0002",
+  "@type": "gax-trust-framework:SensorMultibeamEchosounder",
+  "gax-trust-framework:aggregationOf": {
+    "@value": "REPLACE_WITH_LINK_TO-sensor_multibeam_norbit_iwbmsh_123456789ir-self_descritpion",
+    "@type": "xsd:string"
+  },
+  "multibeam:acousticCenterFrequency": {
+    "@value": "400000",
+    "@type": "xsd:decimal"
+  },
+  "multibeam:beamOpeningAngleAlongTrack": {
+    "@value": "1",
+    "@type": "xsd:decimal"
+  },
+  "multibeam:beamOpeningAngleAcrossTrack": {
+    "@value": "1",
+    "@type": "xsd:decimal"
+  },
+  "multibeam:swathMode": {
+    "@value": "single",
+    "@type": "xsd:string"
+  },
+  "multibeam:swathAngle": {
+    "@value": "130",
+    "@type": "xsd:decimal"
+  },
+  "multibeam:soundingPattern": {
+    "@value": "equidistant",
+    "@type": "xsd:string"
+  },
+  "multibeam:numberOfBeams": 512,
+  "dcterms:temporal": {
+    "@type": "dcterms:PeriodOfTime",
+    "dcat:startDate": {
+      "@value": "2019-08-22T11:13:38",
+      "@type": "xsd:dateTime"
+    },
+    "dcat:endDate": {
+      "@value": "2019-08-22T11:13:38",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "dcterms:identifier": "EPSG: 4326",
+    "locn:geometry": {
+      "@value": "{\"type\":\"Polygon\",\"coordinates\":[[[7.075809455262935,54.04398495522242],[7.075812412270862,54.04398169420943],[7.075822195952261,54.04397322238141],[7.075919480395177,54.04390646814359],[7.076066091838261,54.043813839296405],[7.076072694302664,54.043809730027476],[7.078787467466642,54.042216306809166],[7.08921398332409,54.03623921096958],[7.092103203135915,54.03463621054128],[7.092182635782154,54.034594916407336],[7.092187919767872,54.034592292596614],[7.092195529441059,54.03459461285306],[7.0922841158167955,54.03462162356584],[7.092525421764339,54.03469519922284],[7.093263164338204,54.034920136845294],[7.093598473117318,54.03502237016372],[7.093611855991838,54.03502645047957],[7.093591700847981,54.035069993287294],[7.093213218463513,54.03531817516981],[7.082938459313921,54.04122661271389],[7.078018305640368,54.04402380389668],[7.077641400799891,54.04423698353971],[7.077372215949494,54.04437469023734],[7.077360320572314,54.04438009593265],[7.077348482993491,54.04438478529279],[7.077275503252393,54.04441156745668],[7.0771641124664315,54.04437915425523],[7.07694710451975,54.04431600745948],[7.076327749062186,54.044135779012066],[7.076025798808434,54.04404791171947],[7.075914976343619,54.04401566218518],[7.075817174344736,54.04398720150389],[7.075809455262935,54.04398495522242],[7.075809455262935,54.04398495522242]]]}",
+      "@type": "xsd:string"
+    }
+  },
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dcat:title": {
+      "@value": "20190822_111338-9103_-_0002",
+      "@type": "xsd:string"
+    },
+    "dcat:mediaType": {
+      "@value": "xtf",
+      "@type": "xsd:string"
+    },
+    "dcat:byteSize": {
+      "@value": "120299000",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "dcat:accessURL": {
+      "@value": "20190822_111338-9103_-_0002.xtf",
+      "@type": "xsd:string"
+    }
+  }
+}
