@@ -1,0 +1,177 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix device: <http://mmisw.org/ont/mmi/device#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sidescansonar: <https://mmisw.org/ont/~dwehner/sideScanSonar#> .
+
+
+## Sensor Side Scan Sonar Information ##
+gax-validation:sensorSideScanSonarShape
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:SensorSideScanSonar ;
+	sh:property [ sh:path gax-trust-framework:aggregationOf ;
+				  sh:name "sensor information" ;
+				  sh:description "A resolvable link to all 'general sensor information' self-description that correspond to the sensor used to acquire this data file."@en ;
+				  skos:example "sensor_multibeam_norbit_iwbmsh_123456789ir" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;       
+				  sh:datatype xsd:string ] ;
+    sh:property [ sh:path gax-trust-framework:aggregationOf ;
+				  sh:name "survey information" ;
+				  sh:description "A resolvable link to all 'survey specific information' self-description that correspond to the sensor used to acquire this data file."@en ;
+				  skos:example "survey_multibeam_norbit_iwbmsh_123456789ir" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+    sh:property [ sh:path sidescansonar:acousticCenterFrequency ;
+				  sh:name "acoustic center frequency" ;
+				  sh:description "The acoustic center frequency emitted by the side scan sonar, in [Hz]."@en ;
+				  skos:example "400000.0" ;
+				  sh:order 3 ;
+				  sh:datatype xsd:decimal ] ;
+	sh:property [ sh:path sidescansonar:pulseType ;
+				  sh:name "pulse type" ;
+				  sh:description "The type of pulse that is emitted by the side scan sonar ('FM' - Frequency Modulated, 'CW' - Contnious Wave). FM is equivalent with CHIRP or SWEEP."@en ;
+				  skos:example "FM" ;
+				  sh:order 4 ;
+				  sh:datatype xsd:string ] ;
+    sh:property [ sh:path sidescansonar:pulseLength ;
+				  sh:name "pulse length" ;
+				  sh:description "The sonar pulse length emitted by the side scan sonar, in [s]."@en ;
+				  skos:example "0.0004" ;
+				  sh:order 5 ;
+				  sh:datatype xsd:decimal ] ;
+	sh:property [ sh:path sidescansonar:beamOpeningAngleAlongTrack ;
+				  sh:name "beam opening angle along track" ;
+				  sh:description "The emitted beam opening angle in along track direction (also called along track beam width), in [°]."@en ;
+				  skos:example "0.3" ;
+				  sh:order 6 ;
+				  sh:datatype xsd:decimal ] ;
+	sh:property [ sh:path sidescansonar:beamOpeningAngleAcrossTrack ;
+				  sh:name "beam opening angle across track" ;
+				  sh:description "The received beam opening angle in across track direction (also called across track beam width), in [°]."@en ;
+				  skos:example "50.0" ;
+				  sh:order 7 ;
+				  sh:datatype xsd:decimal ] ;
+	sh:property [ sh:path dcterms:temporal ;
+				  sh:name "temporal coverage" ;
+				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
+				  skos:example "'start and end data of acquisition'" ;
+				  sh:order 8 ;
+                  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:PeriodOfTime ] ;
+	sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
+				  skos:example " " ;
+				  sh:order 9 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Location ] ;
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+	sh:property [ sh:path dcat:distribution ;
+				  sh:name "distribution" ;
+				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+				  skos:example "'a link to the actual data'" ;
+				  sh:order 10 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcat:Distribution] ;
+.
+
+
+dcterms:PeriodOfTime
+	a sh:NodeShape ;
+	sh:targetClass dcterms:PeriodOfTime ;
+	sh:property [ sh:path dcat:startDate ;
+				  sh:name "start date" ;
+				  sh:description "Start datetime of acquired data given in datetime format according to ISO 8601."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcat:endDate ;
+				  sh:name "end date" ;
+				  sh:description "End datetime of acquired data given in datetime format according to ISO 8601."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+.
+
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path dcterms:identifier ;
+				  sh:name "epsg code" ;
+				  sh:description "Spatial reference system defined as the EPSG code, e.g., 'EPSG:4326' (http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem)."@en ;
+				  skos:example "'EPSG:4326'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  dcterms:type <http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem>] ;
+	sh:property [ sh:path locn:geometry ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Geographic position of the resource; point, line, or polygon geometry (e.g., as WKT, GML, GeoJSON), that can contain the coordinate reference system, CRS, information."@en ;
+				  skos:example "'Geographic position of the resource; point, line, or polygon geometry (e.g., as WKT, GML, GeoJSON), that can contain the coordinate reference system, CRS, information. - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry.'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+.
+
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+dcat:Distribution
+	a sh:NodeShape ;
+	sh:targetClass dcat:Distribution ;
+	sh:property [ sh:path dcat:title ;
+				  sh:name "distribution title" ;
+				  sh:description "The name of the distribution."@en ;
+				  skos:example "' '" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:mediaType ;
+				  sh:name "distribution media type" ;
+				  sh:description "The media type of the distribution, e.g., as defined by IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
+				  skos:example "" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:byteSize;
+				  sh:name "distribution byte size" ;
+				  sh:description "The size of a distribution in bytes."@en ;
+				  skos:example "" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger] ;
+	sh:property [sh:path dcat:accessURL;
+				 sh:name "access URL" ;
+				 sh:description "This property contains a URL that gives access to a Distribution of the Dataset."@en ;
+				 skos:example "' '" ;
+				 sh:order 4 ;
+				 sh:datatype xsd:string ] ;
+.
+###########################################################################################################
