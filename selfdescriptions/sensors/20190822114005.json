@@ -1,0 +1,117 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "cc": "http://creativecommons.org/ns#",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ids": "https://w3id.org/idsa/core/",
+    "sidescansonar": "https://mmisw.org/ont/~dwehner/sideScanSonar#",
+    "device": "http://mmisw.org/ont/mmi/device#",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "sidescansonar_raw_20190822114005",
+  "@type": "gax-trust-framework:SensorSideScanSonar",
+  "gax-trust-framework:aggregationOf": {
+    "@value": "REPLACE_WITH_LINK_TO-sensor_sidescansonar_edgetech_4200_hf_123456789nt-self_descritpion",
+    "@type": "xsd:string"
+  },
+  "sidescansonar:acousticCenterFrequency": [
+    {
+      "@value": "300000",
+      "@type": "xsd:decimal"
+    },
+    {
+      "@value": "600000",
+      "@type": "xsd:decimal"
+    }
+  ],
+  "sidescansonar:pulseType": {
+    "@value": "FM",
+    "@type": "xsd:string"
+  },
+  "sidescansonar:pulseLength": [
+    {
+      "@value": "0.001",
+      "@type": "xsd:decimal"
+    },
+    {
+      "@value": "0.0005",
+      "@type": "xsd:decimal"
+    }
+  ],
+  "sidescansonar:beamOpeningAngleAlongTrack": [
+    {
+      "@value": "0.28",
+      "@type": "xsd:decimal"
+    },
+    {
+      "@value": "0.26",
+      "@type": "xsd:decimal"
+    }
+  ],
+  "sidescansonar:beamOpeningAngleAcrossTrack": [
+    {
+      "@value": "50",
+      "@type": "xsd:decimal"
+    },
+    {
+      "@value": "50",
+      "@type": "xsd:decimal"
+    }
+  ],
+  "dcterms:temporal": {
+    "@type": "dcterms:PeriodOfTime",
+    "dcat:startDate": {
+      "@value": "2019-08-22T11:40:57",
+      "@type": "xsd:dateTime"
+    },
+    "dcat:endDate": {
+      "@value": "2019-08-22T11:40:57",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "dcterms:identifier": "EPSG: 4326",
+    "locn:geometry": {
+      "@value": "{\"type\":\"Polygon\",\"coordinates\":[[[7.038087078469529,54.05138155024367],[7.038103548352588,54.05137005258146],[7.0382863886907225,54.051261985035744],[7.04115262065223,54.049579625993246],[7.06208931093758,54.037595578297704],[7.075115289036912,54.0301435588621],[7.078898663445025,54.02799238288814],[7.07965120195704,54.0275648901392],[7.080853763237593,54.02688182748558],[7.081044544792631,54.026774134433865],[7.0812066495954795,54.02668651831652],[7.081231174082645,54.026673805131885],[7.081287403887311,54.02664531258321],[7.081590528921008,54.026492568631014],[7.081686546921481,54.02644491064199],[7.081871857480443,54.02635562155397],[7.081901439181488,54.026342685330306],[7.081905722058487,54.02634084475495],[7.081921080588135,54.026334438768274],[7.08193610587235,54.02632829637137],[7.0819669865248205,54.02631617536953],[7.0819963576849,54.02630526517024],[7.082130940520409,54.02626189473959],[7.082138288466149,54.0262597268932],[7.082154851411365,54.02625515625859],[7.082198745114967,54.02624374941195],[7.082227899972449,54.0262366591845],[7.0837143276317,54.0277776412248],[7.051796650091196,54.047699815498675],[7.051684616407069,54.04776642900207],[7.051669428389962,54.04777297009299],[7.0399845081998205,54.05277727187696],[7.039960775707528,54.05278725337387],[7.039928342070198,54.0528007958616],[7.039863706279861,54.05282558770128],[7.039845727959063,54.05283191551989],[7.039630505824565,54.05287355857525],[7.038087078469529,54.05138155024367],[7.038087078469529,54.05138155024367]]]}",
+      "@type": "xsd:string"
+    }
+  },
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dcat:title": {
+      "@value": "20190822114005",
+      "@type": "xsd:string"
+    },
+    "dcat:mediaType": {
+      "@value": "jsf",
+      "@type": "xsd:string"
+    },
+    "dcat:byteSize": {
+      "@value": "841715000",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "dcat:accessURL": {
+      "@value": "20190822114005.jsf",
+      "@type": "xsd:string"
+    }
+  }
+}
