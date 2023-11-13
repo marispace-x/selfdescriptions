@@ -42,7 +42,6 @@ gax-validation:sensorSideScanSonarShape
 				  sh:description "A resolvable link to all 'survey specific information' self-description that correspond to the sensor used to acquire this data file."@en ;
 				  skos:example "survey_multibeam_norbit_iwbmsh_123456789ir" ;
 				  sh:order 2 ;
-				  sh:maxCount 1 ;
 				  sh:datatype xsd:string ] ;
     sh:property [ sh:path sidescansonar:acousticCenterFrequency ;
 				  sh:name "acoustic center frequency" ;
