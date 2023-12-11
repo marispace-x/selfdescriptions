@@ -1,0 +1,80 @@
+{
+    "selfDescriptionCredential": {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://registry.gaia-x.eu/v2206/api/shape"
+        ],
+        "type": [
+            "VerifiableCredential",
+            "LegalPerson"
+        ],
+        "id": "https://delta-dao.com/.well-known/participantIONOS.json",
+        "issuer": "did:web:delta-dao.com",
+        "issuanceDate": "2022-11-01T16:00:00.000Z",
+        "credentialSubject": {
+            "id": "https://delta-dao.com/.well-known/participantIONOS.json",
+            "gx-participant:legalName": "IONOS SE",
+            "gx-participant:website": "https://www.ionos.com/",
+            "gx-participant:registrationNumber": [
+                {
+                    "gx-participant:registrationNumberType": "leiCode",
+                    "gx-participant:registrationNumberNumber": "54930038KPLOYRDHV375"
+                },
+                {
+                    "gx-participant:registrationNumberType": "local",
+                    "gx-participant:registrationNumberNumber": "HRB 24498"
+                }
+            ],
+            "gx-participant:blockchainAccountId": [
+                {
+                    "gx-participant:blockchainAccountId": "0x81336c245712DbF0E971de5463173bCaA9826d84"
+                }
+            ],
+            "gx-participant:headquarterAddress": {
+                "gx-participant:addressCountryCode": "DE",
+                "gx-participant:addressCode": "DE-RP",
+                "gx-participant:streetAddress": "Elgendorfer Straße 57",
+                "gx-participant:postalCode": "56410",
+                "gx-participant:locality": "Montabaur"
+            },
+            "gx-participant:legalAddress": {
+                "gx-participant:addressCountryCode": "DE",
+                "gx-participant:addressCode": "DE-RP",
+                "gx-participant:streetAddress": "Elgendorfer Straße 57",
+                "gx-participant:postalCode": "56410",
+                "gx-participant:locality": "Montabaur"
+            },
+            "gx-participant:termsAndConditions": "70c1d713215f95191a11d38fe2341faed27d19e083917bc8732ca4fea4976700"
+        },
+        "proof": {
+            "type": "JsonWebSignature2020",
+            "created": "2022-11-02T07:52:11.092Z",
+            "proofPurpose": "assertionMethod",
+            "verificationMethod": "did:web:delta-dao.com",
+            "jws": "eyJhbGciOiJQUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..BHIi7cJJrmXGx_9-4kdB_phqLyZ4xYJnRC5Bk_mal8YZrUvPbhMkOXiUGpzjLPKK2xW3jkZFWeAV7cR81T0-952YlPBYKgysBD5_Tkb6l2mMtr2GUym72OAd841m1muc8WfkPGiI9LgK_3bfOllYSAX2rWyKzcnDOSoc0aO38Rgfndd9duTPHkdkdV06VbL_sRyEIlT4ZG6qxZZxeXo7r2ppUoZka8qOZfWvYgMYkoii3b__swkus3Xga_IvRv3QwGCHcap1vRdfGDPf0YSOTbo4koKWdXR6IGMJY193zol_tOhtLTGfl2n_LW4iSrp51wWbif38XncMY19PG5JpwQ"
+        }
+    },
+    "complianceCredential": {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1"
+        ],
+        "type": [
+            "VerifiableCredential",
+            "ParticipantCredential"
+        ],
+        "id": "https://catalogue.gaia-x.eu/credentials/ParticipantCredential/1667375536487",
+        "issuer": "did:web:compliance.gaia-x.eu",
+        "issuanceDate": "2022-11-02T07:52:16.487Z",
+        "credentialSubject": {
+            "id": "https://delta-dao.com/.well-known/participantIONOS.json",
+            "hash": "dfc74a1cb580c9545652a144c7e7298817b3d393270df1cb3f1d980883182b6a"
+        },
+        "proof": {
+            "type": "JsonWebSignature2020",
+            "created": "2022-11-02T07:52:16.487Z",
+            "proofPurpose": "assertionMethod",
+            "jws": "eyJhbGciOiJQUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..KgCOEpUpNpyNDOz6fuFAIrhDDGPE98053o7-o7LGAa_g-RyvBhDQ6fMzOAEDaNtbOqPDUHvgP6IUD6nwnwNyS88waietWdsj74chDCm_OReXYxNW8k7hp7jSLcreS3o_fqdNH9YbxUTh55KNMF09TE9YlpJ1Lo6GqA7hz3s-m-klOvbd9EOJPowCQ9AnBu8LgLRRFaYnozXBjiHMwHZ_eXqX7ZmWtG7i_sQHlUHpOwBrHjvH5CRS3xKm02Mpjwsw9KEoYknn0AqBvO5DvdwNw3BCbfKAuNyPs7f3GlS3evpwVEqKDTJ2DIEvh9PaO3idmTHWrVxHtTKzAbaPs7xEXg",
+            "verificationMethod": "did:web:compliance.gaia-x.eu"
+        }
+    }
+}
