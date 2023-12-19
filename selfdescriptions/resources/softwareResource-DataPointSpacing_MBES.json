@@ -1,0 +1,122 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "gax-core": "http://w3id.org/gaia-x/core#"
+  },
+  "@id": "data_point_spacing_mbes",
+  "@type": "gax-trust-framework:SoftwareResource",
+  "dcat:title": {
+    "@value": "MBES Data Point Spacing",
+    "@type": "xsd:string"
+  },
+  "dcat:description": {
+    "@value": "Computes the mean spacing between each sounding and its four closest neighbouring soundings. The data point spacing is an indication for the data resolution. (reference: 10.1109/JSTARS.2022.3200144)",
+    "@type": "xsd:string"
+  },
+  "dcterms:type": [
+    {
+      "@value": "spatial data service",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "500-Geographic processing services – thematic",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "501-Geoparameter calculation service",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcat:keyword": [
+    {
+      "@value": "data quality",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "multibeam",
+      "@type": "xsd:string"
+    },
+    {
+      "@value": "marine surveys",
+      "@type": "xsd:string"
+    }
+  ],
+  "dcterms:language": {
+    "@value": "eng",
+    "@type": "xsd:string"
+  },
+  "dcat:issued": {
+    "@value": "2023-12-18T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:modified": {
+    "@value": "2023-12-18T00:00:00",
+    "@type": "xsd:dateTime"
+  },
+  "gax-trust-framework:termsAndConditions": {
+    "@type": "gax-trust-framework:TermsAndConditions",
+    "gax-trust-framework:content": {
+      "@value": "URLtoTermsandConditions.url",
+      "@type": "xsd:anyURI"
+    },
+    "gax-trust-framework:hash": {
+      "@value": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015bc",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-trust-framework:policy": {
+    "@value": "URLtoPolicy.url",
+    "@type": "xsd:string"
+  },
+  "dcterms:license": {
+    "@value": "URLtoLicense.url",
+    "@type": "xsd:string"
+  },
+  "vcard:Kind": {
+    "@type": "vcard:Individual",
+    "vcard:fn": {
+      "@value": "Daniel Wehner",
+      "@type": "xsd:string"
+    },
+    "vcard:role": {
+      "@value": "Geophysicist",
+      "@type": "xsd:string"
+    },
+    "vcard:org": {
+      "@value": "north.io GmbH",
+      "@type": "xsd:string"
+    }
+  },
+  "gax-core:providedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
+  },
+  "gax-trust-framework:producedBy": {
+    "@id": "REPLACE_WITH-LINK-TO-participant_self_description-north_io.url"
+  },
+  "gax-trust-framework:hostedOn": {
+    "@id": "REPLACE_WITH-LINK-TO-infrastructure_self_description.url"
+  },
+  "gax-trust-framework:dataAccountExport": {
+    "@type": "gax-trust-framework:DataAccountExport",
+    "gax-trust-framework:requestType": {
+      "@value": "API",
+      "@type": "xsd:string"
+    },
+    "gax-trust-framework:accessType": {
+      "@value": "digital",
+      "@type": "xsd:string"
+    },
+    "gax-trust-framework:formatType": {
+      "@value": "gsf, all, xtf",
+      "@type": "xsd:string"
+    }
+  }
+}
