@@ -1,0 +1,327 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+@prefix eop: <http://www.opengis.net/eop/2.1> .
+@prefix gml: <http://www.opengis.net/gml/3.2> .
+@prefix opt: <http://www.opengis.net/opt/2.1> .
+
+gax-validation:sensorSatelliteOpticalShape
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:SensorSatelliteOptical ;
+	sh:property [ sh:path eop:EarthObservationEquipment ;
+				  sh:name "earth observation equipment" ;
+				  sh:description "Description."@en ;
+				  skos:example "'example'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node eop:EarthObservationEquipment ] ;
+	sh:property [ sh:path eop:EarthObservationMetaData ;
+				  sh:name "earth observation Metadata" ;
+				  sh:description "Description."@en ;
+				  skos:example "'example'" ;
+				  sh:order 2 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node eop:EarthObservationMetaData ] ;
+	sh:property [ sh:path eop:EarthObservationResult ;
+				  sh:name "earth observation result" ;
+				  sh:description "Description."@en ;
+				  skos:example "'example'" ;
+				  sh:order 3 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node eop:EarthObservationResult ] ;
+	sh:property [ sh:path eop:ParameterInformation ;
+				  sh:name "Parameter information" ;
+				  sh:description "Description."@en ;
+				  skos:example "'example'" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:node eop:ParameterInformation ] ;				  
+.
+
+
+
+eop:EarthObservationEquipment
+	a sh:NodeShape ;
+	sh:targetClass eop:EarthObservationEquipment ;
+	sh:property [ sh:path eop:shortName ;
+				  sh:name "Platform short name" ;
+				  sh:description "Platform short name (e.g. PHR)."@en ;
+				  skos:example "'S2-MSI'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path eop:serialIdentifier ;
+				  sh:name "Platform serial identifier" ;
+				  sh:description "Platform serial identifier (e.g. for PHR : 1A)."@en ;
+				  skos:example "'1A'" ;
+				  sh:order 2 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path gml:beginPosition ;
+				  sh:name "Acquisition start date time" ;
+				  sh:description "Acquisition start date time (CCYY-MM-DDThh:mm[:ss[.cc]]Z)."@en ;
+				  skos:example "2023-07-08T10:26:01.024Z" ;
+				  sh:order 3 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path gml:endPosition ;
+				  sh:name "Acquisition end date time" ;
+				  sh:description "Acquisition end date time (CCYY-MM-DDThh:mm[:ss[.cc]]Z)."@en ;
+				  skos:example "2023-07-08T10:26:01.024Z" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path eop:orbitType ;
+				  sh:name "Orbit Type" ;
+				  sh:description "High level characterisation of main mission types taken from a codelist (GEO: Geostationary orbit, LEO: low elevation orbit)."@en ;
+				  skos:example "'LEO'" ;
+				  sh:order 5 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path eop:shortName ;
+				  sh:name "Instrument (Sensor) name" ;
+				  sh:description "Instrument (Sensor) name."@en ;
+				  skos:example "'Multispectral Instrument'" ;
+				  sh:order 6 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;					  
+	sh:property [ sh:path eop:sensorType ;
+				  sh:name "Sensor type" ;
+				  sh:description "Sensor type based on codelist. Values: OPTICAL, RADAR, ALTIMETRIC, ATMOSPHERIC, LIMB."@en ;
+				  skos:example "'Push broom scanner '" ;
+				  sh:order 7 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path eop:discreteWavelengths ;
+				  sh:name "discrete wavelengths" ;
+				  sh:description "List of discrete wavelengths observed in the product (gml:MeasureList)."@en ;
+				  skos:example "'[505, 632, 754] '" ;
+				  sh:order 8 ;
+				  sh:maxCount 1 ;
+				  sh:datatype gml:MeasureList ] ;				
+	sh:property [ sh:path eop:spectralRange ;
+				  sh:name "spectral range" ;
+				  sh:description "The observed Spectral Range. Values: INFRARED, NEAR-INFRARED, UV, VISIBLE, OTHER."@en ;
+				  skos:example "'VISIBLE'" ;
+				  sh:order 9 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path eop:orbitNumber ;
+				  sh:name "Orbit number" ;
+				  sh:description "Acquisition orbit number."@en ;
+				  skos:example "'108'" ;
+				  sh:order 10 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger ] ;	
+	sh:property [ sh:path eop:orbitDirection ;
+				  sh:name "Orbit direction" ;
+				  sh:description "Acquisition orbit direction. Values: ASCENDING, DESCENDING."@en ;
+				  skos:example "'DESCENDING'" ;
+				  sh:order 11 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;					  
+    sh:property [ sh:path eop:illuminationAzimuthAngle ;
+				  sh:name "illumination azimuth angle" ;
+				  sh:description "Mean illumination/solar azimuth angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 12 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;
+    sh:property [ sh:path eop:illuminationZenithAngle ;
+				  sh:name "illumination zenith angle" ;
+				  sh:description "Mean illumination/solar zenith angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 13 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;
+    sh:property [ sh:path eop:illuminationElevationAngle ;
+				  sh:name "illumination elevation angle" ;
+				  sh:description "Mean illumination/solar elevation angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 14 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;
+	sh:property [ sh:path eop:instrumentAzimuthAngle ;
+				  sh:name "instrument azimuth angle" ;
+				  sh:description "Mean instrument azimuth angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 15 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;
+	sh:property [ sh:path eop:instrumentZenithAngle ;
+				  sh:name "instrument zenith angle" ;
+				  sh:description "Mean instrument zenith angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 16 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;				  
+	sh:property [ sh:path eop:instrumentElevationAngle ;
+				  sh:name "instrument Elevation angle" ;
+				  sh:description "Mean instrument elevation angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 17 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;				  				  
+	sh:property [ sh:path eop:incidenceAngle ;
+				  sh:name "incidence angle" ;
+				  sh:description "Acquisition global incidence angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 18 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;					  
+	sh:property [ sh:path eop:acrossTrackIncidenceAngle ;
+				  sh:name "across track incidence angle" ;
+				  sh:description "Acquisition across track incidence angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 19 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;					  				  
+	sh:property [ sh:path eop:alongTrackIncidenceAngle ;
+				  sh:name "along track incidence angle" ;
+				  sh:description "Acquisition along  track incidence angle given in degrees."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 20 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;					  
+	sh:property [ sh:path eop:pitch ;
+				  sh:name "pitch" ;
+				  sh:description "Satellite pitch angle given in degrees ."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 21 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;					  
+	sh:property [ sh:path eop:roll ;
+				  sh:name "roll" ;
+				  sh:description "Satellite roll angle given in degrees ."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 22 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;					  				  
+	sh:property [ sh:path eop:yaw ;
+				  sh:name "yaw" ;
+				  sh:description "Satellite yaw angle given in degrees ."@en ;
+				  skos:example "'47.2'" ;
+				  sh:order 23 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;						  
+.
+
+eop:EarthObservationResult
+	a sh:NodeShape ;
+	sh:targetClass eop:EarthObservationResult ;
+	sh:property [ sh:path opt:cloudCoverPercentage ;
+				  sh:name "Cloud cover percentage " ;
+				  sh:description "Cloud cover percentage (%) "@en ;
+				  skos:example "'22'" ;
+				  sh:order 26 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;
+	sh:property [ sh:path opt:snowCoverPercentage ;
+				  sh:name "Snow cover percentage " ;
+				  sh:description "Snow cover percentage (%) "@en ;
+				  skos:example "'22'" ;
+				  sh:order 27 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:double ] ;				  
+.
+
+eop:EarthObservationMetaData
+	a sh:NodeShape ;
+	sh:targetClass eop:EarthObservationMetaData ;
+	sh:property [ sh:path eop:productQualityReportURL ;
+				  sh:name "product quality report URL" ;
+				  sh:description "URL reference to an external quality report file "@en ;
+				  skos:example "'URL'" ;
+				  sh:order 21 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path eop:method ;
+				  sh:name "method" ;
+				  sh:description "Method used to compute datalayer."@en ;
+				  skos:example "'Kalman filtering'" ;
+				  sh:order 22 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;		
+	sh:property [ sh:path eop:methodVersion ;
+				  sh:name "method version" ;
+				  sh:description "Method version."@en ;
+				  skos:example "'1.0'" ;
+				  sh:order 23 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;					  
+	sh:property [ sh:path eop:processorName ;
+				  sh:name "processor name" ;
+				  sh:description "Processor software name."@en ;
+				  skos:example "'Acolite'" ;
+				  sh:order 24 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;					  				  
+	sh:property [ sh:path eop:processorVersion ;
+				  sh:name "processor version" ;
+				  sh:description "Processor software version ."@en ;
+				  skos:example "'1.0'" ;
+				  sh:order 25 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path eop:processingLevel ;
+				  sh:name "processing level" ;
+				  sh:description "Processing level applied to the product ."@en ;
+				  skos:example "'L3'" ;
+				  sh:order 25 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;				  
+.
+
+eop:ParameterInformation
+	a sh:NodeShape ;
+	sh:targetClass eop:ParameterInformation ;
+	sh:property [ sh:path eop:phenomenon ;
+				  sh:name "Observed phenomenon " ;
+				  sh:description "A SWE 1.0 Phenomenon. Could be a single SWE Phenomenon (such as Sea Surface Height) or a SWE ConstrainedPhenomenon, such as a list of particular radiance bands, or a SWECompositePhenomeon which groups several discrete phenomena"@en ;
+				  skos:example "'550 nm'" ;
+				  sh:order 28 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;				  				  
+	sh:property [ sh:path eop:unitOfMeasure ;
+				  sh:name "Unit of measure " ;
+				  sh:description "Units of measure for the observed phenomenon. Note that for a multi-faceted Constrained or Composite Phenomenon multiple unitOfMeasure attributes must be present and the unitOfMeasure element order must correspond to the order of the phenomenon descriptions."@en ;
+				  skos:example "'Remote sensing reflectance'" ;
+				  sh:order 29 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;				  				  				  
+.	
