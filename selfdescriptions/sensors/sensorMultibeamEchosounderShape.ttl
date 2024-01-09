@@ -34,8 +34,7 @@ gax-validation:sensorMultibeamEchosounderShape
 				  sh:name "sensor information" ;
 				  sh:description "A resolvable link to all 'general sensor information' self-description that correspond to the sensor used to acquire this data file."@en ;
 				  skos:example "sensor_multibeam_norbit_iwbmsh_123456789ir" ;
-				  sh:order 1 ;
-				  sh:minCount 1 ;       
+				  sh:order 1 ;      
 				  sh:datatype xsd:string ] ;
     sh:property [ sh:path gax-trust-framework:aggregationOf ;
 				  sh:name "survey information" ;
