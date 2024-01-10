@@ -1,0 +1,136 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "eop": "http://www.opengis.net/eop/2.1",
+    "gml": "http://www.opengis.net/gml/3.2",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "cc": "http://creativecommons.org/ns#",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "opt": "http://www.opengis.net/opt/2.1",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ids": "https://w3id.org/idsa/core/",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "satellite_optical_satelliteoptical012345678910",
+  "@type": "gax-trust-framework:SensorSatelliteOptical",
+  "eop:EarthObservationEquipment": {
+    "@type": "eop:EarthObservationEquipment",
+    "eop:shortName": [
+      {
+        "@value": "S2-MSI",
+        "@type": "xsd:string"
+      },
+      {
+        "@value": "Multispectral Instrument",
+        "@type": "xsd:string"
+      }
+    ],
+    "eop:serialIdentifier": {
+      "@value": "1A",
+      "@type": "xsd:string"
+    },
+    "gml:beginPosition": {
+      "@value": "2023-07-08T12:26:01",
+      "@type": "xsd:dateTime"
+    },
+    "gml:endPosition": {
+      "@value": "2023-07-08T14:26:01",
+      "@type": "xsd:dateTime"
+    },
+    "eop:orbitType": {
+      "@value": "LEO",
+      "@type": "xsd:string"
+    },
+    "eop:sensorType": {
+      "@value": "OPTICAL",
+      "@type": "xsd:string"
+    },
+    "eop:discreteWavelengths": {
+      "@value": "[505, 632, 754]",
+      "@type": "gml:MeasureList"
+    },
+    "eop:spectralRange": {
+      "@value": "VISIBLE",
+      "@type": "xsd:string"
+    },
+    "eop:orbitNumber": {
+      "@value": "108",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "eop:orbitDirection": {
+      "@value": "DESCENDING",
+      "@type": "xsd:string"
+    },
+    "eop:illuminationAzimuthAngle": 47.2,
+    "eop:illuminationZenithAngle": 47.2,
+    "eop:illuminationElevationAngle": 47.2,
+    "eop:instrumentAzimuthAngle": 47.2,
+    "eop:instrumentZenithAngle": 47.2,
+    "eop:instrumentElevationAngle": 47.2,
+    "eop:incidenceAngle": 47.2,
+    "eop:acrossTrackIncidenceAngle": 47.2,
+    "eop:alongTrackIncidenceAngle": 47.2,
+    "eop:pitch": 7.1,
+    "eop:roll": 4.2,
+    "eop:yaw": 2.5
+  },
+  "eop:EarthObservationMetaData": {
+    "@type": "eop:EarthObservationMetaData",
+    "eop:productQualityReportURL": {
+      "@value": "productQualityReport.url",
+      "@type": "xsd:string"
+    },
+    "eop:method": {
+      "@value": "Kalman filtering",
+      "@type": "xsd:string"
+    },
+    "eop:methodVersion": {
+      "@value": "1.0",
+      "@type": "xsd:string"
+    },
+    "eop:processorName": {
+      "@value": "Acolite",
+      "@type": "xsd:string"
+    },
+    "eop:processingLevel": {
+      "@value": "1.0",
+      "@type": "xsd:string"
+    },
+    "eop:processorVersion": {
+      "@value": "L3",
+      "@type": "xsd:string"
+    }
+  },
+  "eop:EarthObservationResult": {
+    "@type": "eop:EarthObservationResult",
+    "opt:cloudCoverPercentage": 22,
+    "opt:snowCoverPercentage": 22
+  },
+  "eop:ParameterInformation": {
+    "@type": "eop:ParameterInformation",
+    "eop:phenomenon": {
+      "@value": "L2W550 nm",
+      "@type": "xsd:string"
+    },
+    "eop:unitOfMeasure": {
+      "@value": "Remote sensing reflectance",
+      "@type": "xsd:string"
+    }
+  }
+}
