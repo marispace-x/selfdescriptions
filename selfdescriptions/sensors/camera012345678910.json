@@ -1,0 +1,156 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "gax-validation": "http://w3id.org/gaia-x/validation#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "gax-trust-framework": "http://w3id.org/gaia-x/gax-trust-framework#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ifdo": "https://marine-imaging.com/fair/schemas/ifdo-v2.0.1.json#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "vann": "http://purl.org/vocab/vann/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "cc": "http://creativecommons.org/ns#",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "void": "http://rdfs.org/ns/void#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "gax-core": "http://w3id.org/gaia-x/core#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ids": "https://w3id.org/idsa/core/",
+    "did": "https://www.w3.org/TR/did-core/#"
+  },
+  "@id": "f840644a-fe4a-46a7-9791-e32c211bcbf5",
+  "@type": "gax-trust-framework:SensorCamera",
+  "gax-trust-framework:aggregationOf": {
+    "@value": "http://vocab.nerc.ac.uk/collection/L22/current/TOOL1203/",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-acquisition": {
+    "@value": "photo",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-hash-sha256": {
+    "@value": "83f30eb35d1325c44c85fba0cf478825c0a629d20177a945069934f6cd07e087",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-altitude-meters": {
+    "@value": "-45.2",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-coordinate-uncertainty-meters": {
+    "@value": "13.6",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-quality": {
+    "@value": "raw",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-deployment": {
+    "@value": "mapping",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-navigation": {
+    "@value": "beacon",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-scale-reference": {
+    "@value": "3D camera",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-illumination": {
+    "@value": "artificial light",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-marine-zone": {
+    "@value": "seafloor",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-spectral-resolution": {
+    "@value": "RGB",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-fauna-attraction": {
+    "@value": "none",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-capture-mode": {
+    "@value": "automated",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-area-square-meters": {
+    "@value": "13.13",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-meters-above-ground": {
+    "@value": "1.23",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-camera-yaw-degrees": {
+    "@value": "1.3",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-camera-pitch-degrees": {
+    "@value": "-1.2",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-camera-roll-degrees": {
+    "@value": "0.95",
+    "@type": "xsd:string"
+  },
+  "ifdo:image-overlap-fraction": {
+    "@value": "0.23",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-entropy": {
+    "@value": "0.5",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-particle-count": {
+    "@value": "13543",
+    "@type": "xsd:number"
+  },
+  "ifdo:image-average-color": {
+    "@value": "[127,87,12]",
+    "@type": "xsd:string"
+  },
+  "dcterms:temporal": {
+    "@type": "dcterms:PeriodOfTime",
+    "dcat:startDate": {
+      "@value": "2024-01-10T17:15:55",
+      "@type": "xsd:dateTime"
+    },
+    "dcat:endDate": {
+      "@value": "2024-01-10T17:15:55",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "dcterms:spatial": {
+    "@type": "dcterms:Location",
+    "dcterms:identifier": "EPSG:4326",
+    "locn:geometry": {
+      "@value": "{\\\"type\\\": \\\"Point\\\", \\\"coordinates\\\":[10.354108449217163,54.44833818290822, ]}",
+      "@type": "xsd:string"
+    }
+  },
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dcat:title": {
+      "@value": "camera012345678910",
+      "@type": "xsd:string"
+    },
+    "dcat:mediaType": {
+      "@value": "jpeg",
+      "@type": "xsd:string"
+    },
+    "dcat:accessURL": {
+      "@value": "datafile.url",
+      "@type": "xsd:string"
+    }
+  }
+}

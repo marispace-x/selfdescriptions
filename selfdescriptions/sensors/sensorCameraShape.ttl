@@ -1,0 +1,310 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gax-validation:  <http://w3id.org/gaia-x/validation#> .
+
+@prefix gax-trust-framework: <http://w3id.org/gaia-x/gax-trust-framework#> .
+@prefix vcard: <https://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix did: <https://www.w3.org/TR/did-core/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+@prefix ifdo: <https://marine-imaging.com/fair/schemas/ifdo-v2.0.1.json#> .
+
+gax-validation:sensorCameraShape
+	a sh:NodeShape ;
+	sh:targetClass gax-trust-framework:SensorCamera ;
+	sh:property [ sh:path gax-trust-framework:aggregationOf ;
+				  sh:name "sensor information" ;
+				  sh:description "A resolvable link to all 'general sensor information' self-description or another url given the sensor description (e.g., NERC L22) that correspond to the sensor used to acquire this data file."@en ;
+				  skos:example "http://vocab.nerc.ac.uk/collection/L22/current/TOOL1203/" ;
+				  sh:minCount 1 ;
+				  sh:order 1 ;      
+				  sh:datatype xsd:string ] ;
+    sh:property [ sh:path gax-trust-framework:aggregationOf ;
+				  sh:name "survey information" ;
+				  sh:description "A resolvable link to all 'survey specific information' self-description that correspond to the sensor used to acquire this data file."@en ;
+				  skos:example "survey_multibeam_norbit_iwbmsh_123456789ir" ;
+				  sh:order 2 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path ifdo:image-acquisition ;
+				  sh:name "acquisition" ;
+				  sh:description "photo: still images, video: moving images, slide: microscopy images / slide scans"@en ;
+				  skos:example "'photo'" ;
+				  sh:order 3 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path ifdo:image-hash-sha256 ;
+				  sh:name "hash" ;
+				  sh:description "An SHA256 hash to represent the whole file (including UUID in file metadata header!) to verify integrity on disk"@en ;
+				  skos:example "'83f30eb35d1325c44c85fba0cf478825c0a629d20177a945069934f6cd07e087'" ;
+				  sh:order 4 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string] ;
+	sh:property [ sh:path ifdo:image-altitude-meters ;
+				  sh:name "altitude" ;
+				  sh:description "Z-coordinate of camera center in meters. Has negative values when camera is below sea level. Has positive values when the camera is above sea level."@en ;
+				  skos:example "-45.2" ;
+				  sh:order 5 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;
+	sh:property [ sh:path ifdo:image-coordinate-uncertainty-meters ;
+				  sh:name "coordinate uncertainty" ;
+				  sh:description "The average/static uncertainty of coordinates in this dataset, given in meters. Computed e.g. as the standard deviation of coordinate corrections during smoothing / splining."@en ;
+				  skos:example "13.6" ;
+				  sh:order 6 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;
+	sh:property [ sh:path ifdo:image-quality ;
+				  sh:name "quality" ;
+				  sh:description "raw: straight from the sensor, processed: QA/QC'd, product: image data ready for interpretation"@en ;
+				  skos:example "'raw, processed, product'" ;
+				  sh:order 7 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path ifdo:image-deployment ;
+				  sh:name "deployment" ;
+				  sh:description "mapping: planned path execution along 2-3 spatial axes, stationary: fixed spatial position, survey: planned path execution along free path, exploration: unplanned path execution, experiment: observation of manipulated environment, sampling: ex-situ imaging of samples taken by other method"@en ;
+				  skos:example "'mapping, survey, experiment, sampling'" ;
+				  sh:order 8 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path ifdo:image-navigation ;
+				  sh:name "navigation" ;
+				  sh:description "satellite: GPS/Galileo etc., beacon: USBL etc., transponder: LBL etc., reconstructed: position estimated from other measures like cable length and course over ground"@en ;
+				  skos:example "'stalite, beacon, transponder, reconstructed'" ;
+				  sh:order 9 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path ifdo:image-scale-reference ;
+				  sh:name "scale reference" ;
+				  sh:description "3D camera: the imaging system provides scale directly, calibrated camera: image data and additional external data like object distance provide scale together, laser marker: scale information is embedded in the visual data, optical flow: scale is computed from the relative movement of the images and the camera navigation data"@en ;
+				  skos:example "'3D camera, calibrated camera, laser marker, optical flow'" ;
+				  sh:order 10 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path ifdo:image-illumination ;
+				  sh:name "illumination" ;
+				  sh:description "sunlight: the scene is only illuminated by the sun, artificial light: the scene is only illuminated by artificial light, mixed light: both sunlight and artificial light illuminate the scene"@en ;
+				  skos:example "'sunlight, artificial light, mixed light'" ;
+				  sh:order 11 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path ifdo:image-marine-zone ;
+				  sh:name "marine zone" ;
+				  sh:description "seafloor: images taken in/on/right above the seafloor, water column: images taken in the free water without the seafloor or the sea surface in sight, sea surface: images taken right below the sea surface, atmosphere: images taken outside of the water, laboratory: images taken ex-situ"@en ;
+				  skos:example "'seafloor, water column, sea surface, atmosphere'" ;
+				  sh:order 12 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path ifdo:image-spectral-resolution ;
+				  sh:name "spectral resolution" ;
+				  sh:description "grayscale: single channel imagery, rgb: three channel imagery, multi-spectral: 4-10 channel imagery, hyper-spectral: 10+ channel imagery"@en ;
+				  skos:example "'grayscale, RGB, multi-spectral, hyper-spectral'" ;
+				  sh:order 13 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path ifdo:image-capture-mode ;
+				  sh:name "capture mode" ;
+				  sh:description "whether the time points of image capture were systematic, human-triggered or both"@en ;
+				  skos:example "'automated, trigger, both'" ;
+				  sh:order 14 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path ifdo:image-fauna-attraction ;
+				  sh:name "fauna attraction" ;
+				  sh:description "Allowed: none, baited, light"@en ;
+				  skos:example "'none, light, bait'" ;
+				  sh:order 14 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path ifdo:image-area-square-meters ;
+				  sh:name "area square meters" ;
+				  sh:description "The footprint of the entire image in square meters"@en ;
+				  skos:example "'13.13'" ;
+				  sh:order 15 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;
+	sh:property [ sh:path ifdo:image-meters-above-ground ;
+				  sh:name "meters above ground" ;
+				  sh:description "Distance of the camera to the seafloor in meters"@en ;
+				  skos:example "'1.23'" ;
+				  sh:order 16 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path ifdo:image-acquisition-settings ;
+				  sh:name "acquisition settings" ;
+				  sh:description "All the information that is recorded by the camera in the EXIF, IPTC etc. As a dict. Includes ISO, aperture, etc"@en ;
+				  skos:example "'mapping, survey, experiment, sampling'" ;
+				  sh:order 17 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:object ] ;	
+	sh:property [ sh:path ifdo:image-camera-yaw-degrees ;
+				  sh:name "camera yaw" ;
+				  sh:description "Camera view yaw angle. Rotation of camera coordinates (x,y,z = top, right, line of sight) with respect to NED coordinates (x,y,z = north,east,down) in accordance with the yaw,pitch,roll rotation order convention: 1. yaw around z, 2. pitch around rotated y, 3. roll around rotated x. Rotation directions according to \"right-hand rule\". I.e. for yaw,pitch,roll = 0,0,0 camera is facing downward with top side towards north."@en ;
+				  skos:example "'1.3'" ;
+				  sh:order 18 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;
+	sh:property [ sh:path ifdo:image-camera-pitch-degrees ;
+				  sh:name "camera pitch" ;
+				  sh:description "Camera view pitch angle. Rotation of camera coordinates (x,y,z = top, right, line of sight) with respect to NED coordinates (x,y,z = north,east,down) in accordance with the yaw,pitch,roll rotation order convention: 1. yaw around z, 2. pitch around rotated y, 3. roll around rotated x. Rotation directions according to \"right-hand rule\". I.e. for yaw,pitch,roll = 0,0,0 camera is facing downward with top side towards north."@en ;
+				  skos:example "'-1.2'" ;
+				  sh:order 19 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;	
+	sh:property [ sh:path ifdo:image-camera-roll-degrees ;
+				  sh:name "camera roll" ;
+				  sh:description "Camera view roll angle. Rotation of camera coordinates (x,y,z = top, right, line of sight) with respect to NED coordinates (x,y,z = north,east,down) in accordance with the yaw,pitch,roll rotation order convention: 1. yaw around z, 2. pitch around rotated y, 3. roll around rotated x. Rotation directions according to \"right-hand rule\". I.e. for yaw,pitch,roll = 0,0,0 camera is facing downward with top side towards north."@en ;
+				  skos:example "'mapping, survey, experiment, sampling'" ;
+				  sh:order 20 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path ifdo:image-overlap-fraction ;
+				  sh:name "overlap fraction" ;
+				  sh:description "The average overlap of two consecutive images i and j as the area images in both of the images (A_i * A_j) divided by the total area images by the two images (A_i + A_j - A_i * A_j): f = A_i * A_j / (A_i + A_j - A_i * A_j) -> 0 if no overlap. 1 if complete overlap"@en ;
+				  skos:example "'0.23'" ;
+				  sh:order 21 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;
+	sh:property [ sh:path ifdo:image-entropy ;
+				  sh:name "entropy" ;
+				  sh:description "Information content of an image / frame according to Shannon entropy."@en ;
+				  skos:example "'0.5'" ;
+				  sh:order 22 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;	
+	sh:property [ sh:path ifdo:image-particle-count ;
+				  sh:name "particle count" ;
+				  sh:description "Counts of single particles/objects in an image / frame"@en ;
+				  skos:example "'13543'" ;
+				  sh:order 23 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:number ] ;	
+	sh:property [ sh:path ifdo:image-average-color ;
+				  sh:name "average color" ;
+				  sh:description "The average colour for each image / frame and the n channels of an image (e.g. 3 for RGB)"@en ;
+				  skos:example "'[127,87,12]'" ;
+				  sh:order 24 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;	
+	sh:property [ sh:path dcterms:temporal ;
+				  sh:name "temporal coverage" ;
+				  sh:description "Temporal coverage of when the data resource was acquired."@en ;
+				  skos:example "'start and end data of acquisition'" ;
+				  sh:order 25 ;
+                  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:PeriodOfTime ] ;
+	sh:property [ sh:path dcterms:spatial ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Spatial coverage of where the data resource was acquired."@en ;
+				  skos:example " " ;
+				  sh:order 26 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcterms:Location ] ;
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+	sh:property [ sh:path dcat:distribution ;
+				  sh:name "distribution" ;
+				  sh:description "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+				  skos:example "'a link to the actual data'" ;
+				  sh:order 27 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  sh:node dcat:Distribution] ;
+.
+
+
+dcterms:PeriodOfTime
+	a sh:NodeShape ;
+	sh:targetClass dcterms:PeriodOfTime ;
+	sh:property [ sh:path dcat:startDate ;
+				  sh:name "start date" ;
+				  sh:description "Start datetime of acquired data given in datetime format according to ISO 8601."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+	sh:property [ sh:path dcat:endDate ;
+				  sh:name "end date" ;
+				  sh:description "End datetime of acquired data given in datetime format according to ISO 8601."@en ;
+				  skos:example "'2022-10-26T21:32:52'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:dateTime ] ;
+.
+
+
+dcterms:Location
+	a sh:NodeShape ;
+	sh:targetClass dcterms:Location ;
+	sh:property [ sh:path dcterms:identifier ;
+				  sh:name "epsg code" ;
+				  sh:description "Spatial reference system defined as the EPSG code, e.g., 'EPSG:4326' (http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem)."@en ;
+				  skos:example "'EPSG:4326'" ;
+				  sh:order 1 ;
+				  sh:minCount 1 ;
+				  sh:maxCount 1 ;
+				  dcterms:type <http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem>] ;
+	sh:property [ sh:path locn:geometry ;
+				  sh:name "spatial coverage" ;
+				  sh:description "Geographic position of the resource; point, line, or polygon geometry (e.g., as WKT, GML, GeoJSON), that can contain the coordinate reference system, CRS, information."@en ;
+				  skos:example "'Geographic position of the resource; point, line, or polygon geometry (e.g., as WKT, GML, GeoJSON), that can contain the coordinate reference system, CRS, information. - https://opengeospatial.github.io/ogc-geosparql/geosparql11/index.html#Geometry.'" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+.
+
+### ??? NEEDS TO BE CORRECTED/DEFINED ON HOW THE SELF-DESCRIPTION IS LINKED TO THE DATASET IN THE DATASPACE ??? ###
+dcat:Distribution
+	a sh:NodeShape ;
+	sh:targetClass dcat:Distribution ;
+	sh:property [ sh:path dcat:title ;
+				  sh:name "distribution title" ;
+				  sh:description "The name of the distribution."@en ;
+				  skos:example "' '" ;
+				  sh:order 1 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:mediaType ;
+				  sh:name "distribution media type" ;
+				  sh:description "The media type of the distribution, e.g., as defined by IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)."@en ;
+				  skos:example "" ;
+				  sh:order 2 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:string ] ;
+	sh:property [ sh:path dcat:byteSize;
+				  sh:name "distribution byte size" ;
+				  sh:description "The size of a distribution in bytes."@en ;
+				  skos:example "" ;
+				  sh:order 3 ;
+				  sh:maxCount 1 ;
+				  sh:datatype xsd:nonNegativeInteger] ;
+	sh:property [sh:path dcat:accessURL;
+				 sh:name "access URL" ;
+				 sh:description "This property contains a URL that gives access to a Distribution of the Dataset."@en ;
+				 skos:example "' '" ;
+				 sh:order 4 ;
+				 sh:datatype xsd:string ] ;
+.
