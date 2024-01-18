@@ -39,7 +39,7 @@ The current concept for data resources is a follows (see Figure 2):
     - general sensor information self-description "sensorGeneralInformationShape.ttl" (based on MMI Device Ontology - https://mmisw.org/ont/mmi/device - and Gaia-X ontologies - https://gaia-x.gitlab.io/technical-committee/federation-services/data-exchange/dewg/#data-product - could potentially be linked with NERC L22 vocabulary - http://vocab.nerc.ac.uk/collection/L22/current/) - "Contains generic sensor attributes like sensor name, sensor manufacturer, sensor id, serial number, ... that is applicable to every sensor type"
     - survey specific information self-description "sensorSurveyInformation.ttl" (based on MMI Device Ontology - https://mmisw.org/ont/mmi/device - and GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/ - and Gaia-x ontology - https://gaia-x.gitlab.io/technical-committee/federation-services/data-exchange/dewg/#data-product) - "Contains generic survey information about the sensor file like contact of surveyor, calibration, processing, ..."
    
-![alt TEST](figures/Marispace-X-Concept_self_descriptions_2.jpg)
+![alt TEST](figures/Marispace-X-Concept_self_descriptions_detailed.jpg)
 *Figure 2: Concept for self-descriptions of gesopatial data resources and corresponding sensor data in the federated catalogue in Marispace-X*
 
 
