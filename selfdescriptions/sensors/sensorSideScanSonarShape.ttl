@@ -30,6 +30,7 @@
 gax-validation:sensorSideScanSonarShape
 	a sh:NodeShape ;
 	sh:targetClass gax-trust-framework:SensorSideScanSonar ;
+	### ??? LINK TO GENERAL SENSOR, AND SURVEY INFORMATION SELF-DESCRIPTIONS IS PROBABLY COVERED BY "AGGREGATIONOF" ATTRIBUTE IN GAIA-X. COULD ALSO BE COVERED BY "DCTERMS:HASPART" ATTRIBUTE OR DCAT:DATASET VIA TREE SPECIFICATION - https://treecg.github.io/specification/??? ###
 	sh:property [ sh:path gax-trust-framework:aggregationOf ;
 				  sh:name "sensor information" ;
 				  sh:description "A resolvable link to all 'general sensor information' self-description that correspond to the sensor used to acquire this data file."@en ;
