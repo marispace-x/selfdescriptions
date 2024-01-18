@@ -228,7 +228,7 @@ gax-validation:geoDataResourceShape
 				  sh:order 26 ;
 				  sh:minCount 1 ;
 				  sh:nodeKind sh:IRI ] ;
-### ??? LINK TO SENSOR SELF-DESCRRIPTIONS IS PROBABLY COVERED BY "AGGREGATIONOF" ATTRIBUTE IN GAIA-X. COULD ALSO BE COVERED BY "DCTERMS:HASPART" ATTRIBUTE ??? ###
+### ??? LINK TO SENSOR SELF-DESCRRIPTIONS IS PROBABLY COVERED BY "AGGREGATIONOF" ATTRIBUTE IN GAIA-X. COULD ALSO BE COVERED BY "DCTERMS:HASPART" ATTRIBUTE OR DCAT:DATASET VIA TREE SPECIFICATION - https://treecg.github.io/specification/??? ###
 	sh:property [ sh:path gax-trust-framework:aggregationOf ;
 				  sh:name "aggregation of" ;
 				  sh:description "Resources related to the resource and that can exist independently of it."@en ;
