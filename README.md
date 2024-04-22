@@ -11,7 +11,7 @@ The self-descriptions are single entries in a Federated Catalogue. The Federated
 - Metadata: Facts about the data
 - Data Quality: Interpretation of the facts and the contained data. Data Quality depends on the specific goals the user likes to achieve with the data.
 
-# schema=Schema: Self-Descriptions in Marispace-X
+# Schema: Self-Descriptions in Marispace-X
 All self-descriptions required for the Federated Catalogue in Marispace-X are collected here. The self-descriptions are in a draft phase and are steadily evaluated, updated, and extended during the Marispace-X project.
 
 The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1).
