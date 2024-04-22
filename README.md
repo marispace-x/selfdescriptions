@@ -61,13 +61,15 @@ The current concept for data services is a follows:
 - the software resource self-description template "softwareResourceShape.ttl" from Gaia-X is adapated to the needs for geospatial data services (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/ - and Gaia-X ontologies - https://gaia-x.gitlab.io/technical-committee/federation-services/data-exchange/dewg/#data-product) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive.". The corresponding JSON-LD file is named "softwareResource-servicename" where servicename is replaced with the respective title of the software service (e.g., softwareResource-TrackPlanner_MBES.json)
 
 # How-to: Create Self-Descriptions <a name="howto-createsd"></a>
-To create a self-description for a new entity (participant, data resource, software resource, ...) that should be added to the data space, and hence to the federated catalogue, the following steps are to be conducted:
+To create a self-description for a new entity (participant, data resource, software resource, ...) that should be added to the data space, and hence to the federated catalogue, the following steps are to be conducted. Please note, that the detailed self-descriptions for the Sensor entity is currently neglected in these steps due to ongoing development and simplicity.
+
 1. open the SD Creation Wizard - https://sd-creation-wizard.gxfs.dev/
 2. load the SHACL template for the respective entity into the SD Creation Wizard
-   - [participant](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/participants/participantShape.ttl)
-   - [geodata resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/geoDataResourceShape.ttl)
-   - [software resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/softwareResourceShape.ttl)
-   - [physical resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/physicalResourceShape.ttl)
+   - [Participant](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/participants/participantShape.ttl)
+   - [GeoData Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/geoDataResourceShape.ttl)
+   - [Software Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/softwareResourceShape.ttl)
+   - [Physical Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/physicalResourceShape.ttl)
+   - [Service Offering](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/services/serviceOfferingShape.ttl)
 4. fill in the necessary information (at least all mandatory fields)
 5. create the json-ld file
 
