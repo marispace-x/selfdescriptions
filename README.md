@@ -2,9 +2,10 @@ contact: Daniel Wehner, dwehner@north.io
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Schema: Self-Descriptions in Marispace-X](#schema)
+- [Schema: Self-Descriptions in Marispace-X (Development)](#schema)
   - [GeoData Resource/Sensor Self-Descriptions](#schema-geodataresource)
   - [Software Resource Self-Descriptions](schema-softwareresource)
+- [How-to: Create Self-Descriptions](#howto-createsd)
 - [Examples: Self-Descriptions in Marispace-X](#examples)
   - [Example GeoData Resource/Sensor](#examples-geodataresource)
   - [Example Software/Platform Offering](#examples-softwareresource)
@@ -17,7 +18,7 @@ The self-descriptions are single entries in a Federated Catalogue. The Federated
 - Metadata: Facts about the data
 - Data Quality: Interpretation of the facts and the contained data. Data Quality depends on the specific goals the user likes to achieve with the data.
 
-# Schema: Self-Descriptions in Marispace-X <a name="schema"></a>
+# Schema: Self-Descriptions in Marispace-X (Development) <a name="schema"></a>
 All self-descriptions required for the Federated Catalogue in Marispace-X are collected here. The self-descriptions are in a draft phase and are steadily evaluated, updated, and extended during the Marispace-X project.
 
 The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1).
@@ -58,6 +59,18 @@ First, SHACL files need to be created as templates for each self-description req
 The current concept for data services is a follows:
 
 - the software resource self-description template "softwareResourceShape.ttl" from Gaia-X is adapated to the needs for geospatial data services (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/ - and Gaia-X ontologies - https://gaia-x.gitlab.io/technical-committee/federation-services/data-exchange/dewg/#data-product) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive.". The corresponding JSON-LD file is named "softwareResource-servicename" where servicename is replaced with the respective title of the software service (e.g., softwareResource-TrackPlanner_MBES.json)
+
+# How-to: Create Self-Descriptions <a name="howto-createsd"></a>
+To create a self-description for a new entity (participant, data resource, software resource, ...) that should be added to the data space, and hence to the federated catalogue, the following steps are to be conducted:
+1. open the SD Creation Wizard - https://sd-creation-wizard.gxfs.dev/
+2. load the SHACL template for the respective entity into the SD Creation Wizard
+   - [participant](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/participants/participantShape.ttl)
+   - [geodata resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/geoDataResourceShape.ttl)
+   - [software resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/softwareResourceShape.ttl)
+   - [physical resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/physicalResourceShape.ttl)
+4. fill in the necessary information (at least all mandatory fields)
+5. create the json-ld file
+
 
 # Examples: Self-Descriptions in Marispace-X <a name="examples"></a>
 Example files for different applications are given in the repository, which are the JSON-LD self-descriptions filled from the SHACL template files. An overview of different examples is given below.
