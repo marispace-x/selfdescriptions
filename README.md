@@ -3,6 +3,12 @@ contact: Daniel Wehner, dwehner@north.io
 ## Table of Contents
 - [Introduction](#introduction)
 - [Schema: Self-Descriptions in Marispace-X](#schema)
+- [GeoData Resource/Sensor Self-Descriptions](#schema-geodataresource)
+- [Software Resource Self-Descriptions](schema-softwareresource)
+- [Examples: Self-Descriptions in Marispace-X](#examples)
+- [Example GeoData Resource/Sensor](#examples-geodataresource)
+- [Example Software/Platform Offering](#examples-softwareresource)
+- [Example Physical Resource](#examples-physicalresource)
 
 # Introduction
 The self-descriptions are single entries in a Federated Catalogue. The Federated Catalogue is basically a central repository of self-descriptions enabling the discovery and selection of providers, their service offerings and their assets. Self-descriptions are standardised, machine comprehensible metadata. A more detailed description about the role of self-descriptions within the Gaia-X ecosystem can be found in this Whitepaper (https://gaia-x.eu/wp-content/uploads/2022/08/SSI_Self_Description_EN_V3.pdf). Additional information about the Gaia-X architecture can be found in the Gaia-X Architecture Framework documents (https://docs.gaia-x.eu/).
@@ -33,7 +39,7 @@ Only the verified JSON-LD will be stored in the Federated Catalogue. All entitie
 
 For the self-descriptions of the entities "Participant", "Service Offering" ("Software", "Platform", "Infrastructure"), and "Resource" templates from Gaia-X exist that can also be used in Marispace-X. For the more specific self-descriptions of data and software resources, adaptions need to be made in Marispace-X. Therefore, these adaptions for the self-descriptions "GeoData Resource", "Sensor", and "Software  Resource" are described in the following. Afterwards, different example scenarios for filled self-descriptions are given.
 
-<h2>GeoData Resource/Sensor Self-Descriptions</h2>
+## GeoData Resource/Sensor Self-Descriptions <a name="schema-geodataresource"></a>
 First, SHACL files need to be created as templates for each self-description required in Marispace-X. These SHACL files are based on existing standards/ontologies as good as possible, so that the data space is compatible with existing repositories.
 The current concept for data resources is a follows (see Figure 2):
 
@@ -47,28 +53,28 @@ The current concept for data resources is a follows (see Figure 2):
 *Figure 2: Concept for self-descriptions of gesopatial data resources and corresponding sensor data in the federated catalogue in Marispace-X*
 
 
-<h2>Software Resource Self-Descriptions</h2>
+## Software Resource Self-Descriptions <a name="schema-softwareresource"></a>
 First, SHACL files need to be created as templates for each self-description required in Marispace-X. These SHACL files are based on existing standards/ontologies as good as possible.
 The current concept for data services is a follows:
 
 - the software resource self-description template "softwareResourceShape.ttl" from Gaia-X is adapated to the needs for geospatial data services (based on GeoDCAT-AP ontologie - https://semiceu.github.io/GeoDCAT-AP/drafts/latest/ - and Gaia-X ontologies - https://gaia-x.gitlab.io/technical-committee/federation-services/data-exchange/dewg/#data-product) - "GeoDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the union of metadata elements of the core profile of ISO 19115:2003 and those defined in the framework of the INSPIRE Directive.". The corresponding JSON-LD file is named "softwareResource-servicename" where servicename is replaced with the respective title of the software service (e.g., softwareResource-TrackPlanner_MBES.json)
 
-<h1>Examples: Self-Descriptions in Marispace-X</h1>
+# Examples: Self-Descriptions in Marispace-X <a name="examples"></a>
 Example files for different applications are given in the repository, which are the JSON-LD self-descriptions filled from the SHACL template files. An overview of different examples is given below.
 
-<h2>Example GeoData Resource/Sensor</h2>
+## Example GeoData Resource/Sensor <a name="examples-geodataresource"></a>
 Examples for GeoDataResources are illustrated in Figure 3. The data example is taken from the publicly available data repository "Data Hub Preliminary Investigation of Sites" from the BSH for the site N-3.7 (https://pinta.bsh.de/N-3.7?lang=en&tab=daten). For each data resource the geoDataResource self-descriptions needs to be filled (Figure 3, dark blue). The self-description should be able to inherit several different other geoDataResource and sensor self-descriptions to allow to replicate commonly used folder structures for geospatial projects. Hence, the example in Figure 3 consists of a major project data set "BSH data set" and several specific sensor data sets "Multibeam Echosounder Data Raw", "Multibeam Echosounder Data Processed", "Multibeam Echosounder Data Product", "Side Scan Sonar Data Raw". For the "*Raw" data sets which contain the original sensor data, the detailed sensor self-descriptions can be added. This level of detail allows to fullfil the FAIR principles as mentioned in the section "Schema: Self-Descriptions in Marispace-X" section and hence improve the usage of such data as more information is available.
 
 ![alt TEST](figures/Marispace-X-Self_description_example_data_set.jpg)
 *Figure 3: Example for GeoDataResource offerings, including detailed Sensor self-descriptions for the raw sensor data files. The corresponding JSON-LD files can be found in the respective subfolder of the selfdescriptions/ folder*
 
-<h2>Example Software/Platform Offering</h2>
+## Example Software/Platform Offering <a name="examples-softwareresource"></a>
 Examples for a software and platform offering are illustrated in Figure 4. The software service offering can consist of multiple software resources (software tools) which are part of the offering, but it could also be only a single software offering where the link to additional software resources might not be necessary. This is the case for the platform offering where only a single self-descriptions exist to describe the service offering.
 
 ![alt TEST](figures/Marispace-X-Self_description_example_software_resource.jpg)
 *Figure 4: Example for a software service offering and a platfrom service offering. The corresponding JSON-LD files can be found in the respective subfolder of the selfdescriptions/ folder*
 
-<h2>Example Physical Resource</h2>
+## Example Physical Resource <a name="examples-physicalresource"></a>
 Examples for a physical resources are illustrated in Figure 5. The service offering is a rental of different survey equipment. So the service offering is linked to differnt physical resources like "Multibeam Echosounder Rental" and "Side Scan Sonar Rental". These physical resources can make use of the sensorGeneralInformation self-descriptions. If the self-description of the offered sensor already exists in the Federated Catalgoue, the physical resource can link to this sensor and so automatically adds the general information about the sensor.
 
 ![alt TEST](figures/Marispace-X-Self-description_example_physical_resource.jpg)
