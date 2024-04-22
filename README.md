@@ -3,12 +3,12 @@ contact: Daniel Wehner, dwehner@north.io
 ## Table of Contents
 - [Introduction](#introduction)
 - [Schema: Self-Descriptions in Marispace-X](#schema)
-- [GeoData Resource/Sensor Self-Descriptions](#schema-geodataresource)
-- [Software Resource Self-Descriptions](schema-softwareresource)
+  - [GeoData Resource/Sensor Self-Descriptions](#schema-geodataresource)
+  - [Software Resource Self-Descriptions](schema-softwareresource)
 - [Examples: Self-Descriptions in Marispace-X](#examples)
-- [Example GeoData Resource/Sensor](#examples-geodataresource)
-- [Example Software/Platform Offering](#examples-softwareresource)
-- [Example Physical Resource](#examples-physicalresource)
+  - [Example GeoData Resource/Sensor](#examples-geodataresource)
+  - [Example Software/Platform Offering](#examples-softwareresource)
+  - [Example Physical Resource](#examples-physicalresource)
 
 # Introduction
 The self-descriptions are single entries in a Federated Catalogue. The Federated Catalogue is basically a central repository of self-descriptions enabling the discovery and selection of providers, their service offerings and their assets. Self-descriptions are standardised, machine comprehensible metadata. A more detailed description about the role of self-descriptions within the Gaia-X ecosystem can be found in this Whitepaper (https://gaia-x.eu/wp-content/uploads/2022/08/SSI_Self_Description_EN_V3.pdf). Additional information about the Gaia-X architecture can be found in the Gaia-X Architecture Framework documents (https://docs.gaia-x.eu/).
