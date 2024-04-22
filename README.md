@@ -63,7 +63,7 @@ The current concept for data services is a follows:
 # How-to: Create Self-Descriptions <a name="howto-createsd"></a>
 To create a self-description for a new entity (participant, data resource, software resource, ...) that should be added to the data space, and hence to the federated catalogue, the following steps are to be conducted. Please note, that the detailed self-descriptions for the Sensor entity is currently neglected in these steps due to ongoing development and simplicity.
 
-1. open the SD Creation Wizard - https://sd-creation-wizard.gxfs.dev/
+1. open the SD Creation Wizard - https://sd-creation-wizard.gxfs.dev/ (or checkout the [source code](https://gitlab.eclipse.org/eclipse/xfsc/self-description-tooling) if the web interface of the SD Creation Wizard is not working)
 2. load the SHACL template for the respective entity into the SD Creation Wizard
    - [Participant](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/participants/participantShape.ttl)
    - [GeoData Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/geoDataResourceShape.ttl)
