@@ -19,9 +19,9 @@ The self-descriptions are single entries in a Federated Catalogue. The Federated
 - Data Quality: Interpretation of the facts and the contained data. Data Quality depends on the specific goals the user likes to achieve with the data.
 
 # Schema: Self-Descriptions in Marispace-X (Development) <a name="schema"></a>
-All self-descriptions required for the Federated Catalogue in Marispace-X are collected here. The self-descriptions are in a draft phase and are steadily evaluated, updated, and extended during the Marispace-X project.
+All self-description templates required for the Federated Catalogue in Marispace-X are collected here, in addition to several example self-descriptions that are filled out from the templates. The self-description templates are in a draft phase and are steadily evaluated, updated, and extended during the Marispace-X project.
 
-The self-descriptions are sorted into the following folders according to the respective entity (see Figure 1).
+The [self-description templates](#/selfdescriptions/templates) are sorted into the following folders according to the respective entity (see Figure 1).
 - Participants (e.g., legal persons, companies, ...)
 - Service Offerings (e.g., platform, software, infrastructure, ...)
 - Resources (e.g., data, sensor devices, infrastructure, ...)
