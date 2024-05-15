@@ -65,11 +65,11 @@ To create a self-description for a new entity (e.g., participant, data resource,
 
 1. open the SD Creation Wizard - https://sd-creation-wizard.gxfs.dev/ or https://sd-creation-wizard.gxfs.gx4fm.org/ (or checkout the [source code](https://gitlab.eclipse.org/eclipse/xfsc/self-description-tooling) if the web interface of the SD Creation Wizard is not working)
 2. load the SHACL template for the respective entity into the SD Creation Wizard
-   - [Participant](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/participants/participantShape.ttl)
-   - [GeoData Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/geoDataResourceShape.ttl)
-   - [Software Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/softwareResourceShape.ttl)
-   - [Physical Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/resources/physicalResourceShape.ttl)
-   - [Service Offering](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/services/serviceOfferingShape.ttl)
+   - [Participant](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/templates/participants/participantShape.ttl)
+   - [GeoData Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/templates/resources/geoDataResourceShape.ttl)
+   - [Software Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/templates/resources/softwareResourceShape.ttl)
+   - [Physical Resource](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/templates/resources/physicalResourceShape.ttl)
+   - [Service Offering](https://github.com/marispace-x/selfdescriptions/blob/main/selfdescriptions/templates/services/serviceOfferingShape.ttl)
 4. fill in the necessary information (at least all mandatory fields)
 5. create the json-ld file
 
